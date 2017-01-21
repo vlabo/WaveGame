@@ -49,8 +49,8 @@ public class Environment {
 
     public void drawBackground(float deltaTime) {
 
-        //drawTextureSequence(background, backgroundPositions);
-        //drawTextureSequence(ground, groundPositions);
+        drawTextureSequence(this.background, this.backgroundPositions);
+        drawTextureSequence(this.ground, this.groundPositions);
 
     }
 
@@ -83,9 +83,6 @@ public class Environment {
     }
 
     public void update(float delta) {
-        if (1 == 1) {
-            return;
-        }
         if (this.background == null) {
             this.background = Loader.getInstance().getTexture(BACKGROUND_IMAGE);
             this.backgroundPositions = new ArrayList<Rectangle>();
@@ -108,8 +105,7 @@ public class Environment {
     }
 
     public float getGroundLevel() {
-        return 10;
-        //return this.ground.getHeight();
+        return this.ground.getHeight();
     }
 
 }

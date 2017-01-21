@@ -29,10 +29,10 @@ public class ObstacleGenerator {
         this.time += delta;
 
         // if we need to spawn new obstacle
-        if (this.time >= (this.random.nextFloat() * 10 + 1)) {
-            this.obstacles.add(createObsatcle());
-            this.time = 0;
-        }
+        //        if (this.time >= (this.random.nextFloat() * 10 + 1)) {
+        //            this.obstacles.add(createObsatcle());
+        //            this.time = 0;
+        //        }
 
         //update all obstacles
         for (Obstacle obstacle : this.obstacles) {
