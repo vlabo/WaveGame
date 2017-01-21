@@ -39,20 +39,25 @@ public class WaveGraphics {
         int currentAbsoluteFrameKey = this.waveAnimation.getLeftLoopFrameNumber()+waveAnimation.getKeyFrameIndex(this.stateTime);
 
         if(Player.getInstance().inertia != lastInertia) {
-            if (Player.getInstance().releaseInertia == false) {
+            if(
+                    currentAbsoluteFrameKey > ((waveAnimation.getAllFramesCount() / 2) - Player.getInstance().inertia) &&
+                    currentAbsoluteFrameKey < ((waveAnimation.getAllFramesCount() / 2) + Player.getInstance().inertia)
+
+                    ) {
                 updateWaveAnimation();
 
-                int currentRelativeFrameKey = currentAbsoluteFrameKey-this.waveAnimation.getLeftLoopFrameNumber();
+                int currentRelativeFrameKey = currentAbsoluteFrameKey - this.waveAnimation.getLeftLoopFrameNumber();
 
-                this.stateTime =currentRelativeFrameKey* waveFps;
+                this.stateTime = currentRelativeFrameKey * waveFps;
 
-                if(this.waveAnimation.loopingForward == false){
-                    this.stateTime += waveFps*((this.waveAnimation.getTrimmedFramesCount()-currentRelativeFrameKey)*2);
+                if (this.waveAnimation.loopingForward == false) {
+                    this.stateTime += waveFps * ((this.waveAnimation.getTrimmedFramesCount() - currentRelativeFrameKey) * 2);
                 }
 
+                lastInertia = Player.getInstance().inertia;
             }
         }
-        lastInertia = Player.getInstance().inertia;
+
 
 
 
