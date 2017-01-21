@@ -17,8 +17,8 @@ public class Player {
         DOWN
     }
 
-    private final int maxSpeed = 2;
-    private final int minSpeed = 1;
+    private final float maxSpeed = 2;
+    private final float minSpeed = 1;
 
     public Controller controller;
     public PlayerGraphics playerGraphics;
@@ -41,7 +41,15 @@ public class Player {
     }
 
     public void accelerate() {
+        if (this.speed < this.maxSpeed) {
+            this.speed += 0.1f;
+        }
+    }
 
+    public void deccelerate() {
+        if (this.speed > this.minSpeed) {
+            this.speed -= 0.1f;
+        }
     }
 
 }
