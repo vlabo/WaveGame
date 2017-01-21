@@ -35,7 +35,7 @@ public class Controller {
     }
 
     public void update(float delta) {
-        Funcs.print("Gyro" + " " + isAvailable() + " " + getX() + " " + getY() + " " + getZ());
+        Funcs.print("Gyro" + " " + isAvailable() + " " + getX() + " " + getY() + " " + getZ() + " " + getGyro());
     }
 
 }
