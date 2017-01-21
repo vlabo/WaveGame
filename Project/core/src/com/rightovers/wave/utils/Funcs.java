@@ -201,6 +201,11 @@ public class Funcs {
     }
 
 
+    public static long getTimeMillis() {
+        return System.currentTimeMillis();
+    }
+
+
     public static Vector2 centerAround(Vector2 size, Vector2 point) {
         return new Vector2(point.x - size.x / 2, point.y - size.y / 2);
 
