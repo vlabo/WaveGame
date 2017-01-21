@@ -35,7 +35,7 @@ public class Controller {
     }
 
     public void update(float delta) {
-        Funcs.print("Gyro", getX(), getY(), getZ());
+        Funcs.print("Gyro" + " " + getX() + " " + getY() + " " + getZ());
     }
 
 }

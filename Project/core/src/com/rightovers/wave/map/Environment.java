@@ -51,8 +51,8 @@ public class Environment {
 
     public void drawBackground(float deltaTime) {
 
-        drawTextureSequence(this.background, this.backgroundPositions);
-        drawTextureSequence(this.ground, this.groundPositions);
+        //drawTextureSequence(this.background, this.backgroundPositions);
+        //drawTextureSequence(this.ground, this.groundPositions);
 
 
     }

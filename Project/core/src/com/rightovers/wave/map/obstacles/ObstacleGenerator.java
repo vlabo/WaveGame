@@ -27,10 +27,10 @@ public class ObstacleGenerator {
     public void update(float delta) {
         this.time += delta;
 
-        //        if (this.time >= (this.random.nextFloat() * 10 + 1)) {
-        //            this.obstacles.add(createObsitcle());
-        //            this.time = 0;
-        //        }
+        if (this.time >= (this.random.nextFloat() * 10 + 1)) {
+            this.obstacles.add(createObsitcle());
+            this.time = 0;
+        }
 
         for (Obstacle obstacle : this.obstacles) {
             obstacle.update(delta);
