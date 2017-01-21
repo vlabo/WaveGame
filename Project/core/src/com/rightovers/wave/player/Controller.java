@@ -17,7 +17,6 @@ public class Controller {
 
     public Controller() {
         // controller for PC
-        Gdx.input.setInputProcessor(Main.getInstance().stage);
         Main.getInstance().stage.addListener(new InputListener() {
 
             @Override
@@ -31,6 +30,17 @@ public class Controller {
                 return true;
             }
 
+        });
+
+        // tap listener
+        Main.getInstance().stage.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                //release wave
+                Player.getInstance().deccelerate();
+
+                return true;
+            }
         });
     }
 
