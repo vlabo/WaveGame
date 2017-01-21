@@ -32,6 +32,23 @@ public class Player implements IResourceable {
     public PlayerPhysics physics;
     public float speed = 200;
 
+
+
+
+    public int defaultInertia = 5;
+    public int inertia = defaultInertia;
+    private int getInertia() {
+        return inertia;
+    }
+
+    private void setInertia(int inertia) {
+        this.inertia = inertia;
+        if(this.inertia < defaultInertia)
+            this.inertia = defaultInertia;
+    }
+
+
+
     public float getDistance() {
         return this.distance;
     }

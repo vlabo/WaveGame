@@ -2,7 +2,6 @@ package com.rightovers.wave.player;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.Array;
-import com.rightovers.wave.utils.Funcs;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -235,5 +234,8 @@ public class WaveAnimation<T> {
     /** @return the duration of the entire animation, number of frames times frame duration, in seconds */
     public float getAnimationDuration () {
         return animationDuration;
+    }
+    public int getAllFramesCount(){
+        return realKeyFrames.length;
     }
 }
