@@ -17,7 +17,7 @@ public class UI implements IResourceable {
     }
 
     public static void drawStrengthBar() {
-        Image playBtn = new Image(Loader.getInstance().getTexture("images/play.png"));
+        Image playBtn = new Image(Loader.getInstance().getTexture("images/chorap.png"));
         Funcs.setWidth(playBtn, Funcs.percentWidth(20));
         playBtn.setPosition(Funcs.centerWidth(playBtn), Funcs.percentHeight(80));
         playBtn.addAction(Actions.sequence(Actions.scaleBy(1.2f, 1.2f, 1), Actions.scaleBy(0.8f, 0.8f, 1)));
@@ -25,7 +25,8 @@ public class UI implements IResourceable {
 
     @Override
     public void loadAssets() {
-        Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, "images/play.png", Loader.AssetType.TEXTURE);
+        Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, "images/chorap.png", Loader.AssetType.TEXTURE);
+        Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, "images/meter.png", Loader.AssetType.TEXTURE);
 
     }
 }
