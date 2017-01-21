@@ -43,7 +43,9 @@ public class Environment {
     public void loadAssets() {
         Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, BACKGROUND_IMAGE, Loader.AssetType.TEXTURE);
         Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, GROUND_IMAGE, Loader.AssetType.TEXTURE);
+
         this.generator = ObstacleGenerator.getInstance();
+
     }
 
 
@@ -52,10 +54,12 @@ public class Environment {
         drawTextureSequence(this.background, this.backgroundPositions);
         drawTextureSequence(this.ground, this.groundPositions);
 
+
     }
 
     private void drawTextureSequence(Texture texture, List<Rectangle> positions) {
         boolean shouldMoveFirst = false;
+
         for (Rectangle currentPosition : positions) {
             Main.getInstance().batch.draw(texture, currentPosition.x, currentPosition.y, currentPosition.getWidth(), currentPosition.getHeight());
             currentPosition.x += BACKGROUND_MOVE_SPEED;

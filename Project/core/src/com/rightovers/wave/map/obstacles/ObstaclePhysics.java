@@ -8,8 +8,8 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.rightovers.wave.map.Box2DWorld;
 import com.rightovers.wave.utils.Box2DObject;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 
 class ObstaclePhysics {
 
@@ -29,12 +29,14 @@ class ObstaclePhysics {
         fixture1.add(new Vector2(0, rect.height));
         fixtures.add(fixture1);
 
-        fixtures = separateQuad(fixture1, new Vector2(rect.width / 4, (int) ((float) rect.height / 1.5f)));
+
+        fixtures = separateQuad(fixture1, new Vector2(rect.width / 4, (int)((float)rect.height / 1.5f)));
         this.box2DBody = Box2DObject.createBody(false, Box2DWorld.getInstance().getWorld(), BodyDef.BodyType.KinematicBody, 1f, 1f, 0f, new Vector2(rect.x, rect.y), fixtures, 0, false);
         //createBrokenBody(rect);
+
     }
 
-    private ArrayList<ArrayList<Vector2>> separateQuad(List<Vector2> points, Vector2 newPoint) {
+    private ArrayList<ArrayList<Vector2>>  separateQuad(List<Vector2> points, Vector2 newPoint) {
         ArrayList<ArrayList<Vector2>> fixtures = new ArrayList<ArrayList<Vector2>>();
 
         int iterationsNumber = 3;
@@ -83,10 +85,9 @@ class ObstaclePhysics {
         fixture1.add(points.get(0));
         fixture1.add(middlePoint);
         fixture1.add(newPoint);
-        if (times <= 1) {
+        if(times <= 1) {
             fixtures.add(fixture1);
-        }
-        else {
+        }else{
             separateTriangle(fixture1, newPoint, fixtures, times);
         }
 
@@ -95,10 +96,9 @@ class ObstaclePhysics {
         fixture2.add(points.get(1));
         fixture2.add(newPoint);
 
-        if (times <= 1) {
+        if(times <= 1) {
             fixtures.add(fixture2);
-        }
-        else {
+        }else{
             separateTriangle(fixture2, newPoint, fixtures, times);
         }
 
@@ -109,7 +109,7 @@ class ObstaclePhysics {
     }
 
     public void destroy() {
-        Box2DWorld.getInstance().getWorld().destroyBody(this.box2DBody);
+        Box2DWorld.getInstance().getWorld().destroyBody(box2DBody);
     }
 
     public void remove() {

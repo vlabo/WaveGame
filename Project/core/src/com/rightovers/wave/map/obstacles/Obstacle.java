@@ -1,11 +1,13 @@
 package com.rightovers.wave.map.obstacles;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Rectangle;
+import com.rightovers.wave.map.Box2DWorld;
+import com.rightovers.wave.map.Environment;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.rightovers.wave.Main;
-import com.rightovers.wave.map.Environment;
 import com.rightovers.wave.utils.Loader;
 
 
@@ -27,6 +29,7 @@ class Obstacle {
         return this.physics.box2DBody;
     }
 
+    // spawn clouds/asteroids
     public Obstacle(Type type, Rectangle rectangle) {
         this.type = type;
         this.physics = new ObstaclePhysics(type, rectangle);
@@ -43,11 +46,11 @@ class Obstacle {
     }
 
     public void drawBackground(float delta) {
-        if (this.building == null) {
-            this.building = Loader.getInstance().getTexture(BUILDING_TEXTURE);
+        if(building == null) {
+            building = Loader.getInstance().getTexture(BUILDING_TEXTURE);
         }
 
-        Main.getInstance().batch.draw(this.building, getBox2DBody().getPosition().x, getBox2DBody().getPosition().y, this.building.getWidth(), this.building.getHeight());
+        Main.getInstance().batch.draw(building, getBox2DBody().getPosition().x, getBox2DBody().getPosition().y, building.getWidth(), building.getHeight());
 
     }
 
@@ -56,7 +59,7 @@ class Obstacle {
     }
 
     public void destroy() {
-        this.physics.destroy();
+        physics.destroy();
     }
 
     public Type getType() {

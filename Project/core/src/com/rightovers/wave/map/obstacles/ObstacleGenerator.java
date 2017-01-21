@@ -22,25 +22,21 @@ public class ObstacleGenerator {
     }
 
     ArrayList<Obstacle> obstacles = new ArrayList<Obstacle>();
-
     private float time = 0;
 
     public void update(float delta) {
         this.time += delta;
 
-        // if we need to spawn new obstacle
         //        if (this.time >= (this.random.nextFloat() * 10 + 1)) {
-        //            this.obstacles.add(createObsatcle());
+        //            this.obstacles.add(createObsitcle());
         //            this.time = 0;
         //        }
 
-        //update all obstacles
         for (Obstacle obstacle : this.obstacles) {
             obstacle.update(delta);
         }
 
         for (int i = this.obstacles.size() - 1; i >= 0; --i) {
-            // if we need to remove an obstacle
             if (this.obstacles.get(i).getPosition().x < 0) {
                 Obstacle obstacle = this.obstacles.remove(i);
                 obstacle.destroy();
@@ -50,13 +46,12 @@ public class ObstacleGenerator {
     }
 
     public void draw(float delta) {
-        // draw them all
         for (Obstacle obstacle : this.obstacles) {
             obstacle.drawBackground(delta);
         }
     }
 
-    private Obstacle createObsatcle() {
+    private Obstacle createObsitcle() {
         Texture texture = Loader.getInstance().getTexture(Obstacle.BUILDING_TEXTURE);
         Rectangle rect = new Rectangle(Main.getInstance().width, Environment.getInstance().getGroundLevel(), texture.getWidth(), texture.getHeight());
         Obstacle obstacle = new Obstacle(Obstacle.Type.BIG, rect);
