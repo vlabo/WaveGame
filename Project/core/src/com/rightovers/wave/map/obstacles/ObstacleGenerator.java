@@ -1,8 +1,11 @@
 package com.rightovers.wave.map.obstacles;
 
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.rightovers.wave.Main;
 import com.rightovers.wave.map.Environment;
+import com.rightovers.wave.utils.Loader;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -30,12 +33,13 @@ public class ObstacleGenerator {
         }
 
         for(Obstacle obstacle : obstacles) {
-            obstacle.getPosition().x += Environment.BACKGROUND_MOVE_SPEED;
+            obstacle.update(delta);
         }
 
         for(int i = obstacles.size() - 1; i >= 0; --i) {
             if(obstacles.get(i).getPosition().x < 0) {
-                obstacles.remove(i);
+                Obstacle obstacle = obstacles.remove(i);
+                obstacle.destroy();
             }
         }
 
@@ -48,7 +52,9 @@ public class ObstacleGenerator {
     }
 
     private Obstacle createObsitcle() {
-        Obstacle obstacle = new Obstacle(Obstacle.Type.BIG, new Vector2(Main.getInstance().width, Environment.getInstance().getGroundLevel()));
+        Texture texture = Loader.getInstance().getTexture(Obstacle.BUILDING_TEXTURE);
+        Rectangle rect = new Rectangle(Main.getInstance().width, Environment.getInstance().getGroundLevel(), texture.getWidth(), texture.getHeight());
+        Obstacle obstacle = new Obstacle(Obstacle.Type.BIG, rect);
         return obstacle;
     }
 

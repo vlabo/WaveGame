@@ -49,24 +49,6 @@ public class Environment {
 
 
     public void drawBackground(float deltaTime) {
-        if(background == null) {
-            background = Loader.getInstance().getTexture(BACKGROUND_IMAGE);
-            backgroundPositions = new ArrayList<Rectangle>();
-            backgroundRatio = (float)background.getHeight() / (float)Main.getInstance().height;
-            int backgroundFitTimes = (int)(Main.getInstance().width / backgroundRatio) + 2;
-            for(int i = 0; i < backgroundFitTimes; i++) {
-                backgroundPositions.add(new Rectangle(i * (background.getWidth() / backgroundRatio), 0, background.getWidth() / backgroundRatio , background.getHeight() / backgroundRatio));
-            }
-        }
-
-        if(ground == null) {
-            ground = Loader.getInstance().getTexture(GROUND_IMAGE);
-            groundPositions = new ArrayList<Rectangle>();
-            int groundFitTimes = (int)(Main.getInstance().width / ground.getWidth()) + 2;
-            for(int i = 0; i < groundFitTimes;i++) {
-                groundPositions.add(new Rectangle(i * ground.getWidth(), 0, ground.getWidth(), ground.getHeight()));
-            }
-        }
 
         drawTextureSequence(background, backgroundPositions);
         drawTextureSequence(ground, groundPositions);
@@ -103,6 +85,24 @@ public class Environment {
     }
 
     public void update(float delta) {
+        if(background == null) {
+            background = Loader.getInstance().getTexture(BACKGROUND_IMAGE);
+            backgroundPositions = new ArrayList<Rectangle>();
+            backgroundRatio = (float)background.getHeight() / (float)Main.getInstance().height;
+            int backgroundFitTimes = (int)(Main.getInstance().width / backgroundRatio) + 2;
+            for(int i = 0; i < backgroundFitTimes; i++) {
+                backgroundPositions.add(new Rectangle(i * (background.getWidth() / backgroundRatio), 0, background.getWidth() / backgroundRatio , background.getHeight() / backgroundRatio));
+            }
+        }
+
+        if(ground == null) {
+            ground = Loader.getInstance().getTexture(GROUND_IMAGE);
+            groundPositions = new ArrayList<Rectangle>();
+            int groundFitTimes = (int)(Main.getInstance().width / ground.getWidth()) + 2;
+            for(int i = 0; i < groundFitTimes;i++) {
+                groundPositions.add(new Rectangle(i * ground.getWidth(), 0, ground.getWidth(), ground.getHeight()));
+            }
+        }
 
     }
 

@@ -1,14 +1,19 @@
 package com.rightovers.wave.map.obstacles;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.math.Rectangle;
+import com.rightovers.wave.map.Box2DWorld;
+import com.rightovers.wave.map.Environment;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.rightovers.wave.Main;
 import com.rightovers.wave.utils.Loader;
 
+
 class Obstacle {
 
-    private static final String BUILDING_TEXTURE = "images/building.png";
+    public static final String BUILDING_TEXTURE = "images/building.png";
 
     private Texture building = null;
 
@@ -19,17 +24,15 @@ class Obstacle {
 
     Type type;
     ObstaclePhysics physics;
-    Vector2 position;
 
     public Body getBox2DBody() {
         return this.physics.box2DBody;
     }
 
     // spawn clouds/asteroids
-    public Obstacle(Type type, Vector2 pos) {
+    public Obstacle(Type type, Rectangle rectangle) {
         this.type = type;
-        this.physics = new ObstaclePhysics(type, pos);
-        this.position = pos;
+        this.physics = new ObstaclePhysics(type, rectangle);
     }
 
     public static void loadAssets() {
@@ -38,6 +41,8 @@ class Obstacle {
 
     public void update(float delta) {
         this.physics.update(delta);
+        getBox2DBody().setTransform(getBox2DBody().getPosition().x + Environment.BACKGROUND_MOVE_SPEED, getBox2DBody().getPosition().y, 0);
+
     }
 
     public void drawBackground(float delta) {
@@ -45,7 +50,7 @@ class Obstacle {
             building = Loader.getInstance().getTexture(BUILDING_TEXTURE);
         }
 
-        Main.getInstance().batch.draw(building, position.x, position.y, building.getWidth(), building.getHeight());
+        Main.getInstance().batch.draw(building, getBox2DBody().getPosition().x, getBox2DBody().getPosition().y, building.getWidth(), building.getHeight());
 
     }
 
@@ -53,12 +58,16 @@ class Obstacle {
 
     }
 
+    public void destroy() {
+        physics.destroy();
+    }
+
     public Type getType() {
         return this.type;
     }
 
     public Vector2 getPosition() {
-         return position;
+        return this.getBox2DBody().getPosition();
     }
 
 }

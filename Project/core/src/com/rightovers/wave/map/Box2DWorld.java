@@ -76,7 +76,7 @@ public class Box2DWorld {
 
     public void draw(float deltaTime) {
         this.debugMatrix = new Matrix4(Main.getInstance().camera.combined.cpy());
-        this.debugMatrix.scale(Main.getInstance().density, Main.getInstance().density, 1);
+        //this.debugMatrix.scale(Main.getInstance().density, Main.getInstance().density, 1);
         this.debugRenderer.render(this.world, this.debugMatrix);
     }
 
