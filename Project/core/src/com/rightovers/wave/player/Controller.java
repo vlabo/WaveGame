@@ -22,7 +22,7 @@ public class Controller {
             @Override
             public boolean keyDown(InputEvent event, int keycode) {
                 if (event.getKeyCode() == Input.Keys.LEFT) {
-                    Player.getInstance().setInertiaSlowdownSpeed(5);
+                    Player.getInstance().setInertiaDecrementStep(Player.getInstance().INERTIA_DECREMENT_STEP_FAST);
                 }
                 return true;
             }
@@ -34,7 +34,7 @@ public class Controller {
                     Player.getInstance().incrementInertia();
                 }
                 else if (event.getKeyCode() == Input.Keys.LEFT) {
-                    Player.getInstance().setInertiaSlowdownSpeed(2);
+                    Player.getInstance().setInertiaDecrementStep(Player.getInstance().INERTIA_DECREMENT_STEP_SLOW);
                 }
                 return true;
             }
@@ -45,13 +45,13 @@ public class Controller {
         Main.getInstance().stage.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                Player.getInstance().setInertiaSlowdownSpeed(5);
+                Player.getInstance().setInertiaDecrementStep(5);
                 return true;
             }
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                Player.getInstance().setInertiaSlowdownSpeed(2);
+                Player.getInstance().setInertiaDecrementStep(2);
             }
         });
     }

@@ -36,20 +36,24 @@ public class Player implements IResourceable {
     public float speed = 200;
 
 
-    public int defaultInertia = 5;
-    public int maxInertia = 40;
-    public int inertiaIncrementStep = 5;
-    public int inertia = this.defaultInertia;
+    public final int INITIAL_INERTIA = 5;
+    public final int MAX_INERTIA = 40;
+    public final int INERTIA_INCREMENT_STEP = 5;
+    public final int INERTIA_DECREMENT_STEP_SLOW = 5;
+    public final int INERTIA_DECREMENT_STEP_FAST = 10;
 
-    public int getInertiaSlowdownSpeed() {
-        return inertiaSlowdownSpeed;
+    private int inertiaDecrementStep = this.INERTIA_DECREMENT_STEP_SLOW;
+
+    public int inertia = this.INITIAL_INERTIA;
+
+    public int getInertiaDecrementStep() {
+        return this.inertiaDecrementStep;
     }
 
-    public void setInertiaSlowdownSpeed(int inertiaSlowdownSpeed) {
-        this.inertiaSlowdownSpeed = inertiaSlowdownSpeed;
+    public void setInertiaDecrementStep(int inertiaSlowdownSpeed) {
+        this.inertiaDecrementStep = inertiaSlowdownSpeed;
     }
 
-    private int inertiaSlowdownSpeed = 2;
 
     private int getInertia() {
         return this.inertia;
@@ -57,11 +61,11 @@ public class Player implements IResourceable {
 
     public void setInertia(int inertia) {
         this.inertia = inertia;
-        if (this.inertia < this.defaultInertia) {
-            this.inertia = this.defaultInertia;
+        if (this.inertia < this.INITIAL_INERTIA) {
+            this.inertia = this.INITIAL_INERTIA;
         }
-        if (this.inertia > this.maxInertia) {
-            this.inertia = this.maxInertia;
+        if (this.inertia > this.MAX_INERTIA) {
+            this.inertia = this.MAX_INERTIA;
         }
     }
 
@@ -87,15 +91,15 @@ public class Player implements IResourceable {
 
         this.distance += this.speed * delta;
 
-        if (this.timeSinceLastUpdatedInertia > 2.0f) {
-            Player.getInstance().setInertia(Player.getInstance().inertia - this.inertiaSlowdownSpeed);
+        if (this.timeSinceLastUpdatedInertia > 1f) {
+            Player.getInstance().setInertia(Player.getInstance().inertia - this.inertiaDecrementStep);
             this.timeSinceLastUpdatedInertia = 0;
         }
         this.timeSinceLastUpdatedInertia += delta;
     }
 
     public void incrementInertia() {
-        this.setInertia(this.inertia + this.inertiaIncrementStep);
+        this.setInertia(this.inertia + this.INERTIA_INCREMENT_STEP);
     }
 
     public void releaseInertia() {
