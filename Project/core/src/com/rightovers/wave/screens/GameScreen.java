@@ -6,6 +6,7 @@ import com.rightovers.wave.map.Box2DWorld;
 import com.rightovers.wave.map.Environment;
 import com.rightovers.wave.map.obstacles.ObstacleGenerator;
 import com.rightovers.wave.player.Player;
+import com.rightovers.wave.utils.Funcs;
 
 
 public class GameScreen implements Screen {
@@ -20,6 +21,7 @@ public class GameScreen implements Screen {
     public void show() {
         Box2DWorld.getInstance().setup(Main.getInstance().camera, Main.getInstance().density);
         Player.getInstance().create();
+        UI.drawStrengthBar();
     }
 
     @Override
@@ -36,11 +38,12 @@ public class GameScreen implements Screen {
         Environment.getInstance().drawBackground(delta);
         Environment.getInstance().drawObstacles(delta);
         Player.getInstance().waveGraphics.draw(delta);
+        Player.getInstance().poseidonGraphics.draw(delta);
         Environment.getInstance().drawForeground(delta);
         Main.getInstance().batch.end();
 
         Box2DWorld.getInstance().draw(delta);
-
+        Funcs.print(" " + Player.getInstance().inertia);
 
     }
 

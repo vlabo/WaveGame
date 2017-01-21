@@ -2,100 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7d1fb6b-510e-427f-924d-99b34c254d84" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.dropbox" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Icon&#13;" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/android/AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/android/assets/badlogic.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/android/assets/fonts/regular.TTF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/android/assets/images/background.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/android/assets/images/building.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/android/assets/images/ground.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/android/assets/splash.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/android/build.gradle" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/android/ic_launcher-web.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/android/proguard-project.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/android/project.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/android/res/drawable-hdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/android/res/drawable-mdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/android/res/drawable-xhdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/android/res/drawable-xxhdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/android/res/drawable-xxxhdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/android/res/values/strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/android/res/values/styles.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/android/src/com/rightovers/wave/AndroidLauncher.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/build.gradle" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/core/build.gradle" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/core/src/com/rightovers/wave/Main.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/core/src/com/rightovers/wave/map/Box2DWorld.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/core/src/com/rightovers/wave/map/Environment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/core/src/com/rightovers/wave/map/obstacles/Obstacle.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/core/src/com/rightovers/wave/map/obstacles/ObstacleGenerator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/core/src/com/rightovers/wave/map/obstacles/ObstaclePhysics.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/core/src/com/rightovers/wave/player/Controller.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/core/src/com/rightovers/wave/player/Graphics.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/core/src/com/rightovers/wave/player/Player.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/core/src/com/rightovers/wave/player/PlayerPhysics.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/core/src/com/rightovers/wave/screens/EndMenu.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/core/src/com/rightovers/wave/screens/GameScreen.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/core/src/com/rightovers/wave/screens/MainMenu.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/core/src/com/rightovers/wave/screens/SplashScreen.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/core/src/com/rightovers/wave/utils/Box2DObject.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/core/src/com/rightovers/wave/utils/Font.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/core/src/com/rightovers/wave/utils/Funcs.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/core/src/com/rightovers/wave/utils/IActivityCaller.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/core/src/com/rightovers/wave/utils/Loader.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/core/src/com/rightovers/wave/utils/Measure.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/core/src/com/rightovers/wave/utils/Timer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/core/src/com/rightovers/wave/utils/Variables.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/desktop/build.gradle" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/desktop/src/com/rightovers/wave/desktop/DesktopLauncher.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/gradle.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/gradle/wrapper/gradle-wrapper.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/gradle/wrapper/gradle-wrapper.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/gradlew" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/gradlew.bat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios-moe/build.gradle" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios-moe/resources/Default-1024w-1366h@2x~ipad.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios-moe/resources/Default-375w-667h@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios-moe/resources/Default-414w-736h@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios-moe/resources/Default-568h@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios-moe/resources/Default.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios-moe/resources/Default@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios-moe/resources/Default@2x~ipad.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios-moe/resources/Default~ipad.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios-moe/resources/Icon-72.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios-moe/resources/Icon-72@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios-moe/resources/Icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios-moe/resources/Icon@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios-moe/src/com/rightovers/wave/IOSMoeLauncher.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios-moe/xcode/ios-moe-Test/Info-Test.plist" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios-moe/xcode/ios-moe-Test/build.xcconfig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios-moe/xcode/ios-moe.xcodeproj/project.pbxproj" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios-moe/xcode/ios-moe/Info.plist" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios-moe/xcode/ios-moe/build.xcconfig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios-moe/xcode/ios-moe/custom.xcconfig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios-moe/xcode/ios-moe/main.cpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios/Info.plist.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios/build.gradle" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios/data/Default-1024w-1366h@2x~ipad.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios/data/Default-375w-667h@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios/data/Default-414w-736h@3x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios/data/Default-568h@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios/data/Default.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios/data/Default@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios/data/Default@2x~ipad.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios/data/Default~ipad.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios/data/Icon-72.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios/data/Icon-72@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios/data/Icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios/data/Icon@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios/robovm.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios/robovm.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/ios/src/com/rightovers/wave/IOSLauncher.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/settings.gradle" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="WaveGame.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -123,10 +30,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="260" />
-    <option name="y" value="40" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -153,9 +60,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
@@ -164,9 +68,16 @@
               <option name="myItemId" value="WaveGame" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WaveGame" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidModuleNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -273,37 +184,37 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="260" y="40" width="1400" height="1000" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28894174" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28894174" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25373134" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
