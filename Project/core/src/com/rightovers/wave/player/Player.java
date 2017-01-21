@@ -41,6 +41,16 @@ public class Player implements IResourceable {
     public int inertiaIncrementStep = 5;
     public int inertia = this.defaultInertia;
 
+    public int getInertiaSlowdownSpeed() {
+        return inertiaSlowdownSpeed;
+    }
+
+    public void setInertiaSlowdownSpeed(int inertiaSlowdownSpeed) {
+        this.inertiaSlowdownSpeed = inertiaSlowdownSpeed;
+    }
+
+    private int inertiaSlowdownSpeed = 2;
+
     private int getInertia() {
         return this.inertia;
     }
@@ -77,8 +87,8 @@ public class Player implements IResourceable {
 
         this.distance += this.speed * delta;
 
-        if (this.timeSinceLastUpdatedInertia > 5.0f) {
-            //Player.getInstance().setInertia(Player.getInstance().inertia - Player.getInstance().inertiaIncrementStep);
+        if (this.timeSinceLastUpdatedInertia > 2.0f) {
+            Player.getInstance().setInertia(Player.getInstance().inertia - this.inertiaSlowdownSpeed);
             this.timeSinceLastUpdatedInertia = 0;
         }
         this.timeSinceLastUpdatedInertia += delta;
