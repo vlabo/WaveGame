@@ -1,9 +1,7 @@
 package com.rightovers.wave.screens;
 
-import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.rightovers.wave.Main;
-import com.rightovers.wave.player.Player;
 import com.rightovers.wave.utils.Funcs;
 import com.rightovers.wave.utils.IResourceable;
 import com.rightovers.wave.utils.Loader;
@@ -21,7 +19,6 @@ public class UI implements IResourceable {
         Image sock = new Image(Loader.getInstance().getTexture("images/chorap.png"));
         Funcs.setWidth(sock, Funcs.percentWidth(4));
         sock.setPosition(Funcs.percentWidth(4), Funcs.percentHeight(84));
-
 
 
         Image meter = new Image(Loader.getInstance().getTexture("images/meter.png"));

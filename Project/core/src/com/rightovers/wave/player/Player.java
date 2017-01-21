@@ -20,7 +20,7 @@ public class Player implements IResourceable {
     @Override
     public void loadAssets() {
         Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, this.waveGraphics.WAVE_PACK_NAME, Loader.AssetType.TEXTURE_ATLAS);
-        Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, "images/poseidon.atlas", Loader.AssetType.TEXTURE_ATLAS);
+        Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, "images/poseidon.pack", Loader.AssetType.TEXTURE_ATLAS);
     }
 
     private enum DIRECTION {
@@ -33,6 +33,7 @@ public class Player implements IResourceable {
 
     public Controller controller;
     public WaveGraphics waveGraphics;
+    public PoseidonGraphics poseidonGraphics;
     public PlayerPhysics physics;
     public float speed = 200;
 
@@ -80,6 +81,7 @@ public class Player implements IResourceable {
     public void create() {
         this.controller = new Controller();
         this.waveGraphics = new WaveGraphics();
+        this.poseidonGraphics = new PoseidonGraphics();
         this.physics = new PlayerPhysics();
 
     }
@@ -88,6 +90,7 @@ public class Player implements IResourceable {
     public void update(float delta) {
         this.physics.update(delta);
         this.waveGraphics.update(delta);
+        this.poseidonGraphics.update(delta);
         this.controller.update(delta);
 
         this.distance += this.speed * delta;
