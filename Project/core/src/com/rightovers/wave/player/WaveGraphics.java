@@ -8,7 +8,7 @@ import com.rightovers.wave.utils.Loader;
 public class WaveGraphics {
 
     public static final String WAVE_PACK_NAME = "images/wave.atlas";
-    private final float waveFps;
+    private  float waveFps;
     public WaveAnimation<TextureRegion> waveAnimation;
 
     float stateTime;
@@ -31,12 +31,15 @@ public class WaveGraphics {
     public void update(float delta) {
         this.stateTime += delta;
 
-        float fps = (1 / 25f);
 
-        this.waveAnimation.setFrameDuration(fps);
+
+
 
 
         int currentAbsoluteFrameKey = this.waveAnimation.getLeftLoopFrameNumber()+waveAnimation.getKeyFrameIndex(this.stateTime);
+
+        waveFps = (1 / (25f+(Player.getInstance().inertia/2f)));
+        this.waveAnimation.setFrameDuration(waveFps);
 
         if(Player.getInstance().inertia != lastInertia) {
             if(
