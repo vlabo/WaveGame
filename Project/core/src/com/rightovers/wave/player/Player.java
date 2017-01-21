@@ -17,27 +17,47 @@ public class Player {
         DOWN
     }
 
-    private final int maxSpeed = 2;
-    private final int minSpeed = 1;
+    private final float maxSpeed = 2;
+    private final float minSpeed = 1;
 
     public Controller controller;
-    public Graphics graphics;
+    public PlayerGraphics playerGraphics;
     public PlayerPhysics physics;
-    public float speed;
+    public float speed = 1;
+
+    public float getDistance() {
+        return this.distance;
+    }
+
+    private float distance;
 
     public DIRECTION direction;
 
     public void create() {
         this.controller = new Controller();
-        this.graphics = new Graphics();
+        this.playerGraphics = new PlayerGraphics();
         this.physics = new PlayerPhysics();
+
     }
 
 
     public void update(float delta) {
+        this.distance += this.speed;
         this.physics.update(delta);
-        this.graphics.update(delta);
+        this.playerGraphics.update(delta);
         this.controller.update(delta);
+    }
+
+    public void accelerate() {
+        if (this.speed < this.maxSpeed) {
+            this.speed += 0.1f;
+        }
+    }
+
+    public void deccelerate() {
+        if (this.speed > this.minSpeed) {
+            this.speed -= 0.1f;
+        }
     }
 
 }

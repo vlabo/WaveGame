@@ -1,5 +1,6 @@
 package com.rightovers.wave.map;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Rectangle;
 import com.rightovers.wave.Main;
@@ -51,8 +52,8 @@ public class Environment {
 
     public void drawBackground(float deltaTime) {
 
-        //drawTextureSequence(this.background, this.backgroundPositions);
-        //drawTextureSequence(this.ground, this.groundPositions);
+        drawTextureSequence(this.background, this.backgroundPositions);
+        drawTextureSequence(this.ground, this.groundPositions);
 
 
     }
@@ -91,7 +92,9 @@ public class Environment {
             this.background = Loader.getInstance().getTexture(BACKGROUND_IMAGE);
             this.backgroundPositions = new ArrayList<Rectangle>();
             this.backgroundRatio = (float) this.background.getHeight() / (float) Main.getInstance().height;
-            int backgroundFitTimes = (int) (Main.getInstance().width / this.backgroundRatio) + 2;
+
+            int backgroundFitTimes = (int) (Main.getInstance().width * this.backgroundRatio / this.background.getHeight()) + 2;
+            Gdx.app.log("ENV", backgroundRatio + "  " + backgroundFitTimes);
             for (int i = 0; i < backgroundFitTimes; i++) {
                 this.backgroundPositions.add(new Rectangle(i * (this.background.getWidth() / this.backgroundRatio), 0, this.background.getWidth() / this.backgroundRatio, this.background.getHeight() / this.backgroundRatio));
             }

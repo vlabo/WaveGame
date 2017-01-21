@@ -12,6 +12,7 @@ import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Manifold;
 import com.badlogic.gdx.physics.box2d.World;
 import com.rightovers.wave.Main;
+import com.rightovers.wave.player.Player;
 import com.rightovers.wave.utils.Box2DObject;
 
 import java.util.ArrayList;
@@ -77,6 +78,7 @@ public class Box2DWorld {
     public void draw(float deltaTime) {
         this.debugMatrix = new Matrix4(Main.getInstance().camera.combined.cpy());
         //this.debugMatrix.scale(Main.getInstance().density, Main.getInstance().density, 1);
+        this.debugMatrix.translate(-Player.getInstance().getDistance(), 0, 0);
         this.debugRenderer.render(this.world, this.debugMatrix);
     }
 
