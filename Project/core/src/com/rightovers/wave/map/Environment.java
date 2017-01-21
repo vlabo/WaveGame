@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Rectangle;
 import com.rightovers.wave.Main;
 import com.rightovers.wave.map.obstacles.ObstacleGenerator;
+import com.rightovers.wave.utils.IResourceable;
 import com.rightovers.wave.utils.Loader;
 
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ import java.util.List;
  * Created by Evkalipt on 1/20/2017.
  */
 
-public class Environment {
+public class Environment implements IResourceable {
 
     private static final String BACKGROUND_IMAGE = "images/background.png";
     private static final String GROUND_IMAGE = "images/ground.png";
