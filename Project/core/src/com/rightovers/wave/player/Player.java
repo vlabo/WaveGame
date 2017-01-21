@@ -24,7 +24,7 @@ public class Player implements IResourceable {
         DOWN
     }
 
-    private final float MAX_SPEED = 1500;
+    private final float MAX_SPEED = 700;
     private final float MIN_SPEED = 200;
 
     public Controller controller;
@@ -37,8 +37,6 @@ public class Player implements IResourceable {
     }
 
     private float distance;
-
-    public DIRECTION direction;
 
     public void create() {
         this.controller = new Controller();
@@ -58,13 +56,25 @@ public class Player implements IResourceable {
 
     public void accelerate() {
         if (this.speed < this.MAX_SPEED) {
-            this.speed += 50;
+            this.speed += 200;
         }
     }
 
     public void deccelerate() {
         if (this.speed > this.MIN_SPEED) {
             this.speed -= 50;
+        }
+    }
+
+    public DIRECTION getDirection() {
+        int frame = this.playerGraphics.waveAnimation.getKeyFrameIndex(this.playerGraphics.stateTime);
+
+        // frames 1-40 = down
+        if (frame > 1 && frame <= 40) {
+            return DIRECTION.DOWN;
+        }
+        else {
+            return DIRECTION.UP;
         }
     }
 
