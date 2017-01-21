@@ -11,7 +11,18 @@ import java.util.ArrayList;
 public class Controller {
 
     private ArrayList<Float> lastZ = new ArrayList<Float>();
-    float lastTriggered = Funcs.getTime();
+    long lastTriggered = Funcs.getTimeMillis();
+
+    // THE CONTROLS
+
+    // Degrees needed to trigger the event
+    float degrees = 60;
+    // The minimum interval between triggers
+    float interval = 700;
+    // The size of the sample array
+    int arraySize = 20;
+    // The last item of the array (arraySize - 1)
+    int lastItem = arraySize - 1;
     /**
      * check if gyroscope is available
      */
@@ -41,22 +52,24 @@ public class Controller {
     public void update(float delta) {
     float zaxis = getZ();
     lastZ.add(zaxis);
-        if (lastZ.size() <= 30) {
+        if (lastZ.size() <= arraySize) {
             return;
         } else {
 
-            if (lastZ.size() > 30) {
+            if (lastZ.size() > arraySize) {
                 lastZ.remove(0);
             }
 
-            if (lastZ.get(29) - lastZ.get(0) > 60) {
-                if (Funcs.getTime() - lastTriggered < 300) {
-                    lastTriggered = Funcs.getTime();
-                    Funcs.print("Triggered");
+            if (lastZ.get(lastItem) - lastZ.get(0) > degrees) {
+                if (Funcs.getTimeMillis() - lastTriggered > interval) {
+                    // Here you can log your trigger for acceleration
+                    // Funcs.print("Trigger accelerate");
+                    lastTriggered = Funcs.getTimeMillis();
+                    Player.getInstance().accelerate();
                 }
             }
         }
-        //Funcs.print(" " + Funcs.getTime();
+        //Funcs.print(" " + Funcs.getTimeMillis());
         //Funcs.print("firstZ: " + lastZ.get(0) + "arr length" + lastZ.size());
     }
 }
