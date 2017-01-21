@@ -20,13 +20,21 @@ public class Controller {
         Main.getInstance().stage.addListener(new InputListener() {
 
             @Override
+            public boolean keyDown(InputEvent event, int keycode) {
+                if (event.getKeyCode() == Input.Keys.LEFT) {
+                    Player.getInstance().setInertiaSlowdownSpeed(5);
+                }
+                return true;
+            }
+
+            @Override
             public boolean keyUp(InputEvent event, int keycode) {
                 if (event.getKeyCode() == Input.Keys.RIGHT) {
                     Funcs.print("asd");
                     Player.getInstance().incrementInertia();
                 }
                 else if (event.getKeyCode() == Input.Keys.LEFT) {
-                    Player.getInstance().releaseInertia();
+                    Player.getInstance().setInertiaSlowdownSpeed(2);
                 }
                 return true;
             }
@@ -37,10 +45,13 @@ public class Controller {
         Main.getInstance().stage.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                //release wave
-                Player.getInstance().releaseInertia();
-
+                Player.getInstance().setInertiaSlowdownSpeed(5);
                 return true;
+            }
+
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                Player.getInstance().setInertiaSlowdownSpeed(2);
             }
         });
     }
