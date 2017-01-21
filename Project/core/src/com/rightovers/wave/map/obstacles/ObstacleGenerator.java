@@ -22,10 +22,10 @@ public class ObstacleGenerator {
     }
 
     ArrayList<Obstacle> obstacles = new ArrayList<Obstacle>();
-    private float time = 0;
+    private float time = 100;
 
     public void update(float delta) {
-        this.time += delta;
+        //this.time += delta;
 
         if (this.time >= (this.random.nextFloat() * 10 + 1)) {
             this.obstacles.add(createObstacle());

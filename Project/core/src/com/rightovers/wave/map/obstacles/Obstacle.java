@@ -1,19 +1,26 @@
 package com.rightovers.wave.map.obstacles;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.Transform;
+import com.badlogic.gdx.utils.Array;
 import com.rightovers.wave.Main;
 import com.rightovers.wave.player.Player;
 import com.rightovers.wave.utils.Loader;
 
 import net.dermetfan.gdx.graphics.g2d.Box2DPolygonSprite;
 
-import java.util.ArrayList;
+import com.badlogic.gdx.graphics.Color;
+
+import java.util.Arrays;
 import java.util.List;
 
+import java.util.List;
+import java.util.ArrayList;
 
 class Obstacle {
 
@@ -21,7 +28,7 @@ class Obstacle {
 
     private Texture building = null;
 
-    private List<float[]> triangles;
+    private List<ObstacleParticle> particles;
 
     public enum Type {
         BIG,
@@ -40,9 +47,28 @@ class Obstacle {
         this.type = type;
         this.physics = new ObstaclePhysics(type, rectangle);
 
-        triangles = new ArrayList<float[]>(1);
-        TextureRegion region = new TextureRegion();
+        //this.building = Loader.getInstance().getTexture(BUILDING_TEXTURE);
 
+    }
+
+
+
+    protected float[] createTriangle(int x, int y, int width, int height) {
+        float w = width;
+        float h = height;
+
+        float c = Color.WHITE.toFloatBits();
+        float u = 0;
+        float v = 0;
+        float u2 = 1;
+        float v2 = 1;
+
+        return new float[] {
+                x, y, c, u, v,
+                x, y+h, c, u, v2,
+                x+w, y, c, u2, v,
+                x, y, c, u, v
+        };
     }
 
     public static void loadAssets() {
@@ -58,9 +84,25 @@ class Obstacle {
     public void drawBackground(float delta) {
         if (this.building == null) {
             this.building = Loader.getInstance().getTexture(BUILDING_TEXTURE);
+
+            particles = new ArrayList<ObstacleParticle>();
+            for(ArrayList<Vector2> triangle : this.physics.getTriangles()){
+                particles.add(new ObstacleParticle(this.building, triangle, new Vector2(100, 100)));
+            }
+
+           // particles.get(0).getBody().applyForceToCenter(new Vector2(1000000000, 10000000), true);
+           // particles.get(0).getBody().applyAngularImpulse(100000, true);
+
         }
 
-        Main.getInstance().batch.draw(this.building, getBox2DBody().getPosition().x - Player.getInstance().getDistance(), getBox2DBody().getPosition().y, this.building.getWidth(), this.building.getHeight());
+        //Main.getInstance().batch.draw(this.building, getBox2DBody().getPosition().x - Player.getInstance().getDistance(), getBox2DBody().getPosition().y, this.building.getWidth(), this.building.getHeight());
+
+        if(particles != null) {
+            for (ObstacleParticle particle : particles) {
+                particle.draw();
+            }
+        }
+
 
     }
 
@@ -77,7 +119,7 @@ class Obstacle {
     }
 
     public Vector2 getPosition() {
-        return this.getBox2DBody().getPosition();
+        return new Vector2(0, 0);//this.getBox2DBody().getPosition();
     }
 
 }
