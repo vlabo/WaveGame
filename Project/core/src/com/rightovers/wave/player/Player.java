@@ -35,7 +35,8 @@ public class Player implements IResourceable {
 
 
 
-    public int defaultInertia = 5;
+    private int defaultInertia = 5;
+    private int inertiaIncrementStep = 5;
     public int inertia = defaultInertia;
     private int getInertia() {
         return inertia;
@@ -71,16 +72,11 @@ public class Player implements IResourceable {
         this.distance += this.speed * delta;
     }
 
-    public void accelerate() {
-        if (this.speed < this.MAX_SPEED) {
-            this.speed += 200;
-        }
+    public void incrementInertia() {
+        this.inertia += this.inertiaIncrementStep;
     }
 
-    public void deccelerate() {
-        if (this.speed > this.MIN_SPEED) {
-            this.speed -= 50;
-        }
+    public void releaseInertia() {
     }
 
     public DIRECTION getDirection() {

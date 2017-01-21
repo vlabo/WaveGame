@@ -11,7 +11,7 @@ public class PlayerGraphics {
     public WaveAnimation<TextureRegion> waveAnimation;
 
     float stateTime;
-    private float lastInertia;
+    private int lastInertia;
 
     public PlayerGraphics() {
         this.waveAnimation = new WaveAnimation<TextureRegion>(1 / 25f, Loader.getInstance().getTextureAtlas(this.WAVE_PACK_NAME).getRegions(), WaveAnimation.PlayMode.LOOP_PINGPONG);
@@ -36,9 +36,11 @@ public class PlayerGraphics {
         if(inertia != lastInertia){
             int midPoint = waveAnimation.getAllFramesCount()/2;
 
+            int inertiaDifference = inertia-lastInertia;
             if(inertia<=midPoint) {
                 this.waveAnimation.setLeftLoopFrameNumber((midPoint - inertia));
                 this.waveAnimation.setRightLoopFrameNumber((midPoint + inertia));
+                this.waveAnimation.setOffsetIndex(waveAnimation.getKeyFrameIndex(this.stateTime)+inertiaDifference);
                 this.waveAnimation.calculateTrimmedKeyFrames();
             }
         }

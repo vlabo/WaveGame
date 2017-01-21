@@ -22,10 +22,10 @@ public class Controller {
             @Override
             public boolean keyUp(InputEvent event, int keycode) {
                 if (event.getKeyCode() == Input.Keys.RIGHT) {
-                    Player.getInstance().accelerate();
+                    Player.getInstance().incrementInertia();
                 }
                 else if (event.getKeyCode() == Input.Keys.LEFT) {
-                    Player.getInstance().deccelerate();
+                    Player.getInstance().releaseInertia();
                 }
                 return true;
             }
@@ -37,7 +37,7 @@ public class Controller {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 //release wave
-                Player.getInstance().deccelerate();
+                Player.getInstance().releaseInertia();
 
                 return true;
             }
@@ -95,9 +95,9 @@ public class Controller {
             if (this.lastZ.get(this.lastItem) - this.lastZ.get(0) > this.degrees) {
                 if (Funcs.getTimeMillis() - this.lastTriggered > this.interval) {
                     // Here you can log your trigger for acceleration
-                    // Funcs.print("Trigger accelerate");
+                    // Funcs.print("Trigger incrementInertia");
                     this.lastTriggered = Funcs.getTimeMillis();
-                    Player.getInstance().accelerate();
+                    Player.getInstance().incrementInertia();
                 }
             }
         }

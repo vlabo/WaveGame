@@ -33,6 +33,14 @@ public class WaveAnimation<T> {
         this.rightLoopFrameNumber = rightLoopFrameNumber;
     }
 
+    private int getOffsetIndex() {
+        return offsetIndex;
+    }
+
+    public void setOffsetIndex(int offsetIndex) {
+        this.offsetIndex = offsetIndex;
+    }
+
     public enum PlayMode {
         NORMAL,
         REVERSED,
@@ -51,6 +59,7 @@ public class WaveAnimation<T> {
     private int lastFrameNumber;
     private int leftLoopFrameNumber, rightLoopFrameNumber;
     private float lastStateTime;
+    private int offsetIndex;
 
     private PlayMode playMode = PlayMode.NORMAL;
 
@@ -134,7 +143,7 @@ public class WaveAnimation<T> {
         if (keyFrames.size() == 1) return 0;
 
         int frameNumber = (int)(stateTime / frameDuration);
-
+        frameNumber += offsetIndex;
 
 
         switch (playMode) {
