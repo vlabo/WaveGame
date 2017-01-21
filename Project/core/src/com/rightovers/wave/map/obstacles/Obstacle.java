@@ -1,6 +1,7 @@
 package com.rightovers.wave.map.obstacles;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
@@ -8,12 +9,19 @@ import com.rightovers.wave.Main;
 import com.rightovers.wave.player.Player;
 import com.rightovers.wave.utils.Loader;
 
+import net.dermetfan.gdx.graphics.g2d.Box2DPolygonSprite;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 class Obstacle {
 
     public static final String BUILDING_TEXTURE = "images/building.png";
 
     private Texture building = null;
+
+    private List<float[]> triangles;
 
     public enum Type {
         BIG,
@@ -31,6 +39,10 @@ class Obstacle {
     public Obstacle(Type type, Rectangle rectangle) {
         this.type = type;
         this.physics = new ObstaclePhysics(type, rectangle);
+
+        triangles = new ArrayList<float[]>(1);
+        TextureRegion region = new TextureRegion();
+
     }
 
     public static void loadAssets() {
