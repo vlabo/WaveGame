@@ -2,6 +2,7 @@ package com.rightovers.wave.player;
 
 import com.rightovers.wave.Main;
 import com.rightovers.wave.utils.IResourceable;
+import com.rightovers.wave.utils.Loader;
 
 
 public class Player implements IResourceable {
@@ -15,7 +16,7 @@ public class Player implements IResourceable {
 
     @Override
     public void loadAssets() {
-
+        Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, this.playerGraphics.WAVE_PACK_NAME, Loader.AssetType.TEXTURE_ATLAS);
     }
 
     private enum DIRECTION {
