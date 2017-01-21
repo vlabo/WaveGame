@@ -34,5 +34,9 @@ public class Controller {
         return Funcs.changeRange(-10, 10, -180, 180, Gdx.input.getAccelerometerZ());
     }
 
+    public void update (float delta) {
+        Funcs.print(getX(), getY(), getZ());
+    }
+
 
 }
