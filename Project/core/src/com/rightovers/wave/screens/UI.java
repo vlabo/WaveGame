@@ -24,7 +24,11 @@ public class UI implements IResourceable {
         sock.addAction(new Action() {
             @Override
             public boolean act(float delta) {
-                int xPos = Player.getInstance().inertia;
+                // Min for xPos is 4 and max is 20
+                int xPos = Player.getInstance().inertia / 2;
+                //You can print xPos here
+                //Funcs.print(" " + xPos);
+
                 sock.setPosition(Funcs.percentWidth(xPos), Funcs.percentHeight(84));
                 return false;
             }

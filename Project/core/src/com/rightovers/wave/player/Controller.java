@@ -59,11 +59,11 @@ public class Controller {
     // THE CONTROLS
 
     // Degrees needed to trigger the event
-    float degrees = 60;
+    float degrees = 20;
     // The minimum interval between triggers
-    float interval = 700;
+    float interval = 500;
     // The size of the sample array
-    int arraySize = 20;
+    int arraySize = 15;
     // The last item of the array (arraySize - 1)
     int lastItem = this.arraySize - 1;
 
