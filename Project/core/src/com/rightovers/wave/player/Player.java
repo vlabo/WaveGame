@@ -20,6 +20,7 @@ public class Player implements IResourceable {
     @Override
     public void loadAssets() {
         Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, this.waveGraphics.WAVE_PACK_NAME, Loader.AssetType.TEXTURE_ATLAS);
+        Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, "images/poseidon.atlas", Loader.AssetType.TEXTURE_ATLAS);
     }
 
     private enum DIRECTION {
