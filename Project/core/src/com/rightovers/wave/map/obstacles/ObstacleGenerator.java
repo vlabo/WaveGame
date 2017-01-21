@@ -28,7 +28,7 @@ public class ObstacleGenerator {
         this.time += delta;
 
         if (this.time >= (this.random.nextFloat() * 10 + 1)) {
-            this.obstacles.add(createObsitcle());
+            this.obstacles.add(createObstacle());
             this.time = 0;
         }
 
@@ -51,7 +51,7 @@ public class ObstacleGenerator {
         }
     }
 
-    private Obstacle createObsitcle() {
+    private Obstacle createObstacle() {
         Texture texture = Loader.getInstance().getTexture(Obstacle.BUILDING_TEXTURE);
         Rectangle rect = new Rectangle(Main.getInstance().width, Environment.getInstance().getGroundLevel(), texture.getWidth(), texture.getHeight());
         Obstacle obstacle = new Obstacle(Obstacle.Type.BIG, rect);

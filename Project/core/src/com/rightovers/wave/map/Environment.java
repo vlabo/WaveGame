@@ -5,6 +5,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Rectangle;
 import com.rightovers.wave.Main;
 import com.rightovers.wave.map.obstacles.ObstacleGenerator;
+import com.rightovers.wave.player.Player;
+import com.rightovers.wave.utils.IResourceable;
 import com.rightovers.wave.utils.Loader;
 
 import java.util.ArrayList;
@@ -14,7 +16,7 @@ import java.util.List;
  * Created by Evkalipt on 1/20/2017.
  */
 
-public class Environment {
+public class Environment implements IResourceable {
 
     private static final String BACKGROUND_IMAGE = "images/background.png";
     private static final String GROUND_IMAGE = "images/ground.png";
@@ -62,8 +64,7 @@ public class Environment {
         boolean shouldMoveFirst = false;
 
         for (Rectangle currentPosition : positions) {
-            Main.getInstance().batch.draw(texture, currentPosition.x, currentPosition.y, currentPosition.getWidth(), currentPosition.getHeight());
-            currentPosition.x += BACKGROUND_MOVE_SPEED;
+            Main.getInstance().batch.draw(texture, currentPosition.x - Player.getInstance().getDistance(), currentPosition.y, currentPosition.getWidth(), currentPosition.getHeight());
 
             if (currentPosition.x + currentPosition.getWidth() < 0) {
                 Rectangle last = positions.get(positions.size() - 1);
@@ -94,7 +95,7 @@ public class Environment {
             this.backgroundRatio = (float) this.background.getHeight() / (float) Main.getInstance().height;
 
             int backgroundFitTimes = (int) (Main.getInstance().width * this.backgroundRatio / this.background.getHeight()) + 2;
-            Gdx.app.log("ENV", backgroundRatio + "  " + backgroundFitTimes);
+            Gdx.app.log("ENV", this.backgroundRatio + "  " + backgroundFitTimes);
             for (int i = 0; i < backgroundFitTimes; i++) {
                 this.backgroundPositions.add(new Rectangle(i * (this.background.getWidth() / this.backgroundRatio), 0, this.background.getWidth() / this.backgroundRatio, this.background.getHeight() / this.backgroundRatio));
             }

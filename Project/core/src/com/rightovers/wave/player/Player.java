@@ -1,15 +1,22 @@
 package com.rightovers.wave.player;
 
 import com.rightovers.wave.Main;
+import com.rightovers.wave.utils.Funcs;
+import com.rightovers.wave.utils.IResourceable;
 
 
-public class Player {
+public class Player implements IResourceable {
 
     public static Player getInstance() {
         if (Main.getInstance().instances.get(Player.class) == null) {
             Main.getInstance().instances.put(Player.class, new Player());
         }
         return (Player) Main.getInstance().instances.get(Player.class);
+    }
+
+    @Override
+    public void loadAssets() {
+
     }
 
     private enum DIRECTION {
@@ -23,7 +30,7 @@ public class Player {
     public Controller controller;
     public PlayerGraphics playerGraphics;
     public PlayerPhysics physics;
-    public float speed = 1;
+    public float speed = 20;
 
     public float getDistance() {
         return this.distance;
@@ -42,15 +49,17 @@ public class Player {
 
 
     public void update(float delta) {
-        this.distance += this.speed;
         this.physics.update(delta);
         this.playerGraphics.update(delta);
         this.controller.update(delta);
+
+        this.distance += this.speed * delta;
+        Funcs.print(this.distance + " dis");
     }
 
     public void accelerate() {
         if (this.speed < this.maxSpeed) {
-            this.speed += 0.1f;
+            this.speed += 10;
         }
     }
 

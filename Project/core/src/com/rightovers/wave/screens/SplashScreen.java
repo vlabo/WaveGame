@@ -6,6 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.rightovers.wave.Main;
 import com.rightovers.wave.map.Environment;
+import com.rightovers.wave.player.Player;
 import com.rightovers.wave.utils.Funcs;
 import com.rightovers.wave.utils.Loader;
 
@@ -29,7 +30,11 @@ public class SplashScreen implements Screen {
         Loader.getInstance().addToLoadingQueue("splash");
         Loader.getInstance().finish();
 
+
         Environment.getInstance().loadAssets();
+        Player.getInstance().loadAssets();
+
+
         Loader.getInstance().addToLoadingQueue(Main.getInstance().assetsGroupName);
     }
 

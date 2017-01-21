@@ -10,6 +10,7 @@ import com.rightovers.wave.utils.Box2DObject;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Random;
 
 class ObstaclePhysics {
 
@@ -30,7 +31,7 @@ class ObstaclePhysics {
         fixtures.add(fixture1);
 
 
-        fixtures = separateQuad(fixture1, new Vector2(rect.width / 4, (int)((float)rect.height / 1.5f)));
+        fixtures = separateQuad(fixture1, new Vector2(rect.width * 0.25f, (int)(rect.height * 0.7f)));
         this.box2DBody = Box2DObject.createBody(false, Box2DWorld.getInstance().getWorld(), BodyDef.BodyType.KinematicBody, 1f, 1f, 0f, new Vector2(rect.x, rect.y), fixtures, 0, false);
         //createBrokenBody(rect);
 
@@ -79,7 +80,8 @@ class ObstaclePhysics {
     private void separateTriangle(List<Vector2> points, Vector2 newPoint, ArrayList<ArrayList<Vector2>> fixtures, int times) {
         times--;
 
-        Vector2 middlePoint = new Vector2((points.get(0).x + points.get(1).x) / 2, (points.get(0).y + points.get(1).y) / 2);
+        Random random = new Random();
+        Vector2 middlePoint = new Vector2(((points.get(0).x + points.get(1).x) / 2), (points.get(0).y + points.get(1).y) / 2);
 
         ArrayList fixture1 = new ArrayList();
         fixture1.add(points.get(0));
