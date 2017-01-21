@@ -1,0 +1,630 @@
+
+poseidon.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+kloshar
+  rotate: false
+  xy: 0, 550
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 0
+kloshar
+  rotate: false
+  xy: 512, 550
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 1
+kloshar
+  rotate: false
+  xy: 0, 275
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 2
+kloshar
+  rotate: false
+  xy: 512, 275
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 3
+kloshar
+  rotate: false
+  xy: 0, 0
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 4
+kloshar
+  rotate: false
+  xy: 512, 0
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 5
+
+poseidon2.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+kloshar
+  rotate: false
+  xy: 0, 550
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 6
+kloshar
+  rotate: false
+  xy: 512, 550
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 7
+kloshar
+  rotate: false
+  xy: 0, 275
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 8
+kloshar
+  rotate: false
+  xy: 512, 275
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 9
+kloshar
+  rotate: false
+  xy: 0, 0
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 10
+kloshar
+  rotate: false
+  xy: 512, 0
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 11
+
+poseidon3.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+kloshar
+  rotate: false
+  xy: 0, 550
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 12
+kloshar
+  rotate: false
+  xy: 512, 550
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 13
+kloshar
+  rotate: false
+  xy: 0, 275
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 14
+kloshar
+  rotate: false
+  xy: 512, 275
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 15
+kloshar
+  rotate: false
+  xy: 0, 0
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 16
+kloshar
+  rotate: false
+  xy: 512, 0
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 17
+
+poseidon4.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+kloshar
+  rotate: false
+  xy: 0, 550
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 18
+kloshar
+  rotate: false
+  xy: 512, 550
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 19
+kloshar
+  rotate: false
+  xy: 0, 275
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 20
+kloshar
+  rotate: false
+  xy: 512, 275
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 21
+kloshar
+  rotate: false
+  xy: 0, 0
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 22
+kloshar
+  rotate: false
+  xy: 512, 0
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 23
+
+poseidon5.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+kloshar
+  rotate: false
+  xy: 0, 550
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 24
+kloshar
+  rotate: false
+  xy: 512, 550
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 25
+kloshar
+  rotate: false
+  xy: 0, 275
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 26
+kloshar
+  rotate: false
+  xy: 512, 275
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 27
+kloshar
+  rotate: false
+  xy: 0, 0
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 28
+kloshar
+  rotate: false
+  xy: 512, 0
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 29
+
+poseidon6.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+kloshar
+  rotate: false
+  xy: 0, 550
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 30
+kloshar
+  rotate: false
+  xy: 512, 550
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 31
+kloshar
+  rotate: false
+  xy: 0, 275
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 32
+kloshar
+  rotate: false
+  xy: 512, 275
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 33
+kloshar
+  rotate: false
+  xy: 0, 0
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 34
+kloshar
+  rotate: false
+  xy: 512, 0
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 35
+
+poseidon7.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+kloshar
+  rotate: false
+  xy: 0, 550
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 36
+kloshar
+  rotate: false
+  xy: 512, 550
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 37
+kloshar
+  rotate: false
+  xy: 0, 275
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 38
+kloshar
+  rotate: false
+  xy: 512, 275
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 39
+kloshar
+  rotate: false
+  xy: 0, 0
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 40
+kloshar
+  rotate: false
+  xy: 512, 0
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 41
+
+poseidon8.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+kloshar
+  rotate: false
+  xy: 0, 550
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 42
+kloshar
+  rotate: false
+  xy: 512, 550
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 43
+kloshar
+  rotate: false
+  xy: 0, 275
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 44
+kloshar
+  rotate: false
+  xy: 512, 275
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 45
+kloshar
+  rotate: false
+  xy: 0, 0
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 46
+kloshar
+  rotate: false
+  xy: 512, 0
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 47
+
+poseidon9.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+kloshar
+  rotate: false
+  xy: 0, 550
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 48
+kloshar
+  rotate: false
+  xy: 512, 550
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 49
+kloshar
+  rotate: false
+  xy: 0, 275
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 50
+kloshar
+  rotate: false
+  xy: 512, 275
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 51
+kloshar
+  rotate: false
+  xy: 0, 0
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 52
+kloshar
+  rotate: false
+  xy: 512, 0
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 53
+
+poseidon10.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+kloshar
+  rotate: false
+  xy: 0, 550
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 54
+kloshar
+  rotate: false
+  xy: 512, 550
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 55
+kloshar
+  rotate: false
+  xy: 0, 275
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 56
+kloshar
+  rotate: false
+  xy: 512, 275
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 57
+kloshar
+  rotate: false
+  xy: 0, 0
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 58
+kloshar
+  rotate: false
+  xy: 512, 0
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 59
+
+poseidon11.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+kloshar
+  rotate: false
+  xy: 0, 550
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 60
+kloshar
+  rotate: false
+  xy: 512, 550
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 61
+kloshar
+  rotate: false
+  xy: 0, 275
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 62
+kloshar
+  rotate: false
+  xy: 512, 275
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 63
+kloshar
+  rotate: false
+  xy: 0, 0
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 64
+kloshar
+  rotate: false
+  xy: 512, 0
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 65
+
+poseidon12.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+kloshar
+  rotate: false
+  xy: 0, 550
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 66
+kloshar
+  rotate: false
+  xy: 512, 550
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 67
+kloshar
+  rotate: false
+  xy: 0, 275
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 68
+kloshar
+  rotate: false
+  xy: 512, 275
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 69
+kloshar
+  rotate: false
+  xy: 0, 0
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 70
+kloshar
+  rotate: false
+  xy: 512, 0
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 71
+
+poseidon13.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+kloshar
+  rotate: false
+  xy: 0, 550
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 72
+kloshar
+  rotate: false
+  xy: 512, 550
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 73
+kloshar
+  rotate: false
+  xy: 0, 275
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 74
+kloshar
+  rotate: false
+  xy: 512, 275
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 75
+kloshar
+  rotate: false
+  xy: 0, 0
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 76
+kloshar
+  rotate: false
+  xy: 512, 0
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 77
+
+poseidon14.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+kloshar
+  rotate: false
+  xy: 0, 0
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 78
+kloshar
+  rotate: false
+  xy: 512, 0
+  size: 512, 275
+  orig: 512, 275
+  offset: 0, 0
+  index: 79
