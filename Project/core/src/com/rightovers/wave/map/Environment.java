@@ -12,16 +12,11 @@ import com.rightovers.wave.utils.Loader;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Evkalipt on 1/20/2017.
- */
 
 public class Environment implements IResourceable {
 
     private static final String BACKGROUND_IMAGE = "images/background.png";
     private static final String GROUND_IMAGE = "images/ground.png";
-
-    public static float BACKGROUND_MOVE_SPEED = -5;
 
     private Texture background = null;
     private Texture ground = null;
@@ -54,17 +49,17 @@ public class Environment implements IResourceable {
 
     public void drawBackground(float deltaTime) {
 
-        drawTextureSequence(this.background, this.backgroundPositions);
-        drawTextureSequence(this.ground, this.groundPositions);
+        drawTextureSequence(this.background, this.backgroundPositions, Player.getInstance().getDistance() / 2);
+        drawTextureSequence(this.ground, this.groundPositions, Player.getInstance().getDistance());
 
 
     }
 
-    private void drawTextureSequence(Texture texture, List<Rectangle> positions) {
+    private void drawTextureSequence(Texture texture, List<Rectangle> positions, float speed) {
         boolean shouldMoveFirst = false;
 
         for (Rectangle currentPosition : positions) {
-            Main.getInstance().batch.draw(texture, currentPosition.x - Player.getInstance().getDistance(), currentPosition.y, currentPosition.getWidth(), currentPosition.getHeight());
+            Main.getInstance().batch.draw(texture, currentPosition.x - speed, currentPosition.y, currentPosition.getWidth(), currentPosition.getHeight());
 
             if (currentPosition.x + currentPosition.getWidth() < 0) {
                 Rectangle last = positions.get(positions.size() - 1);
