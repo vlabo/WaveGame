@@ -1,15 +1,21 @@
 package com.rightovers.wave.player;
 
 import com.rightovers.wave.Main;
+import com.rightovers.wave.utils.IResourceable;
 
 
-public class Player {
+public class Player implements IResourceable {
 
     public static Player getInstance() {
         if (Main.getInstance().instances.get(Player.class) == null) {
             Main.getInstance().instances.put(Player.class, new Player());
         }
         return (Player) Main.getInstance().instances.get(Player.class);
+    }
+
+    @Override
+    public void loadAssets() {
+
     }
 
     private enum DIRECTION {
