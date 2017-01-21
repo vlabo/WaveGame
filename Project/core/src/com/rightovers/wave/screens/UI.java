@@ -25,7 +25,7 @@ public class UI implements IResourceable {
             @Override
             public boolean act(float delta) {
                 // Min for xPos is 4 and max is 20
-                int xPos = Player.getInstance().inertia / 2;
+                float xPos = Funcs.changeRange(0,1,4,20,Player.getInstance().getStrength());
                 //You can print xPos here
                 //Funcs.print(" " + xPos);
 

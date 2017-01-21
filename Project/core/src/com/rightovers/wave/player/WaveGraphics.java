@@ -58,6 +58,7 @@ public class WaveGraphics {
         int midPoint = this.waveAnimation.getAllFramesCount() / 2;
         this.waveAnimation.setLeftLoopFrameNumber((midPoint - Player.getInstance().inertia));
         this.waveAnimation.setRightLoopFrameNumber((midPoint + Player.getInstance().inertia));
+
         this.waveAnimation.calculateTrimmedKeyFrames();
     }
 

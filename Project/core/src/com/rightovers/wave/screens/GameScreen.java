@@ -6,7 +6,7 @@ import com.rightovers.wave.map.Box2DWorld;
 import com.rightovers.wave.map.Environment;
 import com.rightovers.wave.map.obstacles.ObstacleGenerator;
 import com.rightovers.wave.player.Player;
-import com.rightovers.wave.utils.Funcs;
+import com.rightovers.wave.player.PlayerParticles;
 
 
 public class GameScreen implements Screen {
@@ -31,7 +31,7 @@ public class GameScreen implements Screen {
         Environment.getInstance().update(delta);
         ObstacleGenerator.getInstance().update(delta);
         Player.getInstance().update(delta);
-
+        PlayerParticles.getInstance().update(delta);
         // draw stuff
         Main.getInstance().batch.begin();
 
@@ -39,6 +39,7 @@ public class GameScreen implements Screen {
         Environment.getInstance().drawObstacles(delta);
         Player.getInstance().waveGraphics.draw(delta);
         Player.getInstance().poseidonGraphics.draw(delta);
+        PlayerParticles.getInstance().draw(delta);
         Environment.getInstance().drawForeground(delta);
         Main.getInstance().batch.end();
 

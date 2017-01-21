@@ -22,6 +22,8 @@ public class Player implements IResourceable {
     public void loadAssets() {
         Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, this.waveGraphics.WAVE_PACK_NAME, Loader.AssetType.TEXTURE_ATLAS);
         Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, "images/poseidon.pack", Loader.AssetType.TEXTURE_ATLAS);
+        Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, "particles/green-particle.particle", Loader.AssetType.PARTICLE_EFFECT);
+
     }
 
     private enum DIRECTION {
@@ -39,9 +41,9 @@ public class Player implements IResourceable {
     public float speed = 200;
 
 
-    public final int INITIAL_INERTIA = 5;
+    public final int INITIAL_INERTIA = 10;
     public final int MAX_INERTIA = 40;
-    public final int INERTIA_INCREMENT_STEP = 5;
+    public final int INERTIA_INCREMENT_STEP = 2;
     public final int INERTIA_DECREMENT_STEP_SLOW = 5;
     public final int INERTIA_DECREMENT_STEP_FAST = 10;
 
