@@ -51,8 +51,7 @@ public class Environment implements IResourceable {
 
         drawTextureSequence(this.background, this.backgroundPositions, Player.getInstance().getDistance() / 2);
         drawTextureSequence(this.ground, this.groundPositions, Player.getInstance().getDistance());
-
-
+        
     }
 
     private void drawTextureSequence(Texture texture, List<Rectangle> positions, float speed) {
