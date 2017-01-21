@@ -19,7 +19,7 @@ public class Player implements IResourceable {
 
     @Override
     public void loadAssets() {
-        Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, this.playerGraphics.WAVE_PACK_NAME, Loader.AssetType.TEXTURE_ATLAS);
+        Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, this.waveGraphics.WAVE_PACK_NAME, Loader.AssetType.TEXTURE_ATLAS);
     }
 
     private enum DIRECTION {
@@ -31,29 +31,29 @@ public class Player implements IResourceable {
     private final float MIN_SPEED = 200;
 
     public Controller controller;
-    public PlayerGraphics playerGraphics;
+    public WaveGraphics waveGraphics;
     public PlayerPhysics physics;
     public float speed = 200;
-
-
 
 
     public int defaultInertia = 5;
     public int maxInertia = 40;
     public int inertiaIncrementStep = 5;
-    public int inertia = defaultInertia;
+    public int inertia = this.defaultInertia;
+
     private int getInertia() {
-        return inertia;
+        return this.inertia;
     }
 
     public void setInertia(int inertia) {
         this.inertia = inertia;
-        if(this.inertia < defaultInertia)
-            this.inertia = defaultInertia;
-        if(this.inertia > maxInertia)
-            this.inertia = maxInertia;
+        if (this.inertia < this.defaultInertia) {
+            this.inertia = this.defaultInertia;
+        }
+        if (this.inertia > this.maxInertia) {
+            this.inertia = this.maxInertia;
+        }
     }
-
 
 
     public float getDistance() {
@@ -64,7 +64,7 @@ public class Player implements IResourceable {
 
     public void create() {
         this.controller = new Controller();
-        this.playerGraphics = new PlayerGraphics();
+        this.waveGraphics = new WaveGraphics();
         this.physics = new PlayerPhysics();
 
     }
@@ -72,14 +72,14 @@ public class Player implements IResourceable {
 
     public void update(float delta) {
         this.physics.update(delta);
-        this.playerGraphics.update(delta);
+        this.waveGraphics.update(delta);
         this.controller.update(delta);
 
         this.distance += this.speed * delta;
 
-        if(this.timeSinceLastUpdatedInertia > 5.0f){
+        if (this.timeSinceLastUpdatedInertia > 5.0f) {
             //Player.getInstance().setInertia(Player.getInstance().inertia - Player.getInstance().inertiaIncrementStep);
-            this.timeSinceLastUpdatedInertia=0;
+            this.timeSinceLastUpdatedInertia = 0;
         }
         this.timeSinceLastUpdatedInertia += delta;
     }
@@ -93,7 +93,7 @@ public class Player implements IResourceable {
     }
 
     public DIRECTION getDirection() {
-        int frame = this.playerGraphics.waveAnimation.getKeyFrameIndex(this.playerGraphics.stateTime);
+        int frame = this.waveGraphics.waveAnimation.getKeyFrameIndex(this.waveGraphics.stateTime);
 
         // frames 1-40 = down
         if (frame > 1 && frame <= 40) {
