@@ -1,6 +1,7 @@
 package com.rightovers.wave.player;
 
 import com.rightovers.wave.Main;
+import com.rightovers.wave.utils.Funcs;
 import com.rightovers.wave.utils.IResourceable;
 import com.rightovers.wave.utils.Loader;
 
@@ -110,16 +111,20 @@ public class Player implements IResourceable {
         this.releaseInertia = true;
     }
 
-    public DIRECTION getDirection() {
-        int frame = this.waveGraphics.waveAnimation.getKeyFrameIndex(this.waveGraphics.stateTime);
+    public float getStrength() {
+        int frame = this.waveGraphics.getAbsoluteKeyFrame();
 
         // frames 1-40 = down
         if (frame > 1 && frame <= 40) {
-            return DIRECTION.DOWN;
+            return 0;
         }
-        else {
-            return DIRECTION.UP;
+        else if(frame>40 && frame <= 65) {
+            return Funcs.changeRange(40,65,0,1,frame);
         }
+        else if(frame>65&&frame<=80){
+            return (1f-Funcs.changeRange(65,80,0,1,frame));
+        }
+        return 0;
     }
 
 }
