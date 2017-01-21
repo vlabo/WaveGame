@@ -29,7 +29,7 @@ public class Player implements IResourceable {
     public Controller controller;
     public PlayerGraphics playerGraphics;
     public PlayerPhysics physics;
-    public float speed;
+    public float speed = 1;
 
     public float getDistance() {
         return this.distance;
