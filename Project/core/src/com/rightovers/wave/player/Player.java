@@ -25,16 +25,24 @@ public class Player {
     public PlayerPhysics physics;
     public float speed;
 
+    public float getDistance() {
+        return this.distance;
+    }
+
+    private float distance;
+
     public DIRECTION direction;
 
     public void create() {
         this.controller = new Controller();
         this.playerGraphics = new PlayerGraphics();
         this.physics = new PlayerPhysics();
+
     }
 
 
     public void update(float delta) {
+        this.distance += this.speed;
         this.physics.update(delta);
         this.playerGraphics.update(delta);
         this.controller.update(delta);
@@ -46,10 +54,9 @@ public class Player {
         }
     }
 
-    public void decelerate() {
+    public void deccelerate() {
         if (this.speed > this.minSpeed) {
             this.speed -= 0.1f;
-            int a= 1;
         }
     }
 
