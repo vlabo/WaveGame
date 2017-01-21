@@ -1,0 +1,41 @@
+package com.rightovers.wave.player;
+
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.rightovers.wave.map.Box2DWorld;
+import com.rightovers.wave.utils.Box2DObject;
+
+import java.util.ArrayList;
+
+class PlayerPhysics {
+
+    Body box2DBody;
+
+    public Body getBox2DBody() {
+        return this.box2DBody;
+    }
+
+    // spawn clouds/asteroids
+    public PlayerPhysics() {
+        // create box2d body
+        ArrayList<ArrayList<Vector2>> fixtures = new ArrayList<ArrayList<Vector2>>();
+        ArrayList<Vector2> fixture1 = new ArrayList<Vector2>();
+        fixture1.add(new Vector2(0, 0));
+        fixture1.add(new Vector2(0, 1));
+        fixture1.add(new Vector2(1, 1));
+        fixture1.add(new Vector2(1, 0));
+        fixtures.add(fixture1);
+        this.box2DBody = Box2DObject.createBody(false, Box2DWorld.getInstance().getWorld(), BodyDef.BodyType.KinematicBody, 1f, 1f, 0f, new Vector2(0, 0), fixtures, -1, true);
+    }
+
+    public void update(float delta) {
+
+    }
+
+    public void remove() {
+        Box2DWorld.getInstance().world.destroyBody(this.box2DBody);
+        this.box2DBody = null;
+    }
+
+}
