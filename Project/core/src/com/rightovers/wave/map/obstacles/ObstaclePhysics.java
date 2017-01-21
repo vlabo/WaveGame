@@ -31,13 +31,16 @@ class ObstaclePhysics {
         fixtures.add(fixture1);
 
 
-        fixtures = separateQuad(fixture1, new Vector2(rect.width * 0.25f, (int) (rect.height * 0.7f)));
+        fixtures = separateQuad(fixture1, new Vector2(rect.width * 0.25f, (int) (rect.height * 0.3f)));
+
         this.box2DBody = Box2DObject.createBody(false, Box2DWorld.getInstance().getWorld(), BodyDef.BodyType.KinematicBody, 1f, 1f, 0f, new Vector2(rect.x, rect.y), fixtures, 0, false);
         //createBrokenBody(rect);
 
     }
 
+    // Separates quad on four triangles
     private ArrayList<ArrayList<Vector2>> separateQuad(List<Vector2> points, Vector2 newPoint) {
+
         ArrayList<ArrayList<Vector2>> fixtures = new ArrayList<ArrayList<Vector2>>();
 
         int iterationsNumber = 3;
@@ -77,11 +80,20 @@ class ObstaclePhysics {
 
     }
 
+    // Separates triangle on two smaller triangles
     private void separateTriangle(List<Vector2> points, Vector2 newPoint, ArrayList<ArrayList<Vector2>> fixtures, int times) {
         times--;
 
         Random random = new Random();
-        Vector2 middlePoint = new Vector2(((points.get(0).x + points.get(1).x) / 2), (points.get(0).y + points.get(1).y) / 2);
+        Vector2 middlePoint = null;
+        float randomNumber = (random.nextFloat()) - 1;
+        if (points.get(0).x == points.get(1).x) {
+            middlePoint = new Vector2((points.get(0).x), ((points.get(0).y + points.get(1).y) / 2) + randomNumber);
+        }
+        else {
+            middlePoint = new Vector2(((points.get(0).x + points.get(1).x) / 2) + randomNumber, points.get(0).y);
+        }
+
 
         ArrayList fixture1 = new ArrayList();
         fixture1.add(points.get(0));

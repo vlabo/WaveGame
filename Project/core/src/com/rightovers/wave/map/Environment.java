@@ -29,6 +29,8 @@ public class Environment implements IResourceable {
     private List<Rectangle> backgroundPositions = null;
     private List<Rectangle> groundPositions = null;
 
+    private float lastDistance = 0;
+
 
     public static Environment getInstance() {
         if (Main.getInstance().instances.get(Environment.class) == null) {
@@ -49,8 +51,10 @@ public class Environment implements IResourceable {
 
     public void drawBackground(float deltaTime) {
 
-        drawTextureSequence(this.background, this.backgroundPositions, Player.getInstance().getDistance() / 2);
-        drawTextureSequence(this.ground, this.groundPositions, Player.getInstance().getDistance());
+        drawTextureSequence(this.background, this.backgroundPositions, Player.getInstance().getDistance() / 2 - this.lastDistance / 2);
+        drawTextureSequence(this.ground, this.groundPositions, Player.getInstance().getDistance() - this.lastDistance);
+
+        this.lastDistance = Player.getInstance().getDistance();
 
     }
 
@@ -58,7 +62,8 @@ public class Environment implements IResourceable {
         boolean shouldMoveFirst = false;
 
         for (Rectangle currentPosition : positions) {
-            Main.getInstance().batch.draw(texture, currentPosition.x - speed, currentPosition.y, currentPosition.getWidth(), currentPosition.getHeight());
+            currentPosition.x -= speed;
+            Main.getInstance().batch.draw(texture, currentPosition.x, currentPosition.y, currentPosition.getWidth(), currentPosition.getHeight());
 
             if (currentPosition.x + currentPosition.getWidth() < 0) {
                 Rectangle last = positions.get(positions.size() - 1);
