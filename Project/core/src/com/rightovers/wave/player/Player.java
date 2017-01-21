@@ -46,9 +46,10 @@ public class Player {
         }
     }
 
-    public void deccelerate() {
+    public void decelerate() {
         if (this.speed > this.minSpeed) {
             this.speed -= 0.1f;
+            int a= 1;
         }
     }
 
