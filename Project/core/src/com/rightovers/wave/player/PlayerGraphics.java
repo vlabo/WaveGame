@@ -1,6 +1,5 @@
 package com.rightovers.wave.player;
 
-import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.rightovers.wave.Main;
 import com.rightovers.wave.utils.Funcs;
@@ -9,13 +8,15 @@ import com.rightovers.wave.utils.Loader;
 public class PlayerGraphics {
 
     public static final String WAVE_PACK_NAME = "images/wave.atlas";
-    public Animation<TextureRegion> waveAnimation;
+    public WaveAnimation<TextureRegion> waveAnimation;
 
     float stateTime;
 
     public PlayerGraphics() {
-        this.waveAnimation = new Animation<TextureRegion>(1 / 70f, Loader.getInstance().getTextureAtlas(this.WAVE_PACK_NAME).getRegions(), Animation.PlayMode.LOOP);
-
+        this.waveAnimation = new WaveAnimation<TextureRegion>(1 / 25f, Loader.getInstance().getTextureAtlas(this.WAVE_PACK_NAME).getRegions(), WaveAnimation.PlayMode.LOOP_PINGPONG);
+        this.waveAnimation.setLeftLoopFrameNumber(20);
+        this.waveAnimation.setRightLoopFrameNumber(30);
+        this.waveAnimation.calculateTrimmedKeyFrames();
     }
 
     public void draw(float delta) {
