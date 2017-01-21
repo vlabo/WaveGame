@@ -31,7 +31,7 @@ public class WaveGraphics {
     public void update(float delta) {
         this.stateTime += delta;
 
-        float fps = (1 / (25f+Player.getInstance().inertia));
+        float fps = (1 / 25f);
 
         this.waveAnimation.setFrameDuration(fps);
 
