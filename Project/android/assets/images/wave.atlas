@@ -5,60 +5,74 @@ filter: Linear,Linear
 repeat: none
 Wave
   rotate: false
-  xy: 0, 672
-  size: 512, 224
-  orig: 512, 224
+  xy: 0, 764
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 0
 Wave
   rotate: false
-  xy: 512, 672
-  size: 512, 224
-  orig: 512, 224
+  xy: 512, 764
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 1
 Wave
   rotate: false
-  xy: 0, 448
-  size: 512, 224
-  orig: 512, 224
+  xy: 0, 573
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 2
 Wave
   rotate: false
-  xy: 512, 448
-  size: 512, 224
-  orig: 512, 224
+  xy: 512, 573
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 3
 Wave
   rotate: false
-  xy: 0, 224
-  size: 512, 224
-  orig: 512, 224
+  xy: 0, 382
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 4
 Wave
   rotate: false
-  xy: 512, 224
-  size: 512, 224
-  orig: 512, 224
+  xy: 512, 382
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 5
 Wave
   rotate: false
-  xy: 0, 0
-  size: 512, 224
-  orig: 512, 224
+  xy: 0, 191
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 6
 Wave
   rotate: false
-  xy: 512, 0
-  size: 512, 224
-  orig: 512, 224
+  xy: 512, 191
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 7
+Wave
+  rotate: false
+  xy: 0, 0
+  size: 512, 191
+  orig: 512, 191
+  offset: 0, 0
+  index: 8
+Wave
+  rotate: false
+  xy: 512, 0
+  size: 512, 191
+  orig: 512, 191
+  offset: 0, 0
+  index: 9
 
 wave2.png
 format: RGBA8888
@@ -66,60 +80,74 @@ filter: Linear,Linear
 repeat: none
 Wave
   rotate: false
-  xy: 0, 672
-  size: 512, 224
-  orig: 512, 224
-  offset: 0, 0
-  index: 8
-Wave
-  rotate: false
-  xy: 512, 672
-  size: 512, 224
-  orig: 512, 224
-  offset: 0, 0
-  index: 9
-Wave
-  rotate: false
-  xy: 0, 448
-  size: 512, 224
-  orig: 512, 224
+  xy: 0, 764
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 10
 Wave
   rotate: false
-  xy: 512, 448
-  size: 512, 224
-  orig: 512, 224
+  xy: 512, 764
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 11
 Wave
   rotate: false
-  xy: 0, 224
-  size: 512, 224
-  orig: 512, 224
+  xy: 0, 573
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 12
 Wave
   rotate: false
-  xy: 512, 224
-  size: 512, 224
-  orig: 512, 224
+  xy: 512, 573
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 13
 Wave
   rotate: false
-  xy: 0, 0
-  size: 512, 224
-  orig: 512, 224
+  xy: 0, 382
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 14
 Wave
   rotate: false
-  xy: 512, 0
-  size: 512, 224
-  orig: 512, 224
+  xy: 512, 382
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 15
+Wave
+  rotate: false
+  xy: 0, 191
+  size: 512, 191
+  orig: 512, 191
+  offset: 0, 0
+  index: 16
+Wave
+  rotate: false
+  xy: 512, 191
+  size: 512, 191
+  orig: 512, 191
+  offset: 0, 0
+  index: 17
+Wave
+  rotate: false
+  xy: 0, 0
+  size: 512, 191
+  orig: 512, 191
+  offset: 0, 0
+  index: 18
+Wave
+  rotate: false
+  xy: 512, 0
+  size: 512, 191
+  orig: 512, 191
+  offset: 0, 0
+  index: 19
 
 wave3.png
 format: RGBA8888
@@ -127,60 +155,74 @@ filter: Linear,Linear
 repeat: none
 Wave
   rotate: false
-  xy: 0, 672
-  size: 512, 224
-  orig: 512, 224
-  offset: 0, 0
-  index: 16
-Wave
-  rotate: false
-  xy: 512, 672
-  size: 512, 224
-  orig: 512, 224
-  offset: 0, 0
-  index: 17
-Wave
-  rotate: false
-  xy: 0, 448
-  size: 512, 224
-  orig: 512, 224
-  offset: 0, 0
-  index: 18
-Wave
-  rotate: false
-  xy: 512, 448
-  size: 512, 224
-  orig: 512, 224
-  offset: 0, 0
-  index: 19
-Wave
-  rotate: false
-  xy: 0, 224
-  size: 512, 224
-  orig: 512, 224
+  xy: 0, 764
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 20
 Wave
   rotate: false
-  xy: 512, 224
-  size: 512, 224
-  orig: 512, 224
+  xy: 512, 764
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 21
 Wave
   rotate: false
-  xy: 0, 0
-  size: 512, 224
-  orig: 512, 224
+  xy: 0, 573
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 22
 Wave
   rotate: false
-  xy: 512, 0
-  size: 512, 224
-  orig: 512, 224
+  xy: 512, 573
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 23
+Wave
+  rotate: false
+  xy: 0, 382
+  size: 512, 191
+  orig: 512, 191
+  offset: 0, 0
+  index: 24
+Wave
+  rotate: false
+  xy: 512, 382
+  size: 512, 191
+  orig: 512, 191
+  offset: 0, 0
+  index: 25
+Wave
+  rotate: false
+  xy: 0, 191
+  size: 512, 191
+  orig: 512, 191
+  offset: 0, 0
+  index: 26
+Wave
+  rotate: false
+  xy: 512, 191
+  size: 512, 191
+  orig: 512, 191
+  offset: 0, 0
+  index: 27
+Wave
+  rotate: false
+  xy: 0, 0
+  size: 512, 191
+  orig: 512, 191
+  offset: 0, 0
+  index: 28
+Wave
+  rotate: false
+  xy: 512, 0
+  size: 512, 191
+  orig: 512, 191
+  offset: 0, 0
+  index: 29
 
 wave4.png
 format: RGBA8888
@@ -188,60 +230,74 @@ filter: Linear,Linear
 repeat: none
 Wave
   rotate: false
-  xy: 0, 672
-  size: 512, 224
-  orig: 512, 224
-  offset: 0, 0
-  index: 24
-Wave
-  rotate: false
-  xy: 512, 672
-  size: 512, 224
-  orig: 512, 224
-  offset: 0, 0
-  index: 25
-Wave
-  rotate: false
-  xy: 0, 448
-  size: 512, 224
-  orig: 512, 224
-  offset: 0, 0
-  index: 26
-Wave
-  rotate: false
-  xy: 512, 448
-  size: 512, 224
-  orig: 512, 224
-  offset: 0, 0
-  index: 27
-Wave
-  rotate: false
-  xy: 0, 224
-  size: 512, 224
-  orig: 512, 224
-  offset: 0, 0
-  index: 28
-Wave
-  rotate: false
-  xy: 512, 224
-  size: 512, 224
-  orig: 512, 224
-  offset: 0, 0
-  index: 29
-Wave
-  rotate: false
-  xy: 0, 0
-  size: 512, 224
-  orig: 512, 224
+  xy: 0, 764
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 30
 Wave
   rotate: false
-  xy: 512, 0
-  size: 512, 224
-  orig: 512, 224
+  xy: 512, 764
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 31
+Wave
+  rotate: false
+  xy: 0, 573
+  size: 512, 191
+  orig: 512, 191
+  offset: 0, 0
+  index: 32
+Wave
+  rotate: false
+  xy: 512, 573
+  size: 512, 191
+  orig: 512, 191
+  offset: 0, 0
+  index: 33
+Wave
+  rotate: false
+  xy: 0, 382
+  size: 512, 191
+  orig: 512, 191
+  offset: 0, 0
+  index: 34
+Wave
+  rotate: false
+  xy: 512, 382
+  size: 512, 191
+  orig: 512, 191
+  offset: 0, 0
+  index: 35
+Wave
+  rotate: false
+  xy: 0, 191
+  size: 512, 191
+  orig: 512, 191
+  offset: 0, 0
+  index: 36
+Wave
+  rotate: false
+  xy: 512, 191
+  size: 512, 191
+  orig: 512, 191
+  offset: 0, 0
+  index: 37
+Wave
+  rotate: false
+  xy: 0, 0
+  size: 512, 191
+  orig: 512, 191
+  offset: 0, 0
+  index: 38
+Wave
+  rotate: false
+  xy: 512, 0
+  size: 512, 191
+  orig: 512, 191
+  offset: 0, 0
+  index: 39
 
 wave5.png
 format: RGBA8888
@@ -249,60 +305,74 @@ filter: Linear,Linear
 repeat: none
 Wave
   rotate: false
-  xy: 0, 672
-  size: 512, 224
-  orig: 512, 224
+  xy: 0, 764
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
-  index: 32
+  index: 40
 Wave
   rotate: false
-  xy: 512, 672
-  size: 512, 224
-  orig: 512, 224
+  xy: 512, 764
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
-  index: 33
+  index: 41
 Wave
   rotate: false
-  xy: 0, 448
-  size: 512, 224
-  orig: 512, 224
+  xy: 0, 573
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
-  index: 34
+  index: 42
 Wave
   rotate: false
-  xy: 512, 448
-  size: 512, 224
-  orig: 512, 224
+  xy: 512, 573
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
-  index: 35
+  index: 43
 Wave
   rotate: false
-  xy: 0, 224
-  size: 512, 224
-  orig: 512, 224
+  xy: 0, 382
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
-  index: 36
+  index: 44
 Wave
   rotate: false
-  xy: 512, 224
-  size: 512, 224
-  orig: 512, 224
+  xy: 512, 382
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
-  index: 37
+  index: 45
+Wave
+  rotate: false
+  xy: 0, 191
+  size: 512, 191
+  orig: 512, 191
+  offset: 0, 0
+  index: 46
+Wave
+  rotate: false
+  xy: 512, 191
+  size: 512, 191
+  orig: 512, 191
+  offset: 0, 0
+  index: 47
 Wave
   rotate: false
   xy: 0, 0
-  size: 512, 224
-  orig: 512, 224
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
-  index: 38
+  index: 48
 Wave
   rotate: false
   xy: 512, 0
-  size: 512, 224
-  orig: 512, 224
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
-  index: 39
+  index: 49
 
 wave6.png
 format: RGBA8888
@@ -310,60 +380,74 @@ filter: Linear,Linear
 repeat: none
 Wave
   rotate: false
-  xy: 0, 672
-  size: 512, 224
-  orig: 512, 224
+  xy: 0, 764
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
-  index: 40
+  index: 50
 Wave
   rotate: false
-  xy: 512, 672
-  size: 512, 224
-  orig: 512, 224
+  xy: 512, 764
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
-  index: 41
+  index: 51
 Wave
   rotate: false
-  xy: 0, 448
-  size: 512, 224
-  orig: 512, 224
+  xy: 0, 573
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
-  index: 42
+  index: 52
 Wave
   rotate: false
-  xy: 512, 448
-  size: 512, 224
-  orig: 512, 224
+  xy: 512, 573
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
-  index: 43
+  index: 53
 Wave
   rotate: false
-  xy: 0, 224
-  size: 512, 224
-  orig: 512, 224
+  xy: 0, 382
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
-  index: 44
+  index: 54
 Wave
   rotate: false
-  xy: 512, 224
-  size: 512, 224
-  orig: 512, 224
+  xy: 512, 382
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
-  index: 45
+  index: 55
+Wave
+  rotate: false
+  xy: 0, 191
+  size: 512, 191
+  orig: 512, 191
+  offset: 0, 0
+  index: 56
+Wave
+  rotate: false
+  xy: 512, 191
+  size: 512, 191
+  orig: 512, 191
+  offset: 0, 0
+  index: 57
 Wave
   rotate: false
   xy: 0, 0
-  size: 512, 224
-  orig: 512, 224
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
-  index: 46
+  index: 58
 Wave
   rotate: false
   xy: 512, 0
-  size: 512, 224
-  orig: 512, 224
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
-  index: 47
+  index: 59
 
 wave7.png
 format: RGBA8888
@@ -371,60 +455,74 @@ filter: Linear,Linear
 repeat: none
 Wave
   rotate: false
-  xy: 0, 672
-  size: 512, 224
-  orig: 512, 224
+  xy: 0, 764
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
-  index: 48
+  index: 60
 Wave
   rotate: false
-  xy: 512, 672
-  size: 512, 224
-  orig: 512, 224
+  xy: 512, 764
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
-  index: 49
+  index: 61
 Wave
   rotate: false
-  xy: 0, 448
-  size: 512, 224
-  orig: 512, 224
+  xy: 0, 573
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
-  index: 50
+  index: 62
 Wave
   rotate: false
-  xy: 512, 448
-  size: 512, 224
-  orig: 512, 224
+  xy: 512, 573
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
-  index: 51
+  index: 63
 Wave
   rotate: false
-  xy: 0, 224
-  size: 512, 224
-  orig: 512, 224
+  xy: 0, 382
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
-  index: 52
+  index: 64
 Wave
   rotate: false
-  xy: 512, 224
-  size: 512, 224
-  orig: 512, 224
+  xy: 512, 382
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
-  index: 53
+  index: 65
+Wave
+  rotate: false
+  xy: 0, 191
+  size: 512, 191
+  orig: 512, 191
+  offset: 0, 0
+  index: 66
+Wave
+  rotate: false
+  xy: 512, 191
+  size: 512, 191
+  orig: 512, 191
+  offset: 0, 0
+  index: 67
 Wave
   rotate: false
   xy: 0, 0
-  size: 512, 224
-  orig: 512, 224
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
-  index: 54
+  index: 68
 Wave
   rotate: false
   xy: 512, 0
-  size: 512, 224
-  orig: 512, 224
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
-  index: 55
+  index: 69
 
 wave8.png
 format: RGBA8888
@@ -432,179 +530,71 @@ filter: Linear,Linear
 repeat: none
 Wave
   rotate: false
-  xy: 0, 672
-  size: 512, 224
-  orig: 512, 224
-  offset: 0, 0
-  index: 56
-Wave
-  rotate: false
-  xy: 512, 672
-  size: 512, 224
-  orig: 512, 224
-  offset: 0, 0
-  index: 57
-Wave
-  rotate: false
-  xy: 0, 448
-  size: 512, 224
-  orig: 512, 224
-  offset: 0, 0
-  index: 58
-Wave
-  rotate: false
-  xy: 512, 448
-  size: 512, 224
-  orig: 512, 224
-  offset: 0, 0
-  index: 59
-Wave
-  rotate: false
-  xy: 0, 224
-  size: 512, 224
-  orig: 512, 224
-  offset: 0, 0
-  index: 60
-Wave
-  rotate: false
-  xy: 512, 224
-  size: 512, 224
-  orig: 512, 224
-  offset: 0, 0
-  index: 61
-Wave
-  rotate: false
-  xy: 0, 0
-  size: 512, 224
-  orig: 512, 224
-  offset: 0, 0
-  index: 62
-Wave
-  rotate: false
-  xy: 512, 0
-  size: 512, 224
-  orig: 512, 224
-  offset: 0, 0
-  index: 63
-
-wave9.png
-format: RGBA8888
-filter: Linear,Linear
-repeat: none
-Wave
-  rotate: false
-  xy: 0, 672
-  size: 512, 224
-  orig: 512, 224
-  offset: 0, 0
-  index: 64
-Wave
-  rotate: false
-  xy: 512, 672
-  size: 512, 224
-  orig: 512, 224
-  offset: 0, 0
-  index: 65
-Wave
-  rotate: false
-  xy: 0, 448
-  size: 512, 224
-  orig: 512, 224
-  offset: 0, 0
-  index: 66
-Wave
-  rotate: false
-  xy: 512, 448
-  size: 512, 224
-  orig: 512, 224
-  offset: 0, 0
-  index: 67
-Wave
-  rotate: false
-  xy: 0, 224
-  size: 512, 224
-  orig: 512, 224
-  offset: 0, 0
-  index: 68
-Wave
-  rotate: false
-  xy: 512, 224
-  size: 512, 224
-  orig: 512, 224
-  offset: 0, 0
-  index: 69
-Wave
-  rotate: false
-  xy: 0, 0
-  size: 512, 224
-  orig: 512, 224
+  xy: 0, 764
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 70
 Wave
   rotate: false
-  xy: 512, 0
-  size: 512, 224
-  orig: 512, 224
+  xy: 512, 764
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 71
-
-wave10.png
-format: RGBA8888
-filter: Linear,Linear
-repeat: none
 Wave
   rotate: false
-  xy: 0, 672
-  size: 512, 224
-  orig: 512, 224
+  xy: 0, 573
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 72
 Wave
   rotate: false
-  xy: 512, 672
-  size: 512, 224
-  orig: 512, 224
+  xy: 512, 573
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 73
 Wave
   rotate: false
-  xy: 0, 448
-  size: 512, 224
-  orig: 512, 224
+  xy: 0, 382
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 74
 Wave
   rotate: false
-  xy: 512, 448
-  size: 512, 224
-  orig: 512, 224
+  xy: 512, 382
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 75
 Wave
   rotate: false
-  xy: 0, 224
-  size: 512, 224
-  orig: 512, 224
+  xy: 0, 191
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 76
 Wave
   rotate: false
-  xy: 512, 224
-  size: 512, 224
-  orig: 512, 224
+  xy: 512, 191
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 77
 Wave
   rotate: false
   xy: 0, 0
-  size: 512, 224
-  orig: 512, 224
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 78
 Wave
   rotate: false
   xy: 512, 0
-  size: 512, 224
-  orig: 512, 224
+  size: 512, 191
+  orig: 512, 191
   offset: 0, 0
   index: 79
