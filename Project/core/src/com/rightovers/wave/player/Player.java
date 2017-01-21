@@ -37,6 +37,7 @@ public class Player {
     public void update(float delta) {
         this.physics.update(delta);
         this.graphics.update(delta);
+        this.controller.update(delta);
     }
 
 }
