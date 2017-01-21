@@ -7,6 +7,9 @@ import com.rightovers.wave.utils.Loader;
 
 public class Player implements IResourceable {
 
+    public boolean releaseInertia;
+    private float timeSinceLastUpdatedInertia;
+
     public static Player getInstance() {
         if (Main.getInstance().instances.get(Player.class) == null) {
             Main.getInstance().instances.put(Player.class, new Player());
@@ -35,17 +38,20 @@ public class Player implements IResourceable {
 
 
 
-    private int defaultInertia = 5;
-    private int inertiaIncrementStep = 5;
+    public int defaultInertia = 5;
+    public int maxInertia = 40;
+    public int inertiaIncrementStep = 5;
     public int inertia = defaultInertia;
     private int getInertia() {
         return inertia;
     }
 
-    private void setInertia(int inertia) {
+    public void setInertia(int inertia) {
         this.inertia = inertia;
         if(this.inertia < defaultInertia)
             this.inertia = defaultInertia;
+        if(this.inertia > maxInertia)
+            this.inertia = maxInertia;
     }
 
 
@@ -70,6 +76,12 @@ public class Player implements IResourceable {
         this.controller.update(delta);
 
         this.distance += this.speed * delta;
+
+        if(this.timeSinceLastUpdatedInertia > 5.0f){
+            //Player.getInstance().setInertia(Player.getInstance().inertia - Player.getInstance().inertiaIncrementStep);
+            this.timeSinceLastUpdatedInertia=0;
+        }
+        this.timeSinceLastUpdatedInertia += delta;
     }
 
     public void incrementInertia() {
@@ -77,6 +89,7 @@ public class Player implements IResourceable {
     }
 
     public void releaseInertia() {
+        this.releaseInertia = true;
     }
 
     public DIRECTION getDirection() {

@@ -8,14 +8,18 @@ import com.rightovers.wave.utils.Loader;
 public class PlayerGraphics {
 
     public static final String WAVE_PACK_NAME = "images/wave.atlas";
+    private final float waveFps;
     public WaveAnimation<TextureRegion> waveAnimation;
 
     float stateTime;
     private int lastInertia;
 
-    public PlayerGraphics() {
-        this.waveAnimation = new WaveAnimation<TextureRegion>(1 / 25f, Loader.getInstance().getTextureAtlas(this.WAVE_PACK_NAME).getRegions(), WaveAnimation.PlayMode.LOOP_PINGPONG);
 
+
+    public PlayerGraphics() {
+        waveFps = 1 / 25f;
+        this.waveAnimation = new WaveAnimation<TextureRegion>(waveFps, Loader.getInstance().getTextureAtlas(this.WAVE_PACK_NAME).getRegions(), WaveAnimation.PlayMode.LOOP_PINGPONG);
+        updateWaveAnimation();
     }
 
     public void draw(float delta) {
@@ -28,25 +32,37 @@ public class PlayerGraphics {
         this.stateTime += delta;
 
         float fps = (1 / 75f) / ((Player.getInstance().speed / 300) * 0.5f);
-        Funcs.print(fps + " " + Player.getInstance().speed);
 
         this.waveAnimation.setFrameDuration(fps);
 
-        int inertia = Player.getInstance().inertia;
-        if(inertia != lastInertia){
-            int midPoint = waveAnimation.getAllFramesCount()/2;
 
-            int inertiaDifference = inertia-lastInertia;
-            if(inertia<=midPoint) {
-                this.waveAnimation.setLeftLoopFrameNumber((midPoint - inertia));
-                this.waveAnimation.setRightLoopFrameNumber((midPoint + inertia));
-                this.waveAnimation.setOffsetIndex(waveAnimation.getKeyFrameIndex(this.stateTime)+inertiaDifference);
-                this.waveAnimation.calculateTrimmedKeyFrames();
+        int currentAbsoluteFrameKey = this.waveAnimation.getLeftLoopFrameNumber()+waveAnimation.getKeyFrameIndex(this.stateTime);
+
+        if(Player.getInstance().inertia != lastInertia) {
+            if (Player.getInstance().releaseInertia == false) {
+                updateWaveAnimation();
+
+                int currentRelativeFrameKey = currentAbsoluteFrameKey-this.waveAnimation.getLeftLoopFrameNumber();
+
+                this.stateTime =currentRelativeFrameKey* waveFps;
+
+                if(this.waveAnimation.loopingForward == false){
+                    this.stateTime += waveFps*((this.waveAnimation.getTrimmedFramesCount()-currentRelativeFrameKey)*2);
+                }
+
             }
         }
         lastInertia = Player.getInstance().inertia;
 
-    }
 
+
+    }
+    private void updateWaveAnimation(){
+        int midPoint = waveAnimation.getAllFramesCount() / 2;
+        this.waveAnimation.setLeftLoopFrameNumber((midPoint - Player.getInstance().inertia));
+        this.waveAnimation.setRightLoopFrameNumber((midPoint + Player.getInstance().inertia));
+
+        this.waveAnimation.calculateTrimmedKeyFrames();
+    }
 
 }

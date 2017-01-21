@@ -17,6 +17,8 @@ import java.util.Arrays;
  * @author mzechner */
 public class WaveAnimation<T> {
 
+    public boolean loopingForward;
+
     public int getLeftLoopFrameNumber() {
         return leftLoopFrameNumber;
     }
@@ -155,7 +157,11 @@ public class WaveAnimation<T> {
                 break;
             case LOOP_PINGPONG:
                 frameNumber = frameNumber % ((keyFrames.size() * 2) - 2);
-                if (frameNumber >= keyFrames.size()) frameNumber = keyFrames.size() - 2 - (frameNumber - keyFrames.size());
+                loopingForward = true;
+                if (frameNumber >= keyFrames.size()){
+                    frameNumber = keyFrames.size() - 2 - (frameNumber - keyFrames.size());
+                    loopingForward = false;
+                }
                 break;
             case LOOP_RANDOM:
                 int lastFrameNumber = (int) ((lastStateTime) / frameDuration);
@@ -201,7 +207,7 @@ public class WaveAnimation<T> {
         int trimmedSize = rightFrame-leftFrame;
         this.keyFrames = new ArrayList();
 
-        for(int i=(leftFrame-1);i<=(rightFrame-1);i++){
+        for(int i=leftFrame;i<rightFrame;i++){
             this.keyFrames.add(this.realKeyFrames[i]);
         }
         this.animationDuration = keyFrames.size() * frameDuration;
@@ -246,5 +252,8 @@ public class WaveAnimation<T> {
     }
     public int getAllFramesCount(){
         return realKeyFrames.length;
+    }
+    public int getTrimmedFramesCount(){
+        return keyFrames.size();
     }
 }
