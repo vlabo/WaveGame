@@ -1,5 +1,6 @@
 package com.rightovers.wave.screens;
 
+import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.rightovers.wave.Main;
@@ -18,11 +19,17 @@ public class UI implements IResourceable {
     }
 
     public static void drawStrengthBar() {
-        Image sock = new Image(Loader.getInstance().getTexture("images/chorap.png"));
+        final Image sock = new Image(Loader.getInstance().getTexture("images/chorap.png"));
         Funcs.setWidth(sock, Funcs.percentWidth(4));
-        sock.setPosition(Funcs.percentWidth(4), Funcs.percentHeight(84));
 
-
+        sock.addAction(new Action() {
+            @Override
+            public boolean act(float delta) {
+                int xPos = Player.getInstance().inertia;
+                sock.setPosition(Funcs.percentWidth(xPos), Funcs.percentHeight(84));
+                return false;
+            }
+        });
 
         Image meter = new Image(Loader.getInstance().getTexture("images/meter.png"));
         Funcs.setWidth(meter, Funcs.percentWidth(20));
