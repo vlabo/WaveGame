@@ -17,8 +17,9 @@ public class WaveGraphics {
 
 
     public WaveGraphics() {
-        waveFps = 1 / 25f;
+        waveFps = 1 / 35f;
         this.waveAnimation = new WaveAnimation<TextureRegion>(waveFps, Loader.getInstance().getTextureAtlas(this.WAVE_PACK_NAME).getRegions(), WaveAnimation.PlayMode.LOOP_PINGPONG);
+        this.waveAnimation.setFrameDuration(waveFps);
         updateWaveAnimation();
     }
 
@@ -37,9 +38,6 @@ public class WaveGraphics {
 
 
         int currentAbsoluteFrameKey = this.waveAnimation.getLeftLoopFrameNumber()+waveAnimation.getKeyFrameIndex(this.stateTime);
-
-        waveFps = (1 / (25f+(Player.getInstance().inertia/2f)));
-        this.waveAnimation.setFrameDuration(waveFps);
 
         if(Player.getInstance().inertia != lastInertia) {
             if(
