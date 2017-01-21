@@ -21,7 +21,7 @@ public class Player {
     private final int minSpeed = 1;
 
     public Controller controller;
-    public Graphics graphics;
+    public PlayerGraphics playerGraphics;
     public PlayerPhysics physics;
     public float speed;
 
@@ -29,15 +29,19 @@ public class Player {
 
     public void create() {
         this.controller = new Controller();
-        this.graphics = new Graphics();
+        this.playerGraphics = new PlayerGraphics();
         this.physics = new PlayerPhysics();
     }
 
 
     public void update(float delta) {
         this.physics.update(delta);
-        this.graphics.update(delta);
+        this.playerGraphics.update(delta);
         this.controller.update(delta);
+    }
+
+    public void accelerate() {
+
     }
 
 }

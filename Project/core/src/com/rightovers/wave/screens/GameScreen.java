@@ -34,7 +34,7 @@ public class GameScreen implements Screen {
         Main.getInstance().batch.begin();
 
         Environment.getInstance().drawBackground(delta);
-        Player.getInstance().graphics.draw(delta);
+        Player.getInstance().playerGraphics.draw(delta);
         Environment.getInstance().drawObstacles(delta);
         Environment.getInstance().drawForeground(delta);
         Main.getInstance().batch.end();

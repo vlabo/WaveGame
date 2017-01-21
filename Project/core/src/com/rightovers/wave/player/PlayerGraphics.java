@@ -1,6 +1,6 @@
 package com.rightovers.wave.player;
 
-public class Graphics {
+public class PlayerGraphics {
 
     public void draw(float delta) {
 

@@ -71,7 +71,7 @@ public class Main extends Game {
         this.height = displayMode.height;
 
         Gdx.graphics.setWindowedMode(this.width, this.height);
-        //density = (float)(Gdx.graphics.getDensity() * 160);
+        //density = (float)(Gdx.playerGraphics.getDensity() * 160);
         this.density = this.width / this.DESIRED_METERS_WIDTH;
         // metersWidth is always DESIRED_METERS_WIDTH, metersHeight varies in dependence of the screen height to width ratio
         this.metersWidth = (this.width / this.density);
