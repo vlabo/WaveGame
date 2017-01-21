@@ -34,9 +34,16 @@ public class Controller {
         return Funcs.changeRange(-10, 10, -180, 180, Gdx.input.getAccelerometerZ());
     }
 
+<<<<<<< HEAD
     public void update (float delta) {
         Funcs.print(getX(), getY(), getZ());
     }
 
 
+=======
+    public void update(float delta) {
+        Funcs.print("Gyro", getX(), getY(), getZ());
+    }
+
+>>>>>>> ee046f705a902909b6dc9e832b62e3dd99f2030f
 }

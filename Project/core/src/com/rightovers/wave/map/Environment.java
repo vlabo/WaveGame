@@ -28,7 +28,10 @@ public class Environment {
     private ObstacleGenerator generator = null;
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ee046f705a902909b6dc9e832b62e3dd99f2030f
     private List<Rectangle> backgroundPositions = null;
     private List<Rectangle> groundPositions = null;
 
@@ -44,32 +47,53 @@ public class Environment {
     public void loadAssets() {
         Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, BACKGROUND_IMAGE, Loader.AssetType.TEXTURE);
         Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, GROUND_IMAGE, Loader.AssetType.TEXTURE);
+<<<<<<< HEAD
         generator = ObstacleGenerator.getInstance();
+=======
+        this.generator = ObstacleGenerator.getInstance();
+>>>>>>> ee046f705a902909b6dc9e832b62e3dd99f2030f
     }
 
 
     public void drawBackground(float deltaTime) {
 
+<<<<<<< HEAD
         drawTextureSequence(background, backgroundPositions);
         drawTextureSequence(ground, groundPositions);
+=======
+        //drawTextureSequence(background, backgroundPositions);
+        //drawTextureSequence(ground, groundPositions);
+>>>>>>> ee046f705a902909b6dc9e832b62e3dd99f2030f
 
     }
 
     private void drawTextureSequence(Texture texture, List<Rectangle> positions) {
         boolean shouldMoveFirst = false;
+<<<<<<< HEAD
         for(Rectangle currentPosition : positions) {
             Main.getInstance().batch.draw(texture, currentPosition.x, currentPosition.y,
                     currentPosition.getWidth(), currentPosition.getHeight());
             currentPosition.x += BACKGROUND_MOVE_SPEED;
 
             if(currentPosition.x + currentPosition.getWidth() < 0) {
+=======
+        for (Rectangle currentPosition : positions) {
+            Main.getInstance().batch.draw(texture, currentPosition.x, currentPosition.y, currentPosition.getWidth(), currentPosition.getHeight());
+            currentPosition.x += BACKGROUND_MOVE_SPEED;
+
+            if (currentPosition.x + currentPosition.getWidth() < 0) {
+>>>>>>> ee046f705a902909b6dc9e832b62e3dd99f2030f
                 Rectangle last = positions.get(positions.size() - 1);
                 currentPosition.x = last.x + last.getWidth();
                 shouldMoveFirst = true;
             }
         }
 
+<<<<<<< HEAD
         if(shouldMoveFirst) {
+=======
+        if (shouldMoveFirst) {
+>>>>>>> ee046f705a902909b6dc9e832b62e3dd99f2030f
             Rectangle rec = positions.remove(0);
             positions.add(rec);
         }
@@ -77,7 +101,11 @@ public class Environment {
     }
 
     public void drawObstacles(float delta) {
+<<<<<<< HEAD
         generator.draw(delta);
+=======
+        this.generator.draw(delta);
+>>>>>>> ee046f705a902909b6dc9e832b62e3dd99f2030f
     }
 
     public void drawForeground(float deltaTime) {
@@ -85,6 +113,7 @@ public class Environment {
     }
 
     public void update(float delta) {
+<<<<<<< HEAD
         if(background == null) {
             background = Loader.getInstance().getTexture(BACKGROUND_IMAGE);
             backgroundPositions = new ArrayList<Rectangle>();
@@ -101,13 +130,39 @@ public class Environment {
             int groundFitTimes = (int)(Main.getInstance().width / ground.getWidth()) + 2;
             for(int i = 0; i < groundFitTimes;i++) {
                 groundPositions.add(new Rectangle(i * ground.getWidth(), 0, ground.getWidth(), ground.getHeight()));
+=======
+        if (1 == 1) {
+            return;
+        }
+        if (this.background == null) {
+            this.background = Loader.getInstance().getTexture(BACKGROUND_IMAGE);
+            this.backgroundPositions = new ArrayList<Rectangle>();
+            this.backgroundRatio = (float) this.background.getHeight() / (float) Main.getInstance().height;
+            int backgroundFitTimes = (int) (Main.getInstance().width / this.backgroundRatio) + 2;
+            for (int i = 0; i < backgroundFitTimes; i++) {
+                this.backgroundPositions.add(new Rectangle(i * (this.background.getWidth() / this.backgroundRatio), 0, this.background.getWidth() / this.backgroundRatio, this.background.getHeight() / this.backgroundRatio));
+            }
+        }
+
+        if (this.ground == null) {
+            this.ground = Loader.getInstance().getTexture(GROUND_IMAGE);
+            this.groundPositions = new ArrayList<Rectangle>();
+            int groundFitTimes = (int) (Main.getInstance().width / this.ground.getWidth()) + 2;
+            for (int i = 0; i < groundFitTimes; i++) {
+                this.groundPositions.add(new Rectangle(i * this.ground.getWidth(), 0, this.ground.getWidth(), this.ground.getHeight()));
+>>>>>>> ee046f705a902909b6dc9e832b62e3dd99f2030f
             }
         }
 
     }
 
     public float getGroundLevel() {
+<<<<<<< HEAD
         return ground.getHeight();
+=======
+        return 10;
+        //return this.ground.getHeight();
+>>>>>>> ee046f705a902909b6dc9e832b62e3dd99f2030f
     }
 
 }
