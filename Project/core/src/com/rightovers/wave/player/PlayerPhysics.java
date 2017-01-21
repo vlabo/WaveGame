@@ -4,6 +4,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.rightovers.wave.map.Box2DWorld;
+import com.rightovers.wave.screens.GameScreen;
 import com.rightovers.wave.utils.Box2DObject;
 
 import java.util.ArrayList;
@@ -38,6 +39,19 @@ class PlayerPhysics {
     public void remove() {
         Box2DWorld.getInstance().world.destroyBody(this.box2DBody);
         this.box2DBody = null;
+    }
+
+    public void onCollision() {
+        // TODO check strength and direction
+
+        // good
+        if (Player.getInstance().getStrength() > 0.5f) {
+            GameScreen.getInstance().buildingsDestroyed++;
+        }
+        // bad
+        else {
+            Player.getInstance().die();
+        }
     }
 
 }

@@ -30,7 +30,6 @@ public class Controller {
             @Override
             public boolean keyUp(InputEvent event, int keycode) {
                 if (event.getKeyCode() == Input.Keys.RIGHT) {
-                    Funcs.print("asd");
                     Player.getInstance().incrementInertia();
                 }
                 else if (event.getKeyCode() == Input.Keys.LEFT) {

@@ -1,15 +1,22 @@
 package com.rightovers.wave.screens;
 
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.scenes.scene2d.Action;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.rightovers.wave.Main;
 import com.rightovers.wave.map.Box2DWorld;
 import com.rightovers.wave.map.Environment;
 import com.rightovers.wave.map.obstacles.ObstacleGenerator;
 import com.rightovers.wave.player.Player;
 import com.rightovers.wave.player.PlayerParticles;
+import com.rightovers.wave.utils.Funcs;
 
 
 public class GameScreen implements Screen {
+
+    public int timeStartedPlaying = 0;
+    public int buildingsDestroyed = 0;
+
     public static GameScreen getInstance() {
         if (Main.getInstance().instances.get(GameScreen.class) == null) {
             Main.getInstance().instances.put(GameScreen.class, new GameScreen());
@@ -22,6 +29,19 @@ public class GameScreen implements Screen {
         Box2DWorld.getInstance().setup(Main.getInstance().camera, Main.getInstance().density);
         Player.getInstance().create();
         UI.drawStrengthBar();
+        PlayerParticles.getInstance().init();
+
+        // start playing
+        this.timeStartedPlaying = Funcs.getTime();
+
+        // for test - kill the player
+        Main.getInstance().stage.addAction(Actions.sequence(Actions.delay(3), new Action() {
+            @Override
+            public boolean act(float delta) {
+                Player.getInstance().die();
+                return true;
+            }
+        }));
     }
 
     @Override

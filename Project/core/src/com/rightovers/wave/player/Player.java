@@ -1,6 +1,9 @@
 package com.rightovers.wave.player;
 
+import com.badlogic.gdx.scenes.scene2d.Action;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.rightovers.wave.Main;
+import com.rightovers.wave.screens.EndMenu;
 import com.rightovers.wave.utils.Funcs;
 import com.rightovers.wave.utils.IResourceable;
 import com.rightovers.wave.utils.Loader;
@@ -10,6 +13,8 @@ public class Player implements IResourceable {
 
     public boolean releaseInertia;
     private float timeSinceLastUpdatedInertia;
+    // it will be set to true when you crash
+    public boolean dying = false;
 
     public static Player getInstance() {
         if (Main.getInstance().instances.get(Player.class) == null) {
@@ -22,7 +27,6 @@ public class Player implements IResourceable {
     public void loadAssets() {
         Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, this.waveGraphics.WAVE_PACK_NAME, Loader.AssetType.TEXTURE_ATLAS);
         Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, "images/poseidon.pack", Loader.AssetType.TEXTURE_ATLAS);
-        Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, "particles/green-particle.particle", Loader.AssetType.PARTICLE_EFFECT);
 
     }
 
@@ -120,13 +124,34 @@ public class Player implements IResourceable {
         if (frame > 1 && frame <= 40) {
             return 0;
         }
-        else if(frame>40 && frame <= 65) {
-            return Funcs.changeRange(40,65,0,1,frame);
+        else if (frame > 40 && frame <= 65) {
+            return Funcs.changeRange(40, 65, 0, 1, frame);
         }
-        else if(frame>65&&frame<=80){
-            return (1f-Funcs.changeRange(65,80,0,1,frame));
+        else if (frame > 65 && frame <= 80) {
+            return (1f - Funcs.changeRange(65, 80, 0, 1, frame));
         }
         return 0;
     }
 
+    public void die() {
+        float endScreenAfter = 1;
+        // mark as dying
+        this.dying = true;
+        // kill the speed
+        this.speed = 0;
+
+        // TODO spawn particle
+        // TODO camera shake
+        // TODO throw poseidon
+        // TODO stop wave animation
+
+
+        Main.getInstance().stage.addAction(Actions.sequence(Actions.delay(endScreenAfter), new Action() {
+            @Override
+            public boolean act(float delta) {
+                Funcs.setScreen(EndMenu.getInstance());
+                return true;
+            }
+        }));
+    }
 }

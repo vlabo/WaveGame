@@ -2,10 +2,13 @@ package com.rightovers.wave.screens;
 
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.utils.Align;
 import com.rightovers.wave.Main;
+import com.rightovers.wave.player.Player;
 import com.rightovers.wave.utils.Font;
 import com.rightovers.wave.utils.Funcs;
 import com.rightovers.wave.utils.Loader;
@@ -20,24 +23,30 @@ public class EndMenu implements Screen {
 
     @Override
     public void show() {
-        Image bg = new Image(Loader.getInstance().getTexture("images/bg.jpg"));
+        Main.getInstance().stage.clear();
+
+        Image bg = new Image(Loader.getInstance().getTexture("images/background.png"));
         Funcs.setWidth(bg, Funcs.percentWidth(100));
 
-        Image playBtn = new Image(Loader.getInstance().getTexture("images/play.png"));
+        Image playBtn = new Image(Loader.getInstance().getTexture("images/building.png"));
         Funcs.setWidth(playBtn, Funcs.percentWidth(20));
+        playBtn.setOrigin(Align.center);
         playBtn.setPosition(Funcs.centerWidth(playBtn), Funcs.percentHeight(70));
-        playBtn.addAction(Actions.sequence(Actions.scaleBy(1.2f, 1.2f, 1), Actions.scaleBy(0.8f, 0.8f, 1)));
+        playBtn.addAction(Actions.sequence(Actions.delay(3), Actions.scaleTo(1.2f, 1.2f, 0.5f), Actions.scaleTo(1f, 1f, 0.5f)));
 
         Label.LabelStyle textStyle = new Label.LabelStyle(Font.getInstance().getFont("fonts/regular.ttf", (int) Funcs.percentHeight(10)), Color.WHITE);
 
-        Label text1 = new Label("Distance: 12", textStyle);
-        text1.setPosition(Funcs.centerWidth(text1), Funcs.percentHeight(50));
+        Label text1 = new Label("Distance: " + Player.getInstance().getDistance() + "m", textStyle);
+        text1.setPosition(Funcs.centerWidth(text1), Funcs.percentHeight(120));
+        text1.addAction(Actions.moveTo(Funcs.centerWidth(text1), Funcs.percentHeight(50), 1, Interpolation.bounce));
 
-        Label text2 = new Label("Time: 12", textStyle);
-        text2.setPosition(Funcs.centerWidth(text2), Funcs.percentHeight(40));
+        Label text2 = new Label("Time: " + (Funcs.getTime() - GameScreen.getInstance().timeStartedPlaying), textStyle);
+        text2.setPosition(Funcs.centerWidth(text2), Funcs.percentHeight(150));
+        text2.addAction(Actions.moveTo(Funcs.centerWidth(text2), Funcs.percentHeight(35), 1, Interpolation.bounce));
 
-        Label text3 = new Label("Buildings down: 12", textStyle);
-        text3.setPosition(Funcs.centerWidth(text3), Funcs.percentHeight(30));
+        Label text3 = new Label("Buildings destroyed: " + GameScreen.getInstance().buildingsDestroyed, textStyle);
+        text3.setPosition(Funcs.centerWidth(text3), Funcs.percentHeight(180));
+        text3.addAction(Actions.moveTo(Funcs.centerWidth(text3), Funcs.percentHeight(20), 1, Interpolation.bounce));
 
 
         Main.getInstance().stage.addActor(bg);
@@ -46,6 +55,10 @@ public class EndMenu implements Screen {
         Main.getInstance().stage.addActor(text1);
         Main.getInstance().stage.addActor(text2);
         Main.getInstance().stage.addActor(text3);
+
+
+        // reset data
+        GameScreen.getInstance().buildingsDestroyed = 0;
     }
 
     @Override
