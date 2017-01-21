@@ -63,7 +63,7 @@ public class Player implements IResourceable {
 
     public void deccelerate() {
         if (this.speed > this.minSpeed) {
-            this.speed -= 0.1f;
+            this.speed -= 1;
         }
     }
 

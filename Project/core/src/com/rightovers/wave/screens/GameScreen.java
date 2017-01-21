@@ -40,6 +40,7 @@ public class GameScreen implements Screen {
         Main.getInstance().batch.end();
 
         Box2DWorld.getInstance().draw(delta);
+        
 
     }
 

@@ -3,7 +3,9 @@ package com.rightovers.wave.player;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.InputListener;
+import com.rightovers.wave.Main;
 import com.rightovers.wave.utils.Funcs;
 
 import java.util.ArrayList;
@@ -12,6 +14,25 @@ public class Controller {
 
     private ArrayList<Float> lastZ = new ArrayList<Float>();
     long lastTriggered = Funcs.getTimeMillis();
+
+    public Controller() {
+        // controller for PC
+        Gdx.input.setInputProcessor(Main.getInstance().stage);
+        Main.getInstance().stage.addListener(new InputListener() {
+
+            @Override
+            public boolean keyUp(InputEvent event, int keycode) {
+                if (event.getKeyCode() == Input.Keys.RIGHT) {
+                    Player.getInstance().accelerate();
+                }
+                else if (event.getKeyCode() == Input.Keys.LEFT) {
+                    Player.getInstance().deccelerate();
+                }
+                return true;
+            }
+
+        });
+    }
 
     // THE CONTROLS
 
@@ -22,7 +43,8 @@ public class Controller {
     // The size of the sample array
     int arraySize = 20;
     // The last item of the array (arraySize - 1)
-    int lastItem = arraySize - 1;
+    int lastItem = this.arraySize - 1;
+
     /**
      * check if gyroscope is available
      */
@@ -33,10 +55,9 @@ public class Controller {
     /**
      * get all 2 axis of the gyroscope
      */
-//    public Vector3 getGyro() {
-//        return new Vector3(Gdx.input.getAccelerometerX(), Gdx.input.getAccelerometerY(), Gdx.input.getAccelerometerZ());
-//    }
-
+    //    public Vector3 getGyro() {
+    //        return new Vector3(Gdx.input.getAccelerometerX(), Gdx.input.getAccelerometerY(), Gdx.input.getAccelerometerZ());
+    //    }
     public float getX() {
         return Gdx.input.getAccelerometerX();
     }
@@ -50,21 +71,22 @@ public class Controller {
     }
 
     public void update(float delta) {
-    float zaxis = getZ();
-    lastZ.add(zaxis);
-        if (lastZ.size() <= arraySize) {
+        float zaxis = getZ();
+        this.lastZ.add(zaxis);
+        if (this.lastZ.size() <= this.arraySize) {
             return;
-        } else {
+        }
+        else {
 
-            if (lastZ.size() > arraySize) {
-                lastZ.remove(0);
+            if (this.lastZ.size() > this.arraySize) {
+                this.lastZ.remove(0);
             }
 
-            if (lastZ.get(lastItem) - lastZ.get(0) > degrees) {
-                if (Funcs.getTimeMillis() - lastTriggered > interval) {
+            if (this.lastZ.get(this.lastItem) - this.lastZ.get(0) > this.degrees) {
+                if (Funcs.getTimeMillis() - this.lastTriggered > this.interval) {
                     // Here you can log your trigger for acceleration
                     // Funcs.print("Trigger accelerate");
-                    lastTriggered = Funcs.getTimeMillis();
+                    this.lastTriggered = Funcs.getTimeMillis();
                     Player.getInstance().accelerate();
                 }
             }
