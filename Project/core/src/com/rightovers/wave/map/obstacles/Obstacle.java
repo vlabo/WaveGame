@@ -5,7 +5,6 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.rightovers.wave.Main;
-import com.rightovers.wave.map.Environment;
 import com.rightovers.wave.player.Player;
 import com.rightovers.wave.utils.Loader;
 
@@ -40,7 +39,7 @@ class Obstacle {
 
     public void update(float delta) {
         this.physics.update(delta);
-        getBox2DBody().setTransform(getBox2DBody().getPosition().x + Environment.BACKGROUND_MOVE_SPEED, getBox2DBody().getPosition().y, 0);
+        //getBox2DBody().setTransform(getBox2DBody().getPosition().x + Environment.BACKGROUND_MOVE_SPEED, getBox2DBody().getPosition().y, 0);
 
     }
 
@@ -48,7 +47,7 @@ class Obstacle {
         if (this.building == null) {
             this.building = Loader.getInstance().getTexture(BUILDING_TEXTURE);
         }
-        
+
         Main.getInstance().batch.draw(this.building, getBox2DBody().getPosition().x - Player.getInstance().getDistance(), getBox2DBody().getPosition().y, this.building.getWidth(), this.building.getHeight());
 
     }

@@ -1,6 +1,7 @@
 package com.rightovers.wave.player;
 
 import com.rightovers.wave.Main;
+import com.rightovers.wave.utils.Funcs;
 import com.rightovers.wave.utils.IResourceable;
 
 
@@ -29,7 +30,7 @@ public class Player implements IResourceable {
     public Controller controller;
     public PlayerGraphics playerGraphics;
     public PlayerPhysics physics;
-    public float speed = 1;
+    public float speed = 20;
 
     public float getDistance() {
         return this.distance;
@@ -48,15 +49,17 @@ public class Player implements IResourceable {
 
 
     public void update(float delta) {
-        this.distance += this.speed;
         this.physics.update(delta);
         this.playerGraphics.update(delta);
         this.controller.update(delta);
+
+        this.distance += this.speed * delta;
+        Funcs.print(this.distance + " dis");
     }
 
     public void accelerate() {
         if (this.speed < this.maxSpeed) {
-            this.speed += 0.1f;
+            this.speed += 10;
         }
     }
 
