@@ -85,7 +85,7 @@ public class Player implements IResourceable {
     }
 
     public void incrementInertia() {
-        this.inertia += this.inertiaIncrementStep;
+        this.setInertia(this.inertia + this.inertiaIncrementStep);
     }
 
     public void releaseInertia() {
