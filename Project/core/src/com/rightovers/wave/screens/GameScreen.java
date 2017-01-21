@@ -38,7 +38,7 @@ public class GameScreen implements Screen {
         Main.getInstance().stage.addAction(Actions.sequence(Actions.delay(3), new Action() {
             @Override
             public boolean act(float delta) {
-                Player.getInstance().die();
+                //Player.getInstance().die();
                 return true;
             }
         }));
