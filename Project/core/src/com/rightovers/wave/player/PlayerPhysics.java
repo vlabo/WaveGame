@@ -9,6 +9,7 @@ import com.rightovers.wave.map.Environment;
 import com.rightovers.wave.screens.GameScreen;
 import com.rightovers.wave.utils.Box2DObject;
 import com.rightovers.wave.utils.Funcs;
+import com.rightovers.wave.utils.SoundManager;
 
 import java.util.ArrayList;
 
@@ -50,6 +51,7 @@ public class PlayerPhysics {
         // TODO check strength and direction
         // good
         if (Player.getInstance().getStrength() > 0.5f) {
+            SoundManager.getInstance().crashBulding();
             GameScreen.getInstance().buildingsDestroyed++;
         }
         // bad

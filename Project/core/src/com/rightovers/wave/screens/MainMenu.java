@@ -10,6 +10,7 @@ import com.badlogic.gdx.utils.Align;
 import com.rightovers.wave.Main;
 import com.rightovers.wave.utils.Funcs;
 import com.rightovers.wave.utils.Loader;
+import com.rightovers.wave.utils.SoundManager;
 
 
 public class MainMenu implements Screen {
@@ -22,6 +23,7 @@ public class MainMenu implements Screen {
 
     @Override
     public void show() {
+        SoundManager.getInstance().playAndRewindMusic(1);
         Image bg = new Image(Loader.getInstance().getTexture("images/grnBg.jpg"));
         Funcs.setWidth(bg, Funcs.percentWidth(100));
         //bg.setPosition(Funcs.centerWidth(bg), Funcs.centerHeight(bg));

@@ -46,7 +46,7 @@ public class Player implements IResourceable {
     public PoseidonGraphics poseidonGraphics;
     public PlayerPhysics physics;
 
-    public final float INITIAL_SPEED = 3;
+    public final float INITIAL_SPEED = 2;
 
     private float speed = this.INITIAL_SPEED;
     public float speedMultiplier = 1f;
