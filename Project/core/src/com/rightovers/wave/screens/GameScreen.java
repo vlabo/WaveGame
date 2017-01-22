@@ -11,6 +11,7 @@ import com.rightovers.wave.map.obstacles.ObstacleGenerator;
 import com.rightovers.wave.player.Player;
 import com.rightovers.wave.player.PlayerParticles;
 import com.rightovers.wave.utils.Funcs;
+import com.rightovers.wave.utils.SoundManager;
 
 import static com.badlogic.gdx.math.MathUtils.random;
 
@@ -39,6 +40,7 @@ public class GameScreen implements Screen {
 
     @Override
     public void show() {
+        SoundManager.getInstance().playAndRewindMusic(2);
         Main.getInstance().stage.clear();
         this.timeStartedPlaying = 0;
         this.buildingsDestroyed = 0;

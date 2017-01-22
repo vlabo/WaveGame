@@ -10,6 +10,7 @@ import com.rightovers.wave.player.Player;
 import com.rightovers.wave.player.PlayerParticles;
 import com.rightovers.wave.utils.Funcs;
 import com.rightovers.wave.utils.Loader;
+import com.rightovers.wave.utils.SoundManager;
 
 public class SplashScreen implements Screen {
 
@@ -36,7 +37,7 @@ public class SplashScreen implements Screen {
         Environment.getInstance().loadAssets();
         PlayerParticles.getInstance().loadAssets();
         UI.getInstance().loadAssets();
-
+        SoundManager.getInstance().loadAssets();
         Loader.getInstance().addToLoadingQueue(Main.getInstance().assetsGroupName);
     }
 
