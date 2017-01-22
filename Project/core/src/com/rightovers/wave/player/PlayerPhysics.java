@@ -25,18 +25,17 @@ class PlayerPhysics {
         ArrayList<ArrayList<Vector2>> fixtures = new ArrayList<ArrayList<Vector2>>();
         ArrayList<Vector2> fixture1 = new ArrayList<Vector2>();
         fixture1.add(new Vector2(0, 0));
-        fixture1.add(new Vector2(0, 100));
-        fixture1.add(new Vector2(100, 100));
-        fixture1.add(new Vector2(100, 0));
+        fixture1.add(new Vector2(0, 50));
+        fixture1.add(new Vector2(50, 50));
+        fixture1.add(new Vector2(50, 0));
         fixtures.add(fixture1);
-        this.box2DBody = Box2DObject.createBody(false, Box2DWorld.getInstance().getWorld(), BodyDef.BodyType.KinematicBody, 1f, 1f, 0f, new Vector2(Environment.getInstance().VISIBLE_X_METERS/2, 100), fixtures, -1, true);
+        this.box2DBody = Box2DObject.createBody(false, Box2DWorld.getInstance().getWorld(), BodyDef.BodyType.KinematicBody, 1f, 1f, 0f, new Vector2(Environment.getInstance().VISIBLE_X_METERS / 2, 10), fixtures, -1, true);
 
     }
 
     public void update(float delta) {
-        //this.box2DBody.setLinearVelocity(250, 0);
-        box2DBody.applyForceToCenter(100,0,true);
-        Funcs.print(box2DBody.getPosition());
+        this.box2DBody.setLinearVelocity(45, 0);
+        Funcs.print(this.box2DBody.getPosition());
     }
 
     public void remove() {

@@ -2,13 +2,10 @@ package com.rightovers.wave.map.obstacles;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Matrix3;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
-import com.badlogic.gdx.utils.compression.lzma.Encoder;
 import com.rightovers.wave.Main;
 import com.rightovers.wave.map.Box2DWorld;
 import com.rightovers.wave.map.Environment;
@@ -16,7 +13,6 @@ import com.rightovers.wave.player.Player;
 import com.rightovers.wave.utils.Box2DObject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -55,7 +51,7 @@ public class ObstacleParticle {
         applyTransformation(0, 1, angle, x, y, array);
         applyTransformation(5, 6, angle, x, y, array);
         applyTransformation(10, 11, angle, x, y, array);
-        applyTransformation(15, 16, angle, x , y, array);
+        applyTransformation(15, 16, angle, x, y, array);
         Main.getInstance().batch.draw(this.obstacle, array, 0, array.length);
     }
 
@@ -105,7 +101,7 @@ public class ObstacleParticle {
         u2 = triangle.get(second).x / (texture.getWidth() / 10);
         v2 = 1 - triangle.get(second).y / (texture.getHeight() / 10);
 
-        u3 = triangle.get(third).x  / (texture.getWidth() / 10);
+        u3 = triangle.get(third).x / (texture.getWidth() / 10);
         v3 = 1 - triangle.get(third).y / (texture.getHeight() / 10);
 
 
@@ -115,7 +111,7 @@ public class ObstacleParticle {
     }
 
     public void destroy() {
-        Box2DWorld.getInstance().getWorld().destroyBody(body);
+        Box2DWorld.getInstance().getWorld().destroyBody(this.body);
     }
 
 

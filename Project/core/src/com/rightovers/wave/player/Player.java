@@ -37,8 +37,8 @@ public class Player implements IResourceable {
         DOWN
     }
 
-    private final float MAX_SPEED = 350;
-    private final float MIN_SPEED = 100;
+    private final float MAX_SPEED = 200;
+    private final float MIN_SPEED = 50;
 
     public Controller controller;
     public WaveGraphics waveGraphics;
@@ -50,10 +50,11 @@ public class Player implements IResourceable {
     public float speedMultiplier = 1f;
     public final float SPEED_SLOWDOWN_MULTIPLIER = .5f;
 
-    public float getSpeed(){
-        return speed*speedMultiplier;
+    public float getSpeed() {
+        return this.speed * this.speedMultiplier;
     }
-    public void setSpeed(float speed){
+
+    public void setSpeed(float speed) {
         this.speed = speed;
     }
 
