@@ -114,7 +114,7 @@ Funcs.print("Degree:"+this.lastZ.get(this.lastItem),"Difference"+(this.lastZ.get
                     this.lastZ.set(0,this.lastZ.get(this.lastItem));
                     Player.getInstance().whip();
                 }
-            }else if (this.lastZ.get(this.lastItem) - this.lastZ.get(0) <this.degrees) {
+            }else if (this.lastZ.get(this.lastItem) - this.lastZ.get(0) < -this.degrees) {
                 this.lastZ.set(0,this.lastZ.get(this.lastItem));
             }
         }
