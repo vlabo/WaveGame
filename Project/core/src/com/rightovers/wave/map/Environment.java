@@ -81,7 +81,7 @@ public class Environment implements IResourceable {
             this.groundPositions = new ArrayList<Rectangle>();
             int groundFitTimes = (int) (Main.getInstance().width / this.ground.getWidth()) + 2;
             for (int i = 0; i < groundFitTimes; i++) {
-                this.groundPositions.add(new Rectangle(i * this.ground.getWidth(), 0, this.ground.getWidth(), this.ground.getHeight()));
+                this.groundPositions.add(new Rectangle(i * this.ground.getWidth(), Funcs.percentHeight(4), this.ground.getWidth(), this.ground.getHeight()));
             }
         }
     }
