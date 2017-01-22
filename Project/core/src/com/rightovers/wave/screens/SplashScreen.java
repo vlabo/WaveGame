@@ -50,7 +50,7 @@ public class SplashScreen implements Screen {
             // TO FIX
             //Main.getInstance().skin.addRegions(Loader.getInstance().getTextureAtlas("images/assets.pack"));
 
-            Funcs.setScreen(GameScreen.getInstance());
+            Funcs.setScreen(MainMenu.getInstance());
         }
 
         // if the splash screens are not showed but ready
