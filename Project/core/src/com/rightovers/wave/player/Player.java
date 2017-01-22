@@ -4,6 +4,7 @@ import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.rightovers.wave.Main;
 import com.rightovers.wave.screens.EndMenu;
+import com.rightovers.wave.screens.GameScreen;
 import com.rightovers.wave.utils.Funcs;
 import com.rightovers.wave.utils.IResourceable;
 import com.rightovers.wave.utils.Loader;
@@ -136,13 +137,15 @@ public class Player implements IResourceable {
     }
 
     public void die() {
-        float endScreenAfter = 1;
+        float endScreenAfter = 2;
         // mark as dying
         this.dying = true;
         // kill the speed
         this.speed = 0;
 
-        // TODO camera shake
+        // camera shake
+        //GameScreen.getInstance().startCameraShake(20, endScreenAfter * 1000);
+
         // TODO throw poseidon
         // TODO stop wave animation
 
@@ -150,6 +153,7 @@ public class Player implements IResourceable {
         Main.getInstance().stage.addAction(Actions.sequence(Actions.delay(endScreenAfter), new Action() {
             @Override
             public boolean act(float delta) {
+                GameScreen.getInstance().resetAfterCameraShake(Main.getInstance().camera);
                 Funcs.setScreen(EndMenu.getInstance());
                 return true;
             }
