@@ -14,7 +14,7 @@ public class Controller {
 
     private ArrayList<Float> lastZ = new ArrayList<Float>();
     long lastTriggered = Funcs.getTimeMillis();
-    private float lastHitPoint = -1f;
+    private boolean whipped = false;
 
     public Controller() {
         Funcs.print("as2d");
@@ -95,15 +95,6 @@ public class Controller {
     }
 
     public void update(float delta) {
-        if (Funcs.getTimeMillis() - this.lastTriggered > this.interval) {
-            float accelZ = Gdx.input.getAccelerometerZ();
-            if(accelZ > 10){
-                Player.getInstance().incrementInertia();
-                Player.getInstance().whip();
-            }
-            Funcs.print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>accelaration: "+accelZ);
-        }
-        if(1==1)return;
         float zaxis = getZ();
         this.lastZ.add(zaxis);
         if (this.lastZ.size() <= this.arraySize) {
@@ -114,20 +105,20 @@ public class Controller {
             if (this.lastZ.size() > this.arraySize) {
                 this.lastZ.remove(0);
             }
-            if (this.lastZ.get(this.lastItem) - this.lastZ.get(0) > this.degrees && lastHitPoint == -1f) {
+            if (this.lastZ.get(this.lastItem) - this.lastZ.get(0) > this.degrees && whipped == false) {
                 if (Funcs.getTimeMillis() - this.lastTriggered > this.interval) {
                     // Here you can log your trigger for acceleration
                     // Funcs.print("Trigger incrementInertia");
                     this.lastTriggered = Funcs.getTimeMillis();
                     Player.getInstance().incrementInertia();
-                    lastHitPoint = zaxis;
                     Player.getInstance().whip();
                 }
-            }else if ((zaxis - lastHitPoint) > this.degrees) {
-                lastHitPoint = -1;
             }
-            if(lastHitPoint != -1)
-                Funcs.print(">>>>>>>>>>>>>>>>>>>"+"-"+zaxis+"-"+ lastHitPoint);
+
+            if(zaxis < -this.interval){
+                whipped = false;
+            }
+                Funcs.print(">>>>>>>>>>>>>>>>>>>"+"-"+zaxis+"-");
         }
         //Funcs.print(" " + Funcs.getTimeMillis());
         //Funcs.print("firstZ: " + lastZ.get(0) + "arr length" + lastZ.size());
