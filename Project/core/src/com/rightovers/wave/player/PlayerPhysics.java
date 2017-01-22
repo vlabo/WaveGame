@@ -27,7 +27,7 @@ public class PlayerPhysics {
         fixture1.add(new Vector2(50, 25));
         fixture1.add(new Vector2(0, 50));
         fixtures.add(fixture1);
-        this.box2DBody = Box2DObject.createBody(false, Box2DWorld.getInstance().getWorld(), BodyDef.BodyType.KinematicBody, 1f, 1f, 0f, new Vector2(Environment.getInstance().getScaleRatio() * 3.7f, Environment.getInstance().getScaleRatio() * -0.4f), fixtures, 1, true);
+        this.box2DBody = Box2DObject.createBody(false, Box2DWorld.getInstance().getWorld(), BodyDef.BodyType.KinematicBody, 1f, 1f, 0f, new Vector2(Environment.getInstance().getScaleRatio() * 2f, Environment.getInstance().getScaleRatio() * -0.4f), fixtures, 1, true);
         this.box2DBody.getFixtureList().get(0).setDensity(50);
     }
 
@@ -42,12 +42,9 @@ public class PlayerPhysics {
 
     public void onCollision() {
         // TODO check strength and direction
-
         // good
-        if (Player.getInstance().getStrength() > 0.75f) {
+        if (Player.getInstance().getStrength() > 0.5f) {
             GameScreen.getInstance().buildingsDestroyed++;
-            // slow down
-            Player.getInstance().setSpeed(Player.getInstance().getSpeed() * 0.8f);
         }
         // bad
         else {

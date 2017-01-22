@@ -14,10 +14,13 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.rightovers.wave.Main;
 import com.rightovers.wave.player.Player;
 import com.rightovers.wave.utils.Box2DObject;
+import com.rightovers.wave.utils.Funcs;
 
 import java.util.ArrayList;
 
 public class Box2DWorld {
+
+    private float timeout;
 
     public static Box2DWorld getInstance() {
         if (Main.getInstance().instances.get(Box2DWorld.class) == null) {
@@ -39,9 +42,13 @@ public class Box2DWorld {
         this.world.setContactListener(new ContactListener() {
             @Override
             public void beginContact(Contact contact) {
+                if(Box2DWorld.getInstance().timeout > 0)
+                    return;
                 int bodyAId = (Integer) contact.getFixtureA().getBody().getUserData();
                 int bodyBId = (Integer) contact.getFixtureB().getBody().getUserData();
-                if(bodyAId == 1 || bodyBId == 1){
+                if(bodyAId == 1|| bodyBId == 1){
+                    Box2DWorld.getInstance().timeout = 2f;
+                    Funcs.print("Strength"+Player.getInstance().getStrength());
                     Player.getInstance().physics.onCollision();
                 }
             }
@@ -75,6 +82,13 @@ public class Box2DWorld {
 
     public void update(float deltaTime) {
         this.world.step(deltaTime, 8, 3);
+        if(Box2DWorld.getInstance().timeout > 0){
+
+            Box2DWorld.getInstance().timeout -= deltaTime;
+            if(Box2DWorld.getInstance().timeout < 0)
+                Box2DWorld.getInstance().timeout = 0;
+        }
+
     }
 
     public void draw(float deltaTime) {
