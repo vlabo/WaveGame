@@ -25,7 +25,7 @@ public class UI implements IResourceable {
             @Override
             public boolean act(float delta) {
                 // Min for xPos is 4 and max is 20
-                float xPos = Funcs.changeRange(0,1,4,20,Player.getInstance().getStrength());
+                float xPos = Funcs.changeRange(0, 1, 4, 20, Player.getInstance().getStrength());
                 //You can print xPos here
                 //Funcs.print(" " + xPos);
 
@@ -46,6 +46,8 @@ public class UI implements IResourceable {
     public void loadAssets() {
         Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, "images/chorap.png", Loader.AssetType.TEXTURE);
         Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, "images/meter.png", Loader.AssetType.TEXTURE);
+        Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, "images/play.png", Loader.AssetType.TEXTURE);
+        Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, "images/grnBg.jpg", Loader.AssetType.TEXTURE);
 
     }
 }
