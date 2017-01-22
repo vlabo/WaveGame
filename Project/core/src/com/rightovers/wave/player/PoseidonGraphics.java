@@ -16,10 +16,14 @@ public class PoseidonGraphics {
     private Float[] yPositions;
     private float currentY = 0;
     private float speedUpAnimationTime;
+    private float lastX = Funcs.percentWidth(4);
+    private float lastRotation = 0;
 
-    public void whip(){
-        speedUpAnimationTime = 1f;
+
+    public void whip() {
+        this.speedUpAnimationTime = 1f;
     }
+
     public PoseidonGraphics() {
         this.animation = new Animation<TextureRegion>(1 / 50f, Loader.getInstance().getTextureAtlas("images/poseidon.pack").getRegions(), Animation.PlayMode.LOOP);
 
@@ -42,17 +46,29 @@ public class PoseidonGraphics {
         else {
             this.currentY -= delta * (this.currentY - targetYPos) * 12;
         }
-        Main.getInstance().batch.draw(this.animation.getKeyFrame(this.stepTime), Funcs.percentWidth(4), Funcs.percentHeight(this.currentY), this.sizeWidth, this.sizeWidth / this.ratio);
+
+        // normal
+        if (Player.getInstance().dying == false) {
+            Main.getInstance().batch.draw(this.animation.getKeyFrame(this.stepTime), this.lastX, Funcs.percentHeight(this.currentY), this.sizeWidth, this.sizeWidth / this.ratio);
+        }
+        // player is dying - throw him back
+        else {
+            this.lastX -= delta * 100;
+            this.lastRotation += delta * 50;
+
+            Main.getInstance().batch.draw(this.animation.getKeyFrame(this.stepTime), this.lastX, Funcs.percentHeight(this.currentY), 0, 0, this.sizeWidth, this.sizeWidth / this.ratio, 1, 1, this.lastRotation);
+        }
+
     }
 
     public void update(float delta) {
 
-        if(speedUpAnimationTime > 0f){
-            this.stepTime += delta*Player.getInstance().WHIP_ANIMATION_MULTIPLIER;
-            speedUpAnimationTime -= delta;
+        if (this.speedUpAnimationTime > 0f) {
+            this.stepTime += delta * Player.getInstance().WHIP_ANIMATION_MULTIPLIER;
+            this.speedUpAnimationTime -= delta;
 
         }
-        else{
+        else {
             this.stepTime += delta;
         }
     }
