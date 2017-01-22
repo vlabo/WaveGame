@@ -18,19 +18,22 @@ public class SoundManager implements IResourceable {
 
     @Override
     public void loadAssets() {
-        Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, "sounds/whip.mp3", Loader.AssetType.SOUND);
-        Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, "sound/trash-ride.mp3", Loader.AssetType.MUSIC);
+        Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, "sounds/punch.mp3", Loader.AssetType.SOUND);
+        Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, "sounds/trash-ride.mp3", Loader.AssetType.MUSIC);
     }
 
 
     public void playAndRewindMusic(int part){
-        Loader.getInstance().getMusic("sound/trash-pride.mp3").play();
+        Loader.getInstance().getMusic("sounds/trash-ride.mp3").play();
         switch(part){
             case 1:
                 break;
             case 2:
-                Loader.getInstance().getMusic("sound/trash-pride.mp3").setPosition(40);
+                Loader.getInstance().getMusic("sounds/trash-ride.mp3").setPosition(35.5f);
                 break;
         }
+    }
+    public void whip(){
+        Loader.getInstance().getSound("sounds/punch.mp3").play();
     }
 }

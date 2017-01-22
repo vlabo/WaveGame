@@ -29,8 +29,10 @@ public class Controller {
 
             @Override
             public boolean keyUp(InputEvent event, int keycode) {
+                Funcs.print("asd");
                 if (event.getKeyCode() == Input.Keys.RIGHT) {
                     Player.getInstance().incrementInertia();
+                    Player.getInstance().whip();
                 }
                 else if (event.getKeyCode() == Input.Keys.LEFT) {
                     Player.getInstance().setInertiaDecrementStep(Player.getInstance().INERTIA_DECREMENT_STEP_SLOW);

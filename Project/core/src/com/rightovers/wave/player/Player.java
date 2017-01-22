@@ -8,6 +8,7 @@ import com.rightovers.wave.screens.GameScreen;
 import com.rightovers.wave.utils.Funcs;
 import com.rightovers.wave.utils.IResourceable;
 import com.rightovers.wave.utils.Loader;
+import com.rightovers.wave.utils.SoundManager;
 
 
 public class Player implements IResourceable {
@@ -116,8 +117,8 @@ public class Player implements IResourceable {
         this.setInertia(this.inertia + this.INERTIA_INCREMENT_STEP);
     }
 
-    public void releaseInertia() {
-        this.releaseInertia = true;
+    public void whip() {
+        SoundManager.getInstance().whip();
     }
 
     public float getStrength() {
