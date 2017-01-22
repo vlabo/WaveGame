@@ -1,17 +1,15 @@
 package com.rightovers.wave.map.obstacles;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Matrix3;
-import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.rightovers.wave.Main;
 import com.rightovers.wave.map.Box2DWorld;
+import com.rightovers.wave.player.Player;
 import com.rightovers.wave.utils.Box2DObject;
 
 import java.util.ArrayList;
@@ -34,26 +32,29 @@ public class ObstacleParticle {
         ArrayList<ArrayList<Vector2>> listArray = new ArrayList<ArrayList<Vector2>>(1);
         listArray.add(triangle);
 
-        triangleVertices = generateTriangleFromVertices(texture, triangle);
+        this.triangleVertices = generateTriangleFromVertices(texture, triangle);
 
         this.body = Box2DObject.createBody(false, Box2DWorld.getInstance().getWorld(), BodyDef.BodyType.DynamicBody, 1f, 1f, 0f, position, listArray, 77, true);
     }
 
     float angle = 0;
+
     public void draw() {
-        float x = body.getPosition().x;
-        float y = body.getPosition().y;
+        float x = this.body.getPosition().x;
+        float y = this.body.getPosition().y;
 
-        float[] array = triangleVertices.clone();
+        float[] array = this.triangleVertices.clone();
 
-        float angle = body.getAngle();
+        float angle = this.body.getAngle();
         this.angle += 0.01f;
         Matrix3 matrix = new Matrix3();
 
-        applyTransformation(0, 1, matrix, angle, x + offset.x, y + offset.y, array);
-        applyTransformation(5, 6, matrix, angle, x + offset.x, y + offset.y, array);
-        applyTransformation(10, 11, matrix, angle, x + offset.x, y + offset.y, array);
-        applyTransformation(15, 16, matrix, angle, x + offset.x, y + offset.y, array);
+        x -= Player.getInstance().getDistance() / 10;
+
+        applyTransformation(0, 1, matrix, angle, x + this.offset.x, y + this.offset.y, array);
+        applyTransformation(5, 6, matrix, angle, x + this.offset.x, y + this.offset.y, array);
+        applyTransformation(10, 11, matrix, angle, x + this.offset.x, y + this.offset.y, array);
+        applyTransformation(15, 16, matrix, angle, x + this.offset.x, y + this.offset.y, array);
 
         Main.getInstance().batch.draw(this.obstacle, array, 0, array.length);
     }
@@ -72,6 +73,9 @@ public class ObstacleParticle {
 
         array[ix] += x;
         array[iy] += y;
+
+        array[ix] *= 10;
+        array[iy] *= 10;
 
     }
 
@@ -106,19 +110,12 @@ public class ObstacleParticle {
         v3 = triangle.get(third).y / texture.getHeight();
 
 
+        this.offset = new Vector2(0, 0);
 
-
-        offset = new Vector2(0, 0);
-
-        return new float[] {
-                x1, y1, c, u1, v1,
-                x2, y2, c, u2, v2,
-                x3, y3, c, u3, v3,
-                x3, y3, c, u3, v3
-        };
+        return new float[]{x1, y1, c, u1, v1, x2, y2, c, u2, v2, x3, y3, c, u3, v3, x3, y3, c, u3, v3};
     }
 
     public Body getBody() {
-        return body;
+        return this.body;
     }
 }

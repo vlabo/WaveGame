@@ -32,8 +32,8 @@ public class SplashScreen implements Screen {
         Loader.getInstance().finish();
 
 
-        Environment.getInstance().loadAssets();
         Player.getInstance().loadAssets();
+        Environment.getInstance().loadAssets();
         PlayerParticles.getInstance().loadAssets();
         UI.getInstance().loadAssets();
 

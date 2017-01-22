@@ -6,6 +6,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.rightovers.wave.Main;
 import com.rightovers.wave.map.obstacles.ObstacleGenerator;
 import com.rightovers.wave.player.Player;
+import com.rightovers.wave.utils.Funcs;
 import com.rightovers.wave.utils.IResourceable;
 import com.rightovers.wave.utils.Loader;
 
@@ -17,10 +18,13 @@ public class Environment implements IResourceable {
 
     private static final String BACKGROUND_IMAGE = "images/background.png";
     private static final String GROUND_IMAGE = "images/ground.png";
-    private static final String BUILDINGS = "images/buildings.pack";
+    public static final String BUILDINGS = "images/buildings.pack";
+
 
     private Texture background = null;
     private Texture ground = null;
+    public final float GROUND_LEVEL = Funcs.percentHeight(5);
+    public final float VISIBLE_X_METERS = 150;
 
     private float backgroundRatio = 1;
     private float groundRatio = 1;
@@ -110,10 +114,6 @@ public class Environment implements IResourceable {
             }
         }
 
-    }
-
-    public float getGroundLevel() {
-        return this.ground.getHeight();
     }
 
 }
