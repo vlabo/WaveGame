@@ -111,9 +111,11 @@ Funcs.print("Degree:"+this.lastZ.get(this.lastItem),"Difference"+(this.lastZ.get
                     // Funcs.print("Trigger incrementInertia");
                     this.lastTriggered = Funcs.getTimeMillis();
                     Player.getInstance().incrementInertia();
-
+                    this.lastZ.set(0,this.lastZ.get(this.lastItem));
                     Player.getInstance().whip();
                 }
+            }else if (this.lastZ.get(this.lastItem) - this.lastZ.get(0) <this.degrees) {
+                this.lastZ.set(0,this.lastZ.get(this.lastItem));
             }
         }
         //Funcs.print(" " + Funcs.getTimeMillis());
