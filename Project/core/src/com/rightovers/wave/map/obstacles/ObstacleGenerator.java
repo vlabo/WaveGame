@@ -59,7 +59,7 @@ public class ObstacleGenerator {
     }
 
     private Obstacle createObstacle(int bulidingId) {
-        Texture texture = Loader.getInstance().getTexture(Environment.getInstance().BUILDINGS);
+        Texture texture = Loader.getInstance().getTexture("images/building1.png");
         Obstacle obstacle = new Obstacle(Obstacle.Type.BIG, this.buldingsSizes.get(bulidingId - 1));
         obstacle.setTexture(texture);
         return obstacle;
