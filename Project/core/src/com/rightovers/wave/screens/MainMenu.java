@@ -30,11 +30,17 @@ public class MainMenu implements Screen {
         playBtn.setOrigin(Align.center);
         playBtn.addAction(Actions.repeat(RepeatAction.FOREVER, Actions.sequence(Actions.delay(0.5f), Actions.scaleTo(1.2f, 1.2f, 0.5f), Actions.scaleTo(1f, 1f, 0.5f))));
 
+
+        Image sgrada = new Image(Loader.getInstance().getTexture("images/building1.png"));
+        Funcs.setWidth(sgrada, Funcs.percentWidth(18));
+        sgrada.setPosition(Funcs.percentWidth(100), Funcs.percentHeight(3));
+        sgrada.addAction(Actions.repeat(RepeatAction.FOREVER, Actions.sequence(Actions.moveTo(Funcs.percentWidth(-20), Funcs.percentHeight(3), 12), Actions.moveTo(Funcs.percentWidth(120), Funcs.percentHeight(3)))));
+
+
         Image jica = new Image(Loader.getInstance().getTexture("images/jica.png"));
         Funcs.setWidth(jica, Funcs.percentWidth(20));
         jica.setPosition(Funcs.percentWidth(100), Funcs.percentHeight(-5));
         jica.addAction(Actions.repeat(RepeatAction.FOREVER, Actions.sequence(Actions.moveTo(Funcs.percentWidth(-20), Funcs.percentHeight(-5), 5), Actions.moveTo(Funcs.percentWidth(120), Funcs.percentHeight(-5)))));
-
 
         Image post = new Image(Loader.getInstance().getTexture("images/foregr.png"));
         Funcs.setWidth(post, Funcs.percentWidth(20));
@@ -42,6 +48,7 @@ public class MainMenu implements Screen {
         post.addAction(Actions.repeat(RepeatAction.FOREVER, Actions.sequence(Actions.moveTo(Funcs.percentWidth(-20), 0, 8), Actions.moveTo(Funcs.percentWidth(120), 0))));
 
         Main.getInstance().stage.addActor(bg);
+        Main.getInstance().stage.addActor(sgrada);
         Main.getInstance().stage.addActor(playBtn);
         Main.getInstance().stage.addActor(post);
         Main.getInstance().stage.addActor(jica);
