@@ -21,8 +21,8 @@ public class Environment implements IResourceable {
 
     private Texture background = null;
     private Texture ground = null;
-    public final float GROUND_LEVEL = Funcs.percentHeight(5);
-    public final float VISIBLE_X_METERS = 150;
+    public final float GROUND_LEVEL = Funcs.percentHeight(0.1f);
+    public final float VISIBLE_X_METERS = 700;
 
     private float backgroundRatio = 1;
     private float groundRatio = 1;
@@ -57,6 +57,10 @@ public class Environment implements IResourceable {
         Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, "images/tree3.png", Loader.AssetType.TEXTURE);
 
         this.generator = ObstacleGenerator.getInstance();
+    }
+
+    public float getScaleRatio() {
+        return Main.getInstance().width / VISIBLE_X_METERS * 7;
     }
 
     public void init() {

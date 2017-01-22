@@ -45,7 +45,7 @@ public class GameScreen implements Screen {
         this.timeStartedPlaying = 0;
         this.buildingsDestroyed = 0;
         Player.getInstance().dying = false;
-        Player.getInstance().speed = Player.getInstance().INITIAL_SPEED;
+        Player.getInstance().setSpeed(Player.getInstance().INITIAL_SPEED);
 
 
         // start playing
@@ -85,9 +85,11 @@ public class GameScreen implements Screen {
 
         Environment.getInstance().drawBackground(delta);
         Environment.getInstance().drawObstacles(delta);
+
+        PlayerParticles.getInstance().drawBackground(delta);
         Player.getInstance().waveGraphics.draw(delta);
         Player.getInstance().poseidonGraphics.draw(delta);
-        PlayerParticles.getInstance().draw(delta);
+        PlayerParticles.getInstance().drawForeground(delta);
         Environment.getInstance().drawForeground(delta);
         Main.getInstance().batch.end();
 

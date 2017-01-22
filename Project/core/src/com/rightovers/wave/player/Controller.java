@@ -23,7 +23,8 @@ public class Controller {
             public boolean keyDown(InputEvent event, int keycode) {
 
                 if (event.getKeyCode() == Input.Keys.LEFT) {
-                    Player.getInstance().setInertiaDecrementStep(Player.getInstance().INERTIA_DECREMENT_STEP_FAST);
+                    Player.getInstance().speedMultiplier = Player.getInstance().SPEED_SLOWDOWN_MULTIPLIER;
+                   // Player.getInstance().setInertiaDecrementStep(Player.getInstance().INERTIA_DECREMENT_STEP_FAST);
                 }
                 return true;
             }
@@ -35,7 +36,8 @@ public class Controller {
                     Player.getInstance().whip();
                 }
                 else if (event.getKeyCode() == Input.Keys.LEFT) {
-                    Player.getInstance().setInertiaDecrementStep(Player.getInstance().INERTIA_DECREMENT_STEP_SLOW);
+                    Player.getInstance().speedMultiplier = 1f;
+                   // Player.getInstance().setInertiaDecrementStep(Player.getInstance().INERTIA_DECREMENT_STEP_SLOW);
                 }
                 return true;
             }
@@ -46,13 +48,15 @@ public class Controller {
         Main.getInstance().stage.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                Player.getInstance().setInertiaDecrementStep(5);
+                //Player.getInstance().setInertiaDecrementStep(5);
+                Player.getInstance().speedMultiplier = Player.getInstance().SPEED_SLOWDOWN_MULTIPLIER;
                 return true;
             }
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                Player.getInstance().setInertiaDecrementStep(2);
+                //Player.getInstance().setInertiaDecrementStep(2);
+                Player.getInstance().speedMultiplier = 1f;
             }
         });
     }

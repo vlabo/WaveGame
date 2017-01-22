@@ -37,22 +37,32 @@ public class Player implements IResourceable {
         DOWN
     }
 
-    private final float MAX_SPEED = 350;
-    private final float MIN_SPEED = 100;
+    private final float MAX_SPEED = 200;
+    private final float MIN_SPEED = 50;
 
     public Controller controller;
     public WaveGraphics waveGraphics;
     public PoseidonGraphics poseidonGraphics;
     public PlayerPhysics physics;
 
-    public final float INITIAL_SPEED = 100;
-    public float speed = this.INITIAL_SPEED;
+    public final float INITIAL_SPEED = 60;
+    private float speed = this.INITIAL_SPEED;
+    public float speedMultiplier = 1f;
+    public final float SPEED_SLOWDOWN_MULTIPLIER = .5f;
 
+    public float getSpeed() {
+        return this.speed * this.speedMultiplier;
+    }
+
+    public void setSpeed(float speed) {
+        this.speed = speed;
+    }
 
     public final float WHIP_ANIMATION_MULTIPLIER = 4f;
     public final float WAVE_ANIMATION_MULTIPLIER = 2f;
     public final int INITIAL_INERTIA = 5;
     public final int MAX_INERTIA = 40;
+
     public final int INERTIA_INCREMENT_STEP = 10;
     public final int INERTIA_DECREMENT_STEP_SLOW = 7;
     public final int INERTIA_DECREMENT_STEP_FAST = 19;
@@ -106,7 +116,7 @@ public class Player implements IResourceable {
         this.poseidonGraphics.update(delta);
         this.controller.update(delta);
 
-        this.distance += this.speed * delta;
+        this.distance += this.getSpeed() * delta;
 
         if (this.timeSinceLastUpdatedInertia > 1f) {
             Player.getInstance().setInertia(Player.getInstance().inertia - this.inertiaDecrementStep);

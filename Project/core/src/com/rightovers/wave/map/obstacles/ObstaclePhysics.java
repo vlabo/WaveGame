@@ -8,13 +8,14 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.rightovers.wave.map.Box2DWorld;
 import com.rightovers.wave.utils.Box2DObject;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 class ObstaclePhysics {
 
     Body box2DBody;
+    private Rectangle rect = null;
 
     private ArrayList<ArrayList<Vector2>> triangles;
 
@@ -25,24 +26,26 @@ class ObstaclePhysics {
 
     public ObstaclePhysics(Obstacle.Type type, Rectangle rect) {
         // create box2d body
-        float scale = 1;
-        triangles = new ArrayList<ArrayList<Vector2>>();
+
+        ArrayList<ArrayList<Vector2>> trianglesCurrent = new ArrayList<ArrayList<Vector2>>();
         ArrayList<Vector2> fixture1 = new ArrayList<Vector2>();
         fixture1.add(new Vector2(0, 0));
-        fixture1.add(new Vector2(rect.width * scale, 0));
-        fixture1.add(new Vector2(rect.width * scale, rect.height * scale));
-        fixture1.add(new Vector2(0, rect.height * scale));
-        triangles.add(fixture1);
+        fixture1.add(new Vector2(rect.width, 0));
+        fixture1.add(new Vector2(rect.width, rect.height));
+        fixture1.add(new Vector2(0, rect.height));
+        trianglesCurrent.add(fixture1);
 
 
-        triangles = separateQuad(fixture1, new Vector2(rect.width * 0.25f * scale , (int)(rect.height * 0.3f * scale)));
-        //this.box2DBody = Box2DObject.createBody(false, Box2DWorld.getInstance().getWorld(), BodyDef.BodyType.KinematicBody, 1f, 1f, 0f, new Vector2(rect.x, rect.y), triangles, 0, false);
+        this.rect = rect;
+
+        this.triangles = separateQuad(fixture1, new Vector2(rect.width * 0.25f, (int) (rect.height * 0.3f)));
+        this.box2DBody = Box2DObject.createBody(false, Box2DWorld.getInstance().getWorld(), BodyDef.BodyType.KinematicBody, 1f, 1f, 0f, new Vector2(rect.x, rect.y), trianglesCurrent, 0, false);
         //createBrokenBody(rect);
 
     }
 
     // Separates quad on four triangles
-    private ArrayList<ArrayList<Vector2>>  separateQuad(List<Vector2> points, Vector2 newPoint) {
+    private ArrayList<ArrayList<Vector2>> separateQuad(List<Vector2> points, Vector2 newPoint) {
         ArrayList<ArrayList<Vector2>> fixtures = new ArrayList<ArrayList<Vector2>>();
 
         int iterationsNumber = 3;
@@ -81,6 +84,7 @@ class ObstaclePhysics {
         return fixtures;
 
     }
+
     // Separates triangle on two smaller triangles
     private void separateTriangle(List<Vector2> points, Vector2 newPoint, ArrayList<ArrayList<Vector2>> fixtures, int times) {
         times--;
@@ -88,21 +92,22 @@ class ObstaclePhysics {
         Random random = new Random();
         Vector2 middlePoint = null;
         float randomNumber = (random.nextFloat()) - 1;
-        if(points.get(0).x == points.get(1).x) {
-             middlePoint = new Vector2((points.get(0).x), ((points.get(0).y + points.get(1).y) / 2) + randomNumber);
-        }else{
-             middlePoint = new Vector2(((points.get(0).x + points.get(1).x) / 2) + randomNumber, points.get(0).y);
+        if (points.get(0).x == points.get(1).x) {
+            middlePoint = new Vector2((points.get(0).x), ((points.get(0).y + points.get(1).y) / 2) + randomNumber);
         }
-
+        else {
+            middlePoint = new Vector2(((points.get(0).x + points.get(1).x) / 2) + randomNumber, points.get(0).y);
+        }
 
 
         ArrayList fixture1 = new ArrayList();
         fixture1.add(points.get(0));
         fixture1.add(middlePoint);
         fixture1.add(newPoint);
-        if(times <= 1) {
+        if (times <= 1) {
             fixtures.add(fixture1);
-        }else{
+        }
+        else {
             separateTriangle(fixture1, newPoint, fixtures, times);
         }
 
@@ -111,9 +116,10 @@ class ObstaclePhysics {
         fixture2.add(points.get(1));
         fixture2.add(newPoint);
 
-        if(times <= 1) {
+        if (times <= 1) {
             fixtures.add(fixture2);
-        }else{
+        }
+        else {
             separateTriangle(fixture2, newPoint, fixtures, times);
         }
 
@@ -125,9 +131,10 @@ class ObstaclePhysics {
         Random random = new Random();
         Vector2 middlePoint = null;
         float randomNumber = (random.nextFloat()) - 1;
-        if(points.get(1).x == points.get(2).x) {
+        if (points.get(1).x == points.get(2).x) {
             middlePoint = new Vector2((points.get(1).x), ((points.get(1).y + points.get(2).y) / 2) + randomNumber);
-        }else{
+        }
+        else {
             middlePoint = new Vector2(((points.get(1).x + points.get(2).x) / 2) + randomNumber, points.get(1).y);
         }
 
@@ -135,9 +142,10 @@ class ObstaclePhysics {
         fixture1.add(points.get(1));
         fixture1.add(middlePoint);
         fixture1.add(newPoint);
-        if(times <= 1) {
+        if (times <= 1) {
             fixtures.add(fixture1);
-        }else{
+        }
+        else {
             separateTriangle(fixture1, newPoint, fixtures, times);
         }
 
@@ -146,9 +154,10 @@ class ObstaclePhysics {
         fixture2.add(points.get(2));
         fixture2.add(newPoint);
 
-        if(times <= 1) {
+        if (times <= 1) {
             fixtures.add(fixture2);
-        }else{
+        }
+        else {
             separateTriangle(fixture2, newPoint, fixtures, times);
         }
     }
@@ -157,12 +166,16 @@ class ObstaclePhysics {
 
     }
 
+    public Rectangle getRect() {
+        return this.rect;
+    }
+
     public ArrayList<ArrayList<Vector2>> getTriangles() {
-        return triangles;
+        return this.triangles;
     }
 
     public void destroy() {
-        Box2DWorld.getInstance().getWorld().destroyBody(box2DBody);
+        Box2DWorld.getInstance().getWorld().destroyBody(this.box2DBody);
     }
 
     public void remove() {
