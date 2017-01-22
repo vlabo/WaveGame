@@ -18,8 +18,9 @@ public class MainMenu implements Screen {
 
     @Override
     public void show() {
-        Image bg = new Image(Loader.getInstance().getTexture("images/bg.jpg"));
-        Funcs.setWidth(bg, Funcs.percentWidth(100));
+        Image bg = new Image(Loader.getInstance().getTexture("images/grnBg.jpg"));
+        Funcs.setWidth(bg, Funcs.percentWidth(150));
+        bg.setPosition(Funcs.centerWidth(bg), Funcs.centerHeight(bg));
 
         Image playBtn = new Image(Loader.getInstance().getTexture("images/play.png"));
         Funcs.setWidth(playBtn, Funcs.percentWidth(20));
