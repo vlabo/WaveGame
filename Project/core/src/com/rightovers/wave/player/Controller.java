@@ -111,14 +111,14 @@ public class Controller {
                     // Funcs.print("Trigger incrementInertia");
                     this.lastTriggered = Funcs.getTimeMillis();
                     Player.getInstance().incrementInertia();
-                    lastHitPoint = this.lastZ.get(this.lastItem);
+                    lastHitPoint = zaxis;
                     Player.getInstance().whip();
                 }
-            }else if (Math.abs(this.lastZ.get(this.lastItem) - lastHitPoint) > this.degrees) {
+            }else if ((zaxis - lastHitPoint) > this.degrees) {
                 lastHitPoint = -1;
             }
             if(lastHitPoint != -1)
-                Funcs.print(">>>>>>>>>>>>>>>>>>>"+Math.abs(this.lastZ.get(this.lastItem) - lastHitPoint));
+                Funcs.print(">>>>>>>>>>>>>>>>>>>"+Math.abs(zaxis- lastHitPoint));
         }
         //Funcs.print(" " + Funcs.getTimeMillis());
         //Funcs.print("firstZ: " + lastZ.get(0) + "arr length" + lastZ.size());
