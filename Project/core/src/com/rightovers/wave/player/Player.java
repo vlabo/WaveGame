@@ -157,6 +157,8 @@ public class Player implements IResourceable {
     }
 
     public void die() {
+        if(this.dying == true)
+            return;
         float endScreenAfter = 2;
         // mark as dying
         this.dying = true;

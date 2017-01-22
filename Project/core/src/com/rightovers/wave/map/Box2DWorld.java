@@ -41,7 +41,9 @@ public class Box2DWorld {
             public void beginContact(Contact contact) {
                 int bodyAId = (Integer) contact.getFixtureA().getBody().getUserData();
                 int bodyBId = (Integer) contact.getFixtureB().getBody().getUserData();
-
+                if(bodyAId == 1 || bodyBId == 1){
+                    Player.getInstance().physics.onCollision();
+                }
             }
 
             @Override

@@ -10,7 +10,7 @@ import com.rightovers.wave.utils.Box2DObject;
 
 import java.util.ArrayList;
 
-class PlayerPhysics {
+public class PlayerPhysics {
 
     Body box2DBody;
 
@@ -44,7 +44,7 @@ class PlayerPhysics {
         // TODO check strength and direction
 
         // good
-        if (Player.getInstance().getStrength() > 0.5f) {
+        if (Player.getInstance().getStrength() > 0.75f) {
             GameScreen.getInstance().buildingsDestroyed++;
             // slow down
             Player.getInstance().setSpeed(Player.getInstance().getSpeed() * 0.8f);
