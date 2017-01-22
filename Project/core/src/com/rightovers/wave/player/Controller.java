@@ -14,6 +14,7 @@ public class Controller {
 
     private ArrayList<Float> lastZ = new ArrayList<Float>();
     long lastTriggered = Funcs.getTimeMillis();
+    private float hitPoint = -1f;
 
     public Controller() {
         Funcs.print("as2d");
@@ -64,7 +65,7 @@ public class Controller {
     // The minimum interval between triggers
     float interval = 500;
     // The size of the sample array
-    int arraySize = 15;
+    int arraySize = 10;
     // The last item of the array (arraySize - 1)
     int lastItem = this.arraySize - 1;
 
@@ -105,18 +106,20 @@ public class Controller {
                 this.lastZ.remove(0);
             }
 Funcs.print("Degree:"+this.lastZ.get(this.lastItem),"Difference"+(this.lastZ.get(this.lastItem) - this.lastZ.get(0) ));
-            if (this.lastZ.get(this.lastItem) - this.lastZ.get(0) > this.degrees) {
+            if (this.lastZ.get(this.lastItem) - this.lastZ.get(0) > this.degrees && hitPoint == -1f) {
                 if (Funcs.getTimeMillis() - this.lastTriggered > this.interval) {
                     // Here you can log your trigger for acceleration
                     // Funcs.print("Trigger incrementInertia");
                     this.lastTriggered = Funcs.getTimeMillis();
                     Player.getInstance().incrementInertia();
-                    this.lastZ.set(0,this.lastZ.get(this.lastItem));
+                    hitPoint = this.lastZ.get(this.lastItem);
                     Player.getInstance().whip();
                 }
-            }else if (this.lastZ.get(this.lastItem) - this.lastZ.get(0) < -this.degrees) {
-                this.lastZ.set(0,this.lastZ.get(this.lastItem));
+            }else if (this.lastZ.get(this.lastItem) - hitPoint < -this.degrees) {
+                hitPoint = -1;
             }
+            if(hitPoint != -1)
+                Funcs.print(this.lastZ.get(this.lastItem) - hitPoint);
         }
         //Funcs.print(" " + Funcs.getTimeMillis());
         //Funcs.print("firstZ: " + lastZ.get(0) + "arr length" + lastZ.size());
