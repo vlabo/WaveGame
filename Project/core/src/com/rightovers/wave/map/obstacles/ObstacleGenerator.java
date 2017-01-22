@@ -37,7 +37,7 @@ public class ObstacleGenerator {
     public void update(float delta) {
         this.time += delta;
 
-        if (this.time >= (this.random.nextFloat() * 10 + 1)) {
+        if (this.time >= (this.random.nextFloat() * 15 + 1.5)) {
 
             this.obstacles.add(createObstacle(random.nextInt(buldingsSizes.size() - 1)));
             this.time = 0;
@@ -69,7 +69,7 @@ public class ObstacleGenerator {
         Texture texture = Loader.getInstance().getTexture("images/building" + (bulidingId + 1) + ".png");
         //Rectangle rect = new Rectangle(Main.getInstance().width, Environment.getInstance().GROUND_LEVEL, texture.getWidth(), texture.getHeight());\
         Rectangle reference = buldingsSizes.get(bulidingId);
-        Rectangle rect = new Rectangle(reference.x + Player.getInstance().getDistance(), reference.y, reference.width, reference.height);
+        Rectangle rect = new Rectangle(reference.x + Player.getInstance().getDistance() - 500, reference.y, reference.width, reference.height);
         Obstacle obstacle = new Obstacle(Obstacle.Type.BIG, rect);
         obstacle.setTexture(texture);
 
