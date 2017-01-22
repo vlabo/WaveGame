@@ -20,8 +20,8 @@ public class PlayerParticles implements IResourceable {
 
     public void init() {
         this.greenParticle = Loader.getInstance().getParticleEffect("particles/green-particle.particle");
-        this.greenParticle.setPosition(Funcs.percentWidth(20), Funcs.percentHeight(5));
-        this.greenParticle.scaleEffect(Main.getInstance().density / 5);
+        this.greenParticle.setPosition(Funcs.percentWidth(0), Funcs.percentHeight(5));
+        this.greenParticle.scaleEffect(Main.getInstance().density / 20);
 
         this.deathParticle = Loader.getInstance().getParticleEffect("particles/death-particle.particle");
         this.deathParticle.setPosition(Funcs.percentWidth(0), Funcs.percentHeight(5));
@@ -37,13 +37,14 @@ public class PlayerParticles implements IResourceable {
         }
     }
 
-    public void draw(float deltaTime) {
-        //this.greenParticle.draw(Main.getInstance().batch);
+    public void drawBackground(float deltaTime) {
+        this.greenParticle.draw(Main.getInstance().batch);
+    }
+    public void drawForeground(float deltaTime) {
         if (Player.getInstance().dying == true) {
             this.deathParticle.draw(Main.getInstance().batch);
         }
     }
-
     @Override
     public void loadAssets() {
         Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, "particles/green-particle.particle", Loader.AssetType.PARTICLE_EFFECT);
