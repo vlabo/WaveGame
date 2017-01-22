@@ -142,12 +142,13 @@ public class Player implements IResourceable {
 
     public float getStrength() {
         int frame = this.waveGraphics.getAbsoluteKeyFrame();
-
-        if (frame > 0 && frame <= 65) {
-            return Funcs.changeRange(0, 65, 0, 1, frame);
+        if(frame < 40)
+            return 0;
+       else if (frame > 40 && frame <= 65) {
+            return Funcs.changeRange(40, 65, 0, 1, frame);
         }
         else if (frame > 65 && frame <= 80) {
-            return (1f - Funcs.changeRange(65, 80, 0, 1, frame));
+            return 1;
         }
         return 0;
     }
