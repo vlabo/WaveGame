@@ -21,7 +21,7 @@ public class PoseidonGraphics {
 
 
     public void whip() {
-        this.speedUpAnimationTime = 1f;
+        this.speedUpAnimationTime = 0.4f;
     }
 
     public PoseidonGraphics() {

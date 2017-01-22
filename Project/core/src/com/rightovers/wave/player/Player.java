@@ -49,7 +49,7 @@ public class Player implements IResourceable {
     public float speed = this.INITIAL_SPEED;
 
 
-    public final float WHIP_ANIMATION_MULTIPLIER = 3;
+    public final float WHIP_ANIMATION_MULTIPLIER = 4f;
     public final float WAVE_ANIMATION_MULTIPLIER = 2f;
     public final int INITIAL_INERTIA = 10;
     public final int MAX_INERTIA = 40;
