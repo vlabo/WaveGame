@@ -45,7 +45,7 @@ public class GameScreen implements Screen {
         this.timeStartedPlaying = 0;
         this.buildingsDestroyed = 0;
         Player.getInstance().dying = false;
-        Player.getInstance().speed = Player.getInstance().INITIAL_SPEED;
+        Player.getInstance().setSpeed(Player.getInstance().INITIAL_SPEED);
 
 
         // start playing

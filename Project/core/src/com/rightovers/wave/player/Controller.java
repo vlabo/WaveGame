@@ -23,7 +23,8 @@ public class Controller {
             public boolean keyDown(InputEvent event, int keycode) {
 
                 if (event.getKeyCode() == Input.Keys.LEFT) {
-                    Player.getInstance().setInertiaDecrementStep(Player.getInstance().INERTIA_DECREMENT_STEP_FAST);
+                    Player.getInstance().speedMultiplier = Player.getInstance().SPEED_SLOWDOWN_MULTIPLIER;
+                   // Player.getInstance().setInertiaDecrementStep(Player.getInstance().INERTIA_DECREMENT_STEP_FAST);
                 }
                 return true;
             }
@@ -35,7 +36,8 @@ public class Controller {
                     Player.getInstance().whip();
                 }
                 else if (event.getKeyCode() == Input.Keys.LEFT) {
-                    Player.getInstance().setInertiaDecrementStep(Player.getInstance().INERTIA_DECREMENT_STEP_SLOW);
+                    Player.getInstance().speedMultiplier = 1f;
+                   // Player.getInstance().setInertiaDecrementStep(Player.getInstance().INERTIA_DECREMENT_STEP_SLOW);
                 }
                 return true;
             }
