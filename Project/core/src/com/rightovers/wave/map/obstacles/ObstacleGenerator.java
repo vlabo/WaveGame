@@ -1,5 +1,6 @@
 package com.rightovers.wave.map.obstacles;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
@@ -47,9 +48,12 @@ public class ObstacleGenerator {
         }
 
         for (int i = this.obstacles.size() - 1; i >= 0; --i) {
-            if (this.obstacles.get(i).getPosition().x < 0) {
+
+            if (this.obstacles.get(i).getBox2DBody().getPosition().x < Player.getInstance().getDistance() - 10) {
+                Gdx.app.log("Destroyed", "Obsticle  " + this.obstacles.get(i).getBox2DBody().getPosition().x);
                 Obstacle obstacle = this.obstacles.remove(i);
                 obstacle.destroy();
+
             }
         }
 

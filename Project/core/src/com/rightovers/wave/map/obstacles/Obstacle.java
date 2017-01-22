@@ -43,7 +43,10 @@ class Obstacle {
 
 
     public Body getBox2DBody() {
-        return this.physics.box2DBody;
+        if(!isExploded) {
+            return this.physics.box2DBody;
+        }
+        return this.particles.get(0).getBody();
     }
 
     // spawn clouds/asteroids
@@ -81,10 +84,7 @@ class Obstacle {
 
     public void drawBackground(float delta) {
         if (this.firstTime == true) {
-            if (this.texture == null) {
-                // return;
-            }
-
+            explode();
             this.firstTime = false;
         }
 
