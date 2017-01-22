@@ -39,7 +39,7 @@ public class PlayerParticles implements IResourceable {
     }
 
     public void drawBackground(float deltaTime) {
-       // this.greenParticle.draw(Main.getInstance().batch);
+        this.greenParticle.draw(Main.getInstance().batch);
     }
     public void drawForeground(float deltaTime) {
         if (Player.getInstance().dying == true) {

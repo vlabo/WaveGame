@@ -51,14 +51,6 @@ public class GameScreen implements Screen {
         // start playing
         this.timeStartedPlaying = Funcs.getTime();
 
-        // for test - kill the player
-        Main.getInstance().stage.addAction(Actions.sequence(Actions.delay(2), new Action() {
-            @Override
-            public boolean act(float delta) {
-                Player.getInstance().die();
-                return true;
-            }
-        }));
     }
 
 
