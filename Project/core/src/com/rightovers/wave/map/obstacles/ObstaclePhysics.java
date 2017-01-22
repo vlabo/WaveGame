@@ -118,6 +118,42 @@ class ObstaclePhysics {
 
     }
 
+    private void seperateSecondTriangle(List<Vector2> points, Vector2 newPoint, ArrayList<ArrayList<Vector2>> fixtures, int times) {
+        times--;
+
+        Random random = new Random();
+        Vector2 middlePoint = null;
+        float randomNumber = (random.nextFloat()) - 1;
+        if(points.get(1).x == points.get(2).x) {
+            middlePoint = new Vector2((points.get(1).x), ((points.get(1).y + points.get(2).y) / 2) + randomNumber);
+        }else{
+            middlePoint = new Vector2(((points.get(1).x + points.get(2).x) / 2) + randomNumber, points.get(1).y);
+        }
+
+
+
+        ArrayList fixture1 = new ArrayList();
+        fixture1.add(points.get(1));
+        fixture1.add(middlePoint);
+        fixture1.add(newPoint);
+        if(times <= 1) {
+            fixtures.add(fixture1);
+        }else{
+            separateTriangle(fixture1, newPoint, fixtures, times);
+        }
+
+        ArrayList fixture2 = new ArrayList();
+        fixture2.add(middlePoint);
+        fixture2.add(points.get(2));
+        fixture2.add(newPoint);
+
+        if(times <= 1) {
+            fixtures.add(fixture2);
+        }else{
+            separateTriangle(fixture2, newPoint, fixtures, times);
+        }
+    }
+
     public void update(float delta) {
 
     }

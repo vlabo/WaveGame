@@ -29,6 +29,7 @@ class Obstacle {
     private Texture building = null;
 
     private List<ObstacleParticle> particles;
+    private Vector2 startPosition = null;
 
     public enum Type {
         BIG,
@@ -46,6 +47,7 @@ class Obstacle {
     public Obstacle(Type type, Rectangle rectangle) {
         this.type = type;
         this.physics = new ObstaclePhysics(type, rectangle);
+        startPosition = new Vector2(rectangle.x, rectangle.y);
 
         //this.building = Loader.getInstance().getTexture(BUILDING_TEXTURE);
 
@@ -87,11 +89,13 @@ class Obstacle {
 
             particles = new ArrayList<ObstacleParticle>();
             for(ArrayList<Vector2> triangle : this.physics.getTriangles()){
-                particles.add(new ObstacleParticle(this.building, triangle, new Vector2(100, 100)));
+                ObstacleParticle p = new ObstacleParticle(this.building, triangle, new Vector2(startPosition.x, startPosition.y));
+                particles.add(p);
+                p.getBody().applyForceToCenter(new Vector2(10000, 10000), true);
+                p.getBody().applyAngularImpulse(10000000, true);
             }
 
-           // particles.get(0).getBody().applyForceToCenter(new Vector2(1000000000, 10000000), true);
-           // particles.get(0).getBody().applyAngularImpulse(100000, true);
+
 
         }
 

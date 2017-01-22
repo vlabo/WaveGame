@@ -53,7 +53,7 @@ public class ObstacleGenerator {
 
     private Obstacle createObstacle() {
         Texture texture = Loader.getInstance().getTexture(Obstacle.BUILDING_TEXTURE);
-        Rectangle rect = new Rectangle(Main.getInstance().width, Environment.getInstance().getGroundLevel(), texture.getWidth(), texture.getHeight());
+        Rectangle rect = new Rectangle(Main.getInstance().width * 0.7f, Environment.getInstance().getGroundLevel(), texture.getWidth(), texture.getHeight());
         Obstacle obstacle = new Obstacle(Obstacle.Type.BIG, rect);
         return obstacle;
     }
