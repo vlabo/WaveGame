@@ -104,7 +104,7 @@ public class Controller {
             if (this.lastZ.size() > this.arraySize) {
                 this.lastZ.remove(0);
             }
-
+Funcs.print("Degree:"+this.lastZ.get(this.lastItem),"Difference"+(this.lastZ.get(this.lastItem) - this.lastZ.get(0) ));
             if (this.lastZ.get(this.lastItem) - this.lastZ.get(0) > this.degrees) {
                 if (Funcs.getTimeMillis() - this.lastTriggered > this.interval) {
                     // Here you can log your trigger for acceleration
