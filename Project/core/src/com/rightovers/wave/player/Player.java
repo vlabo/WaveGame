@@ -53,7 +53,7 @@ public class Player implements IResourceable {
     public final float WAVE_ANIMATION_MULTIPLIER = 2f;
     public final int INITIAL_INERTIA = 10;
     public final int MAX_INERTIA = 40;
-    public final int INERTIA_INCREMENT_STEP = 2;
+    public final int INERTIA_INCREMENT_STEP = 5;
     public final int INERTIA_DECREMENT_STEP_SLOW = 5;
     public final int INERTIA_DECREMENT_STEP_FAST = 10;
 
