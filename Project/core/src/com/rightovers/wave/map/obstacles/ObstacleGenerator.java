@@ -37,7 +37,7 @@ public class ObstacleGenerator {
     public void update(float delta) {
         this.time += delta;
 
-        if (this.time >= (this.random.nextFloat() * 15 + 1.5)) {
+        if (this.time >= (this.random.nextFloat() * 20 + 3)) {
 
             this.obstacles.add(createObstacle(random.nextInt(buldingsSizes.size() - 1)));
             this.time = 0;
