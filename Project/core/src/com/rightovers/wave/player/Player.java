@@ -37,25 +37,25 @@ public class Player implements IResourceable {
         DOWN
     }
 
-    private final float MAX_SPEED = 700;
-    private final float MIN_SPEED = 200;
+    private final float MAX_SPEED = 350;
+    private final float MIN_SPEED = 100;
 
     public Controller controller;
     public WaveGraphics waveGraphics;
     public PoseidonGraphics poseidonGraphics;
     public PlayerPhysics physics;
 
-    public final float INITIAL_SPEED = 200;
+    public final float INITIAL_SPEED = 100;
     public float speed = this.INITIAL_SPEED;
 
 
     public final float WHIP_ANIMATION_MULTIPLIER = 4f;
     public final float WAVE_ANIMATION_MULTIPLIER = 2f;
-    public final int INITIAL_INERTIA = 10;
+    public final int INITIAL_INERTIA = 5;
     public final int MAX_INERTIA = 40;
-    public final int INERTIA_INCREMENT_STEP = 5;
-    public final int INERTIA_DECREMENT_STEP_SLOW = 5;
-    public final int INERTIA_DECREMENT_STEP_FAST = 10;
+    public final int INERTIA_INCREMENT_STEP = 10;
+    public final int INERTIA_DECREMENT_STEP_SLOW = 9;
+    public final int INERTIA_DECREMENT_STEP_FAST = 19;
 
     private int inertiaDecrementStep = this.INERTIA_DECREMENT_STEP_SLOW;
 
