@@ -49,7 +49,7 @@ public class ObstacleParticle {
 
         float angle = this.body.getAngle();
 
-        x -= Player.getInstance().getDistance() / 10;
+        //x -= Player.getInstance().getDistance() / 10;
         applyTransformation(0, 1, angle, x, y, array);
         applyTransformation(5, 6, angle, x, y, array);
         applyTransformation(10, 11, angle, x, y, array);
@@ -71,8 +71,8 @@ public class ObstacleParticle {
         array[ix] += x;
         array[iy] += y;
 
-        array[ix] *= 6;
-        array[iy] *= 6;
+        //array[ix] *= 6;
+        //array[iy] *= 6;
 
     }
 
