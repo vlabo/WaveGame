@@ -1,6 +1,7 @@
 package com.rightovers.wave.map.obstacles;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
@@ -24,15 +25,17 @@ class Obstacle {
     ObstaclePhysics physics;
     boolean firstTime = true;
 
-    public TextureRegion getTextureRegion() {
-        return this.textureRegion;
+
+    Texture texture;
+
+    public Texture getTexture() {
+        return this.texture;
     }
 
-    public void setTextureRegion(TextureRegion textureRegion) {
-        this.textureRegion = textureRegion;
+    public void setTexture(Texture textureRegion) {
+        this.texture = textureRegion;
     }
 
-    TextureRegion textureRegion;
 
     public Body getBox2DBody() {
         return this.physics.box2DBody;
@@ -73,13 +76,13 @@ class Obstacle {
 
     public void drawBackground(float delta) {
         if (this.firstTime == true) {
-            if (this.textureRegion == null) {
+            if (this.texture == null) {
                 // return;
             }
 
             this.particles = new ArrayList<ObstacleParticle>();
             for (ArrayList<Vector2> triangle : this.physics.getTriangles()) {
-                ObstacleParticle p = new ObstacleParticle(this.textureRegion.getTexture(), triangle, new Vector2(this.startPosition.x, this.startPosition.y));
+                ObstacleParticle p = new ObstacleParticle(this.texture, triangle, new Vector2(this.startPosition.x, this.startPosition.y));
                 this.particles.add(p);
                 //p.getBody().applyForceToCenter(new Vector2(10000, 10000), true);
                 //p.getBody().applyAngularImpulse(10000000, true);

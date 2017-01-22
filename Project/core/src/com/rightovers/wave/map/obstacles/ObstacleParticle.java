@@ -2,6 +2,7 @@ package com.rightovers.wave.map.obstacles;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Matrix3;
 import com.badlogic.gdx.math.Vector2;
@@ -11,8 +12,10 @@ import com.rightovers.wave.Main;
 import com.rightovers.wave.map.Box2DWorld;
 import com.rightovers.wave.player.Player;
 import com.rightovers.wave.utils.Box2DObject;
+import com.rightovers.wave.utils.Funcs;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -37,7 +40,6 @@ public class ObstacleParticle {
         this.body = Box2DObject.createBody(false, Box2DWorld.getInstance().getWorld(), BodyDef.BodyType.DynamicBody, 1f, 1f, 0f, position, listArray, 77, true);
     }
 
-    float angle = 0;
 
     public void draw() {
         float x = this.body.getPosition().x;
@@ -46,21 +48,16 @@ public class ObstacleParticle {
         float[] array = this.triangleVertices.clone();
 
         float angle = this.body.getAngle();
-        this.angle += 0.01f;
-        Matrix3 matrix = new Matrix3();
 
         x -= Player.getInstance().getDistance() / 10;
-
-        applyTransformation(0, 1, matrix, angle, x + this.offset.x, y + this.offset.y, array);
-        applyTransformation(5, 6, matrix, angle, x + this.offset.x, y + this.offset.y, array);
-        applyTransformation(10, 11, matrix, angle, x + this.offset.x, y + this.offset.y, array);
-        applyTransformation(15, 16, matrix, angle, x + this.offset.x, y + this.offset.y, array);
-
+        applyTransformation(0, 1, angle, x, y, array);
+        applyTransformation(5, 6, angle, x, y, array);
+        applyTransformation(10, 11, angle, x, y, array);
+        applyTransformation(15, 16, angle, x , y, array);
         Main.getInstance().batch.draw(this.obstacle, array, 0, array.length);
     }
 
-    private void applyTransformation(int ix, int iy, Matrix3 mat, float angle, float x, float y, float[] array) {
-        mat.idt();
+    private void applyTransformation(int ix, int iy, float angle, float x, float y, float[] array) {
         float cos = MathUtils.cos(angle);
         float sin = MathUtils.sin(angle);
 
@@ -74,8 +71,8 @@ public class ObstacleParticle {
         array[ix] += x;
         array[iy] += y;
 
-        array[ix] *= 10;
-        array[iy] *= 10;
+        array[ix] *= 6;
+        array[iy] *= 6;
 
     }
 
