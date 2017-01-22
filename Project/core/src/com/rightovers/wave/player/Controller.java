@@ -48,13 +48,15 @@ public class Controller {
         Main.getInstance().stage.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                Player.getInstance().setInertiaDecrementStep(5);
+                //Player.getInstance().setInertiaDecrementStep(5);
+                Player.getInstance().speedMultiplier = Player.getInstance().SPEED_SLOWDOWN_MULTIPLIER;
                 return true;
             }
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                Player.getInstance().setInertiaDecrementStep(2);
+                //Player.getInstance().setInertiaDecrementStep(2);
+                Player.getInstance().speedMultiplier = 1f;
             }
         });
     }
