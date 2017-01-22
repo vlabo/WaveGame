@@ -34,12 +34,12 @@ public class GameScreen implements Screen {
     public GameScreen() {
         Box2DWorld.getInstance().setup(Main.getInstance().camera, Main.getInstance().density);
         Player.getInstance().create();
-        UI.drawStrengthBar();
         PlayerParticles.getInstance().init();
     }
 
     @Override
     public void show() {
+        UI.drawStrengthBar();
         SoundManager.getInstance().playAndRewindMusic(2);
 
         this.timeStartedPlaying = 0;
