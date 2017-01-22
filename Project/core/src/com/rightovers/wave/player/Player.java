@@ -42,7 +42,9 @@ public class Player implements IResourceable {
     public WaveGraphics waveGraphics;
     public PoseidonGraphics poseidonGraphics;
     public PlayerPhysics physics;
-    public float speed = 200;
+
+    public final float INITIAL_SPEED = 200;
+    public float speed = this.INITIAL_SPEED;
 
 
     public final int INITIAL_INERTIA = 10;
@@ -140,7 +142,6 @@ public class Player implements IResourceable {
         // kill the speed
         this.speed = 0;
 
-        // TODO spawn particle
         // TODO camera shake
         // TODO throw poseidon
         // TODO stop wave animation

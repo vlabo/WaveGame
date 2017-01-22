@@ -39,8 +39,6 @@ public class PoseidonGraphics {
             this.currentY -= delta * (this.currentY - targetYPos) * 12;
         }
 
-        Funcs.print(this.currentY + " " + targetYPos);
-
         Main.getInstance().batch.draw(this.animation.getKeyFrame(this.stepTime), Funcs.percentWidth(4), Funcs.percentHeight(this.currentY), this.sizeWidth, this.sizeWidth / this.ratio);
     }
 

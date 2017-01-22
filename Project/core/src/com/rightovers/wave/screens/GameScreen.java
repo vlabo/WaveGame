@@ -14,8 +14,8 @@ import com.rightovers.wave.utils.Funcs;
 
 public class GameScreen implements Screen {
 
-    public int timeStartedPlaying = 0;
-    public int buildingsDestroyed = 0;
+    public int timeStartedPlaying;
+    public int buildingsDestroyed;
 
     public static GameScreen getInstance() {
         if (Main.getInstance().instances.get(GameScreen.class) == null) {
@@ -24,18 +24,27 @@ public class GameScreen implements Screen {
         return (GameScreen) Main.getInstance().instances.get(GameScreen.class);
     }
 
-    @Override
-    public void show() {
+    public GameScreen() {
         Box2DWorld.getInstance().setup(Main.getInstance().camera, Main.getInstance().density);
         Player.getInstance().create();
         UI.drawStrengthBar();
         PlayerParticles.getInstance().init();
+    }
+
+    @Override
+    public void show() {
+        Main.getInstance().stage.clear();
+        this.timeStartedPlaying = 0;
+        this.buildingsDestroyed = 0;
+        Player.getInstance().dying = false;
+        Player.getInstance().speed = Player.getInstance().INITIAL_SPEED;
+
 
         // start playing
         this.timeStartedPlaying = Funcs.getTime();
 
         // for test - kill the player
-        Main.getInstance().stage.addAction(Actions.sequence(Actions.delay(3), new Action() {
+        Main.getInstance().stage.addAction(Actions.sequence(Actions.delay(2), new Action() {
             @Override
             public boolean act(float delta) {
                 //Player.getInstance().die();
