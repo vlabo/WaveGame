@@ -2,12 +2,10 @@ package com.rightovers.wave.map.obstacles;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.rightovers.wave.Main;
 import com.rightovers.wave.map.Environment;
 import com.rightovers.wave.player.Player;
-import com.rightovers.wave.utils.Funcs;
 import com.rightovers.wave.utils.Loader;
 
 import java.util.ArrayList;
@@ -39,7 +37,7 @@ public class ObstacleGenerator {
 
         if (this.time >= (this.random.nextFloat() * 15 + 1.5)) {
 
-            this.obstacles.add(createObstacle(random.nextInt(buldingsSizes.size() - 1)));
+            this.obstacles.add(createObstacle(this.random.nextInt(this.buldingsSizes.size() - 1)));
             this.time = 0;
         }
 
@@ -68,7 +66,7 @@ public class ObstacleGenerator {
     private Obstacle createObstacle(int bulidingId) {
         Texture texture = Loader.getInstance().getTexture("images/building" + (bulidingId + 1) + ".png");
         //Rectangle rect = new Rectangle(Main.getInstance().width, Environment.getInstance().GROUND_LEVEL, texture.getWidth(), texture.getHeight());\
-        Rectangle reference = buldingsSizes.get(bulidingId);
+        Rectangle reference = this.buldingsSizes.get(bulidingId);
         Rectangle rect = new Rectangle(reference.x + Player.getInstance().getDistance() - 500, reference.y, reference.width, reference.height);
         Obstacle obstacle = new Obstacle(Obstacle.Type.BIG, rect);
         obstacle.setTexture(texture);
