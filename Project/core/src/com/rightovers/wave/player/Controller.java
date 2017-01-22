@@ -22,7 +22,6 @@ public class Controller {
 
             @Override
             public boolean keyDown(InputEvent event, int keycode) {
-                Funcs.print("a3sd");
                 if (event.getKeyCode() == Input.Keys.LEFT) {
                     Player.getInstance().setInertiaDecrementStep(Player.getInstance().INERTIA_DECREMENT_STEP_FAST);
                 }
@@ -112,6 +111,8 @@ public class Controller {
                     // Funcs.print("Trigger incrementInertia");
                     this.lastTriggered = Funcs.getTimeMillis();
                     Player.getInstance().incrementInertia();
+
+                    Player.getInstance().whip();
                 }
             }
         }
