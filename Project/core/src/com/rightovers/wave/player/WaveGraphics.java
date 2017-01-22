@@ -13,6 +13,7 @@ public class WaveGraphics {
 
     float stateTime;
     private int lastInertia;
+    private float speedUpAnimationTime;
 
 
     public WaveGraphics() {
@@ -29,8 +30,15 @@ public class WaveGraphics {
     }
 
     public void update(float delta) {
-        this.stateTime += delta;
 
+        if(speedUpAnimationTime > 0f){
+            this.stateTime += delta*Player.getInstance().WHIP_ANIMATION_MULTIPLIER;
+            speedUpAnimationTime -= delta;
+
+        }
+        else{
+            this.stateTime += delta;
+        }
         int currentAbsoluteFrameKey = getAbsoluteKeyFrame();
 
         if (Player.getInstance().inertia != this.lastInertia) {
@@ -66,4 +74,7 @@ public class WaveGraphics {
         return this.waveAnimation.getLeftLoopFrameNumber() + this.waveAnimation.getKeyFrameIndex(this.stateTime);
     }
 
+    public void whip() {
+        speedUpAnimationTime = 1f;
+    }
 }

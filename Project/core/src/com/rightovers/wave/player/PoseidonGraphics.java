@@ -15,7 +15,11 @@ public class PoseidonGraphics {
     private float ratio = 1.86f;
     private Float[] yPositions;
     private float currentY = 0;
+    private float speedUpAnimationTime;
 
+    public void whip(){
+        speedUpAnimationTime = 1f;
+    }
     public PoseidonGraphics() {
         this.animation = new Animation<TextureRegion>(1 / 50f, Loader.getInstance().getTextureAtlas("images/poseidon.pack").getRegions(), Animation.PlayMode.LOOP);
 
@@ -38,12 +42,19 @@ public class PoseidonGraphics {
         else {
             this.currentY -= delta * (this.currentY - targetYPos) * 12;
         }
-
         Main.getInstance().batch.draw(this.animation.getKeyFrame(this.stepTime), Funcs.percentWidth(4), Funcs.percentHeight(this.currentY), this.sizeWidth, this.sizeWidth / this.ratio);
     }
 
     public void update(float delta) {
-        this.stepTime += delta;
+
+        if(speedUpAnimationTime > 0f){
+            this.stepTime += delta*Player.getInstance().WHIP_ANIMATION_MULTIPLIER;
+            speedUpAnimationTime -= delta;
+
+        }
+        else{
+            this.stepTime += delta;
+        }
     }
 
     private void fillYPositions() {

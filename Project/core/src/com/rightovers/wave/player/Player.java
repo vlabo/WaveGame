@@ -49,6 +49,7 @@ public class Player implements IResourceable {
     public float speed = this.INITIAL_SPEED;
 
 
+    public final float WHIP_ANIMATION_MULTIPLIER = 3;
     public final int INITIAL_INERTIA = 10;
     public final int MAX_INERTIA = 40;
     public final int INERTIA_INCREMENT_STEP = 2;
@@ -119,6 +120,8 @@ public class Player implements IResourceable {
 
     public void whip() {
         SoundManager.getInstance().whip();
+        this.poseidonGraphics.whip();
+        this.waveGraphics.whip();
     }
 
     public float getStrength() {
