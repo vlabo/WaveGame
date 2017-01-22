@@ -95,6 +95,11 @@ public class Controller {
     }
 
     public void update(float delta) {
+        if (Funcs.getTimeMillis() - this.lastTriggered > this.interval) {
+            float accelZ = Gdx.input.getAccelerometerZ();
+            Funcs.print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>accelaration: "+accelZ);
+        }
+        if(1==1)return;
         float zaxis = getZ();
         this.lastZ.add(zaxis);
         if (this.lastZ.size() <= this.arraySize) {
