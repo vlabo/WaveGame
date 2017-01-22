@@ -14,7 +14,6 @@ public class Controller {
 
     private ArrayList<Float> lastZ = new ArrayList<Float>();
     long lastTriggered = Funcs.getTimeMillis();
-    private boolean whipped = false;
 
     public Controller() {
         Funcs.print("as2d");
@@ -105,20 +104,17 @@ public class Controller {
             if (this.lastZ.size() > this.arraySize) {
                 this.lastZ.remove(0);
             }
-            if (this.lastZ.get(this.lastItem) - this.lastZ.get(0) > this.degrees && whipped == false) {
+            if (this.lastZ.get(this.lastItem) - this.lastZ.get(0) > this.degrees) {
                 if (Funcs.getTimeMillis() - this.lastTriggered > this.interval) {
                     // Here you can log your trigger for acceleration
                     // Funcs.print("Trigger incrementInertia");
                     this.lastTriggered = Funcs.getTimeMillis();
                     Player.getInstance().incrementInertia();
                     Player.getInstance().whip();
+                    Funcs.print(this.lastZ.get(this.lastItem) > this.lastZ.get(0) );
                 }
             }
 
-            if(zaxis < -this.interval){
-                whipped = false;
-            }
-                Funcs.print(">>>>>>>>>>>>>>>>>>>"+"-"+zaxis+"-");
         }
         //Funcs.print(" " + Funcs.getTimeMillis());
         //Funcs.print("firstZ: " + lastZ.get(0) + "arr length" + lastZ.size());
