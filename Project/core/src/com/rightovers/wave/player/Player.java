@@ -3,6 +3,7 @@ package com.rightovers.wave.player;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.rightovers.wave.Main;
+import com.rightovers.wave.map.Environment;
 import com.rightovers.wave.screens.EndMenu;
 import com.rightovers.wave.screens.GameScreen;
 import com.rightovers.wave.utils.Funcs;
@@ -45,7 +46,7 @@ public class Player implements IResourceable {
     public PoseidonGraphics poseidonGraphics;
     public PlayerPhysics physics;
 
-    public final float INITIAL_SPEED = 60;
+    public final float INITIAL_SPEED = 3;
     private float speed = this.INITIAL_SPEED;
     public float speedMultiplier = 1f;
     public final float SPEED_SLOWDOWN_MULTIPLIER = .5f;
@@ -116,11 +117,14 @@ public class Player implements IResourceable {
         this.poseidonGraphics.update(delta);
         this.controller.update(delta);
 
-        this.distance += this.getSpeed() * delta;
+        this.distance += this.getSpeed() * Environment.getInstance().getScaleRatio() * delta;
 
         if (this.timeSinceLastUpdatedInertia > 1f) {
             Player.getInstance().setInertia(Player.getInstance().inertia - this.inertiaDecrementStep);
             this.timeSinceLastUpdatedInertia = 0;
+        }
+        if (this.speed < this.INITIAL_SPEED) {
+            this.speed += delta;
         }
         this.timeSinceLastUpdatedInertia += delta;
     }
