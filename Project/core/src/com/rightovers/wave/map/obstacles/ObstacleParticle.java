@@ -114,6 +114,11 @@ public class ObstacleParticle {
         return new float[]{x1, y1, c, u1, v1, x2, y2, c, u2, v2, x3, y3, c, u3, v3, x3, y3, c, u3, v3};
     }
 
+    public void destroy() {
+        Box2DWorld.getInstance().getWorld().destroyBody(body);
+    }
+
+
     public Body getBody() {
         return this.body;
     }

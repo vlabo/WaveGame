@@ -27,19 +27,19 @@ class ObstaclePhysics {
     public ObstaclePhysics(Obstacle.Type type, Rectangle rect) {
         // create box2d body
 
-        triangles = new ArrayList<ArrayList<Vector2>>();
+        ArrayList<ArrayList<Vector2>> trianglesCurrent = new ArrayList<ArrayList<Vector2>>();
         ArrayList<Vector2> fixture1 = new ArrayList<Vector2>();
         fixture1.add(new Vector2(0, 0));
         fixture1.add(new Vector2(rect.width, 0));
         fixture1.add(new Vector2(rect.width, rect.height));
         fixture1.add(new Vector2(0, rect.height));
-        triangles.add(fixture1);
+        trianglesCurrent.add(fixture1);
 
 
         this.rect = rect;
 
-        //triangles = separateQuad(fixture1, new Vector2(rect.width * 0.25f * scale , (int)(rect.height * 0.3f * scale)));
-        this.box2DBody = Box2DObject.createBody(false, Box2DWorld.getInstance().getWorld(), BodyDef.BodyType.KinematicBody, 1f, 1f, 0f, new Vector2(rect.x, rect.y), triangles, 0, false);
+        triangles = separateQuad(fixture1, new Vector2(rect.width * 0.25f  , (int)(rect.height * 0.3f )));
+        this.box2DBody = Box2DObject.createBody(false, Box2DWorld.getInstance().getWorld(), BodyDef.BodyType.KinematicBody, 1f, 1f, 0f, new Vector2(rect.x, rect.y), trianglesCurrent, 0, false);
         //createBrokenBody(rect);
 
     }

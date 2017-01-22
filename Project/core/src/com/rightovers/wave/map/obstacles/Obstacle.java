@@ -29,6 +29,7 @@ class Obstacle {
     ObstaclePhysics physics;
     boolean firstTime = true;
 
+    boolean isExploded = false;
 
     Texture texture;
 
@@ -84,26 +85,31 @@ class Obstacle {
                 // return;
             }
 
-            this.particles = new ArrayList<ObstacleParticle>();
-            for (ArrayList<Vector2> triangle : this.physics.getTriangles()) {
-                //ObstacleParticle p = new ObstacleParticle(this.texture, triangle, new Vector2(this.startPosition.x, this.startPosition.y));
-                //this.particles.add(p);
-                //p.getBody().applyForceToCenter(new Vector2(10000, 10000), true);
-                //p.getBody().applyAngularImpulse(10000000, true);
-            }
-
             this.firstTime = false;
         }
 
-        Main.getInstance().batch.draw(this.texture, (getBox2DBody().getPosition().x - Player.getInstance().getDistance()) * Environment.getInstance().getScaleRatio(), getBox2DBody().getPosition().y, this.physics.getRect().width * Environment.getInstance().getScaleRatio(), this.physics.getRect().height * Environment.getInstance().getScaleRatio());
 
-        if (this.particles != null) {
-            for (ObstacleParticle particle : this.particles) {
-                particle.draw();
+
+        if(!isExploded) {
+            Main.getInstance().batch.draw(this.texture, (getBox2DBody().getPosition().x - Player.getInstance().getDistance()) * Environment.getInstance().getScaleRatio(), getBox2DBody().getPosition().y, this.physics.getRect().width * Environment.getInstance().getScaleRatio(), this.physics.getRect().height * Environment.getInstance().getScaleRatio());
+        }else{
+            if (this.particles != null) {
+                for (ObstacleParticle particle : this.particles) {
+                    particle.draw();
+                }
             }
         }
 
 
+    }
+
+    public void explode() {
+        isExploded = true;
+        this.particles = new ArrayList<ObstacleParticle>();
+        for (ArrayList<Vector2> triangle : this.physics.getTriangles()) {
+            ObstacleParticle p = new ObstacleParticle(this.texture, triangle, new Vector2(this.startPosition.x, this.startPosition.y));
+            this.particles.add(p);
+        }
     }
 
     public void drawForeground(float delta) {
@@ -112,6 +118,12 @@ class Obstacle {
 
     public void destroy() {
         this.physics.destroy();
+        if(particles != null) {
+            for (ObstacleParticle particle : particles) {
+                particle.destroy();
+            }
+
+        }
     }
 
     public Type getType() {
