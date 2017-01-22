@@ -1,6 +1,6 @@
 package com.rightovers.wave.map.obstacles;
 
-import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.rightovers.wave.Main;
 import com.rightovers.wave.map.Environment;
@@ -11,6 +11,8 @@ import java.util.Random;
 
 public class ObstacleGenerator {
 
+
+    private ArrayList<Rectangle> buldingsSizes = new ArrayList<Rectangle>();
     private Random random = new Random();
 
     public static ObstacleGenerator getInstance() {
@@ -24,11 +26,15 @@ public class ObstacleGenerator {
     ArrayList<Obstacle> obstacles = new ArrayList<Obstacle>();
     private float time = 100;
 
+    public ObstacleGenerator() {
+        setBuldingsSizes();
+    }
+
     public void update(float delta) {
         //this.time += delta;
 
         if (this.time >= (this.random.nextFloat() * 10 + 1)) {
-            this.obstacles.add(createObstacle());
+            this.obstacles.add(createObstacle(1));
             this.time = 0;
         }
 
@@ -51,11 +57,20 @@ public class ObstacleGenerator {
         }
     }
 
-    private Obstacle createObstacle() {
-        Texture texture = Loader.getInstance().getTexture(Obstacle.BUILDING_TEXTURE);
-        Rectangle rect = new Rectangle(Main.getInstance().width * 0.7f, Environment.getInstance().getGroundLevel(), texture.getWidth(), texture.getHeight());
-        Obstacle obstacle = new Obstacle(Obstacle.Type.BIG, rect);
+    private Obstacle createObstacle(int bulidingId) {
+        TextureRegion textureRegion = Loader.getInstance().getTextureAtlas(Environment.getInstance().BUILDINGS).findRegion(bulidingId + "");
+        Obstacle obstacle = new Obstacle(Obstacle.Type.BIG, this.buldingsSizes.get(bulidingId - 1));
+        obstacle.setTextureRegion(textureRegion);
         return obstacle;
+    }
+
+    private void setBuldingsSizes() {
+        this.buldingsSizes.add(new Rectangle(Environment.getInstance().VISIBLE_X_METERS, Environment.getInstance().GROUND_LEVEL, 17, 32));
+        this.buldingsSizes.add(new Rectangle(Environment.getInstance().VISIBLE_X_METERS, Environment.getInstance().GROUND_LEVEL, 35, 33));
+        this.buldingsSizes.add(new Rectangle(Environment.getInstance().VISIBLE_X_METERS, Environment.getInstance().GROUND_LEVEL, 28, 35));
+        this.buldingsSizes.add(new Rectangle(Environment.getInstance().VISIBLE_X_METERS, Environment.getInstance().GROUND_LEVEL, 14, 80));
+        this.buldingsSizes.add(new Rectangle(Environment.getInstance().VISIBLE_X_METERS, Environment.getInstance().GROUND_LEVEL, 15, 79));
+        this.buldingsSizes.add(new Rectangle(Environment.getInstance().VISIBLE_X_METERS, Environment.getInstance().GROUND_LEVEL, 20, 68));
     }
 
 }
