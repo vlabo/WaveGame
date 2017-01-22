@@ -47,6 +47,7 @@ public class Player implements IResourceable {
     public PlayerPhysics physics;
 
     public final float INITIAL_SPEED = 3;
+
     private float speed = this.INITIAL_SPEED;
     public float speedMultiplier = 1f;
     public final float SPEED_SLOWDOWN_MULTIPLIER = .5f;
@@ -159,6 +160,7 @@ public class Player implements IResourceable {
         float endScreenAfter = 2;
         // mark as dying
         this.dying = true;
+        PlayerParticles.getInstance().deathParticle.reset();
         // kill the speed
         this.speed = 0;
 
