@@ -8,11 +8,12 @@ import com.badlogic.gdx.math.Matrix3;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.utils.compression.lzma.Encoder;
 import com.rightovers.wave.Main;
 import com.rightovers.wave.map.Box2DWorld;
+import com.rightovers.wave.map.Environment;
 import com.rightovers.wave.player.Player;
 import com.rightovers.wave.utils.Box2DObject;
-import com.rightovers.wave.utils.Funcs;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -49,7 +50,8 @@ public class ObstacleParticle {
 
         float angle = this.body.getAngle();
 
-        //x -= Player.getInstance().getDistance() / 10;
+        x -= Player.getInstance().getDistance();
+
         applyTransformation(0, 1, angle, x, y, array);
         applyTransformation(5, 6, angle, x, y, array);
         applyTransformation(10, 11, angle, x, y, array);
@@ -71,8 +73,8 @@ public class ObstacleParticle {
         array[ix] += x;
         array[iy] += y;
 
-        //array[ix] *= 6;
-        //array[iy] *= 6;
+        array[ix] *= Environment.getInstance().getScaleRatio();
+        array[iy] *= Environment.getInstance().getScaleRatio();
 
     }
 
@@ -97,14 +99,14 @@ public class ObstacleParticle {
         float y3 = triangle.get(third).y;
 
 
-        u1 = triangle.get(first).x / texture.getWidth();
-        v1 = triangle.get(first).y / texture.getHeight();
+        u1 = triangle.get(first).x / (texture.getWidth() / 10);
+        v1 = 1 - triangle.get(first).y / (texture.getHeight() / 10);
 
-        u2 = triangle.get(second).x / texture.getWidth();
-        v2 = triangle.get(second).y / texture.getHeight();
+        u2 = triangle.get(second).x / (texture.getWidth() / 10);
+        v2 = 1 - triangle.get(second).y / (texture.getHeight() / 10);
 
-        u3 = triangle.get(third).x / texture.getWidth();
-        v3 = triangle.get(third).y / texture.getHeight();
+        u3 = triangle.get(third).x  / (texture.getWidth() / 10);
+        v3 = 1 - triangle.get(third).y / (texture.getHeight() / 10);
 
 
         this.offset = new Vector2(0, 0);
