@@ -24,7 +24,7 @@ public class PlayerParticles implements IResourceable {
         this.greenParticle.scaleEffect(Main.getInstance().density / 20);
 
         this.deathParticle = Loader.getInstance().getParticleEffect("particles/death-particle.particle");
-        this.deathParticle.setPosition(Funcs.percentWidth(0), Funcs.percentHeight(-10));
+        this.deathParticle.setPosition(Funcs.percentWidth(0), Funcs.percentHeight(-60));
         this.deathParticle.flipY();
         this.deathParticle.scaleEffect(Main.getInstance().density / 15);
     }
