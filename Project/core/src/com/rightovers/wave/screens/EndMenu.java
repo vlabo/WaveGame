@@ -61,6 +61,7 @@ public class EndMenu implements Screen {
         playBtn.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                Main.getInstance().stage.clear();
                 Funcs.setScreen(GameScreen.getInstance());
                 return true;
             }

@@ -16,11 +16,13 @@ public class Controller {
     long lastTriggered = Funcs.getTimeMillis();
 
     public Controller() {
+        Funcs.print("as2d");
         // controller for PC
         Main.getInstance().stage.addListener(new InputListener() {
 
             @Override
             public boolean keyDown(InputEvent event, int keycode) {
+                Funcs.print("a3sd");
                 if (event.getKeyCode() == Input.Keys.LEFT) {
                     Player.getInstance().setInertiaDecrementStep(Player.getInstance().INERTIA_DECREMENT_STEP_FAST);
                 }
@@ -29,7 +31,6 @@ public class Controller {
 
             @Override
             public boolean keyUp(InputEvent event, int keycode) {
-                Funcs.print("asd");
                 if (event.getKeyCode() == Input.Keys.RIGHT) {
                     Player.getInstance().incrementInertia();
                     Player.getInstance().whip();

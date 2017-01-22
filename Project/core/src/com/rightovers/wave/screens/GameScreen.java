@@ -41,7 +41,7 @@ public class GameScreen implements Screen {
     @Override
     public void show() {
         SoundManager.getInstance().playAndRewindMusic(2);
-        Main.getInstance().stage.clear();
+
         this.timeStartedPlaying = 0;
         this.buildingsDestroyed = 0;
         Player.getInstance().dying = false;
