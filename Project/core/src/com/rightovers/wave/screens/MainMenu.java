@@ -1,6 +1,8 @@
 package com.rightovers.wave.screens;
 
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.RepeatAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -22,7 +24,7 @@ public class MainMenu implements Screen {
     public void show() {
         Image bg = new Image(Loader.getInstance().getTexture("images/grnBg.jpg"));
         Funcs.setWidth(bg, Funcs.percentWidth(100));
-        bg.setPosition(Funcs.centerWidth(bg), Funcs.centerHeight(bg));
+        //bg.setPosition(Funcs.centerWidth(bg), Funcs.centerHeight(bg));
 
         Image playBtn = new Image(Loader.getInstance().getTexture("images/play.png"));
         Funcs.setWidth(playBtn, Funcs.percentWidth(20));
@@ -33,8 +35,8 @@ public class MainMenu implements Screen {
 
         Image sgrada = new Image(Loader.getInstance().getTexture("images/building1.png"));
         Funcs.setWidth(sgrada, Funcs.percentWidth(18));
-        sgrada.setPosition(Funcs.percentWidth(100), Funcs.percentHeight(3));
-        sgrada.addAction(Actions.repeat(RepeatAction.FOREVER, Actions.sequence(Actions.moveTo(Funcs.percentWidth(-20), Funcs.percentHeight(3), 12), Actions.moveTo(Funcs.percentWidth(120), Funcs.percentHeight(3)))));
+        sgrada.setPosition(Funcs.percentWidth(100), Funcs.percentHeight(6));
+        sgrada.addAction(Actions.repeat(RepeatAction.FOREVER, Actions.sequence(Actions.moveTo(Funcs.percentWidth(-20), Funcs.percentHeight(6), 12), Actions.moveTo(Funcs.percentWidth(120), Funcs.percentHeight(6)))));
 
 
         Image jica = new Image(Loader.getInstance().getTexture("images/jica.png"));
@@ -52,6 +54,15 @@ public class MainMenu implements Screen {
         Main.getInstance().stage.addActor(playBtn);
         Main.getInstance().stage.addActor(post);
         Main.getInstance().stage.addActor(jica);
+
+        playBtn.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                Main.getInstance().stage.clear();
+                Funcs.setScreen(GameScreen.getInstance());
+                return true;
+            }
+        });
     }
 
     @Override
