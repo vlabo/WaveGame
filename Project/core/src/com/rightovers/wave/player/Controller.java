@@ -60,7 +60,7 @@ public class Controller {
     // THE CONTROLS
 
     // Degrees needed to trigger the event
-    float degrees = 20;
+    float degrees = 50;
     // The minimum interval between triggers
     float interval = 500;
     // The size of the sample array
@@ -75,22 +75,15 @@ public class Controller {
         return Gdx.input.isPeripheralAvailable(Input.Peripheral.Accelerometer);
     }
 
-    /**
-     * get all 2 axis of the gyroscope
-     */
-    //    public Vector3 getGyro() {
-    //        return new Vector3(Gdx.input.getAccelerometerX(), Gdx.input.getAccelerometerY(), Gdx.input.getAccelerometerZ());
-    //    }
-    public float getX() {
-        return Gdx.input.getAccelerometerX();
-    }
-
-    public float getY() {
-        return Funcs.changeRange(-10, 10, -180, 180, Gdx.input.getAccelerometerY());
-    }
-
     public float getZ() {
-        return Funcs.changeRange(-10, 10, -180, 180, Gdx.input.getAccelerometerZ());
+        double norm_Of_g = Math.sqrt(Gdx.input.getAccelerometerZ() * Gdx.input.getAccelerometerZ() + Gdx.input.getAccelerometerY() * Gdx.input.getAccelerometerY() + Gdx.input.getAccelerometerX() * Gdx.input.getAccelerometerX());
+
+        // Normalize the accelerometer vector
+        double accelX = Gdx.input.getAccelerometerX() / norm_Of_g;
+        double accelY = Gdx.input.getAccelerometerY() / norm_Of_g;
+        double accelZ = Gdx.input.getAccelerometerZ() / norm_Of_g;
+        int inclinationZ = (int) Math.round(Math.toDegrees(Math.acos(accelZ)));
+        return inclinationZ;
     }
 
     public void update(float delta) {
@@ -104,19 +97,14 @@ public class Controller {
             if (this.lastZ.size() > this.arraySize) {
                 this.lastZ.remove(0);
             }
-            if (this.lastZ.get(this.lastItem) - this.lastZ.get(0) > this.degrees) {
+
+            if (this.lastZ.get(this.lastItem) - this.lastZ.get(0) < -this.degrees) {
                 if (Funcs.getTimeMillis() - this.lastTriggered > this.interval) {
-                    // Here you can log your trigger for acceleration
-                    // Funcs.print("Trigger incrementInertia");
                     this.lastTriggered = Funcs.getTimeMillis();
                     Player.getInstance().incrementInertia();
                     Player.getInstance().whip();
-                    Funcs.print(this.lastZ.get(this.lastItem) > this.lastZ.get(0) );
                 }
             }
-
         }
-        //Funcs.print(" " + Funcs.getTimeMillis());
-        //Funcs.print("firstZ: " + lastZ.get(0) + "arr length" + lastZ.size());
     }
 }
