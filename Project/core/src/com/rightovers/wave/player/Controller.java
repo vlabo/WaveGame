@@ -118,7 +118,7 @@ public class Controller {
                 lastHitPoint = -1;
             }
             if(lastHitPoint != -1)
-                Funcs.print(">>>>>>>>>>>>>>>>>>>"+Math.abs(zaxis- lastHitPoint));
+                Funcs.print(">>>>>>>>>>>>>>>>>>>"+"-"+zaxis+"-"+ lastHitPoint);
         }
         //Funcs.print(" " + Funcs.getTimeMillis());
         //Funcs.print("firstZ: " + lastZ.get(0) + "arr length" + lastZ.size());
