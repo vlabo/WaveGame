@@ -97,6 +97,10 @@ public class Controller {
     public void update(float delta) {
         if (Funcs.getTimeMillis() - this.lastTriggered > this.interval) {
             float accelZ = Gdx.input.getAccelerometerZ();
+            if(accelZ > 10){
+                Player.getInstance().incrementInertia();
+                Player.getInstance().whip();
+            }
             Funcs.print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>accelaration: "+accelZ);
         }
         if(1==1)return;
