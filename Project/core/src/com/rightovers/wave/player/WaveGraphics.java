@@ -17,7 +17,7 @@ public class WaveGraphics {
 
 
     public WaveGraphics() {
-        this.waveFps = 1 / 35f;
+        this.waveFps = 1 / 30f;
         this.waveAnimation = new WaveAnimation<TextureRegion>(this.waveFps, Loader.getInstance().getTextureAtlas(this.WAVE_PACK_NAME).getRegions(), WaveAnimation.PlayMode.LOOP_PINGPONG);
         this.waveAnimation.setFrameDuration(this.waveFps);
         updateWaveAnimation();

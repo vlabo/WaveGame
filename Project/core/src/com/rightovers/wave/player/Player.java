@@ -54,7 +54,7 @@ public class Player implements IResourceable {
     public final int INITIAL_INERTIA = 5;
     public final int MAX_INERTIA = 40;
     public final int INERTIA_INCREMENT_STEP = 10;
-    public final int INERTIA_DECREMENT_STEP_SLOW = 9;
+    public final int INERTIA_DECREMENT_STEP_SLOW = 7;
     public final int INERTIA_DECREMENT_STEP_FAST = 19;
 
     private int inertiaDecrementStep = this.INERTIA_DECREMENT_STEP_SLOW;
