@@ -1,11 +1,7 @@
 package com.rightovers.wave.player;
 
-import com.badlogic.gdx.scenes.scene2d.Action;
-import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.rightovers.wave.Main;
 import com.rightovers.wave.map.Environment;
-import com.rightovers.wave.screens.EndMenu;
-import com.rightovers.wave.screens.GameScreen;
 import com.rightovers.wave.utils.Funcs;
 import com.rightovers.wave.utils.IResourceable;
 import com.rightovers.wave.utils.Loader;
@@ -45,7 +41,7 @@ public class Player implements IResourceable {
     public WaveGraphics waveGraphics;
     public PoseidonGraphics poseidonGraphics;
     public PlayerPhysics physics;
-    
+
     public final float INITIAL_SPEED = 3;
 
     private float speed = this.INITIAL_SPEED;
@@ -171,13 +167,13 @@ public class Player implements IResourceable {
         // TODO stop wave animation
 
 
-        Main.getInstance().stage.addAction(Actions.sequence(Actions.delay(endScreenAfter), new Action() {
+       /* Main.getInstance().stage.addAction(Actions.sequence(Actions.delay(endScreenAfter), new Action() {
             @Override
             public boolean act(float delta) {
                 GameScreen.getInstance().resetAfterCameraShake(Main.getInstance().camera);
                 Funcs.setScreen(EndMenu.getInstance());
                 return true;
             }
-        }));
+        }));*/
     }
 }
