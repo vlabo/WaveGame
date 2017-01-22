@@ -17,6 +17,7 @@ public class Environment implements IResourceable {
 
     private static final String BACKGROUND_IMAGE = "images/background.png";
     private static final String GROUND_IMAGE = "images/ground.png";
+    private static final String BUILDINGS = "images/buildings.pack";
 
     private Texture background = null;
     private Texture ground = null;
@@ -43,9 +44,9 @@ public class Environment implements IResourceable {
     public void loadAssets() {
         Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, BACKGROUND_IMAGE, Loader.AssetType.TEXTURE);
         Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, GROUND_IMAGE, Loader.AssetType.TEXTURE);
+        Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, BUILDINGS, Loader.AssetType.TEXTURE_ATLAS);
 
         this.generator = ObstacleGenerator.getInstance();
-
     }
 
 
