@@ -1,5 +1,6 @@
 package com.rightovers.wave.map.obstacles;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.rightovers.wave.Main;
@@ -58,9 +59,9 @@ public class ObstacleGenerator {
     }
 
     private Obstacle createObstacle(int bulidingId) {
-        TextureRegion textureRegion = Loader.getInstance().getTextureAtlas(Environment.getInstance().BUILDINGS).findRegion(bulidingId + "");
+        Texture texture = Loader.getInstance().getTexture(Environment.getInstance().BUILDINGS);
         Obstacle obstacle = new Obstacle(Obstacle.Type.BIG, this.buldingsSizes.get(bulidingId - 1));
-        obstacle.setTextureRegion(textureRegion);
+        obstacle.setTexture(texture);
         return obstacle;
     }
 

@@ -25,16 +25,17 @@ class ObstaclePhysics {
 
     public ObstaclePhysics(Obstacle.Type type, Rectangle rect) {
         // create box2d body
+        float scale = 1;
         triangles = new ArrayList<ArrayList<Vector2>>();
         ArrayList<Vector2> fixture1 = new ArrayList<Vector2>();
         fixture1.add(new Vector2(0, 0));
-        fixture1.add(new Vector2(rect.width, 0));
-        fixture1.add(new Vector2(rect.width, rect.height));
-        fixture1.add(new Vector2(0, rect.height));
+        fixture1.add(new Vector2(rect.width * scale, 0));
+        fixture1.add(new Vector2(rect.width * scale, rect.height * scale));
+        fixture1.add(new Vector2(0, rect.height * scale));
         triangles.add(fixture1);
 
 
-        triangles = separateQuad(fixture1, new Vector2(rect.width * 0.25f, (int)(rect.height * 0.3f)));
+        triangles = separateQuad(fixture1, new Vector2(rect.width * 0.25f * scale , (int)(rect.height * 0.3f * scale)));
         //this.box2DBody = Box2DObject.createBody(false, Box2DWorld.getInstance().getWorld(), BodyDef.BodyType.KinematicBody, 1f, 1f, 0f, new Vector2(rect.x, rect.y), triangles, 0, false);
         //createBrokenBody(rect);
 
@@ -129,8 +130,6 @@ class ObstaclePhysics {
         }else{
             middlePoint = new Vector2(((points.get(1).x + points.get(2).x) / 2) + randomNumber, points.get(1).y);
         }
-
-
 
         ArrayList fixture1 = new ArrayList();
         fixture1.add(points.get(1));
