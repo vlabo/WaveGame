@@ -50,6 +50,7 @@ public class UI implements IResourceable {
         Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, "images/grnBg.jpg", Loader.AssetType.TEXTURE);
         Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, "images/jica.png", Loader.AssetType.TEXTURE);
         Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, "images/foregr.png", Loader.AssetType.TEXTURE);
+        Loader.getInstance().addAsset(Main.getInstance().assetsGroupName, "images/quit.png", Loader.AssetType.TEXTURE);
 
     }
 }

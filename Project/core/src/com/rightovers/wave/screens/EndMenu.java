@@ -1,5 +1,6 @@
 package com.rightovers.wave.screens;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Interpolation;
@@ -31,11 +32,11 @@ public class EndMenu implements Screen {
         Funcs.setWidth(bg, Funcs.percentWidth(150));
         bg.setPosition(Funcs.centerWidth(bg), Funcs.centerHeight(bg));
 
-        Image playBtn = new Image(Loader.getInstance().getTexture("images/play.png"));
-        Funcs.setWidth(playBtn, Funcs.percentWidth(20));
-        playBtn.setOrigin(Align.center);
-        playBtn.setPosition(Funcs.centerWidth(playBtn), Funcs.percentHeight(60));
-        playBtn.addAction(Actions.sequence(Actions.delay(3), Actions.scaleTo(1.2f, 1.2f, 0.5f), Actions.scaleTo(1f, 1f, 0.5f)));
+        Image quitBtn = new Image(Loader.getInstance().getTexture("images/quit.png"));
+        Funcs.setWidth(quitBtn, Funcs.percentWidth(20));
+        quitBtn.setOrigin(Align.center);
+        quitBtn.setPosition(Funcs.centerWidth(quitBtn), Funcs.percentHeight(60));
+        quitBtn.addAction(Actions.sequence(Actions.delay(3), Actions.scaleTo(1.2f, 1.2f, 0.5f), Actions.scaleTo(1f, 1f, 0.5f)));
 
         Label.LabelStyle textStyle = new Label.LabelStyle(Font.getInstance().getFont("fonts/regular.ttf", (int) Funcs.percentHeight(10)), Color.WHITE);
 
@@ -53,17 +54,19 @@ public class EndMenu implements Screen {
 
 
         Main.getInstance().stage.addActor(bg);
-        Main.getInstance().stage.addActor(playBtn);
+        Main.getInstance().stage.addActor(quitBtn);
 
         Main.getInstance().stage.addActor(text1);
         Main.getInstance().stage.addActor(text2);
         Main.getInstance().stage.addActor(text3);
 
-        playBtn.addListener(new InputListener() {
+        quitBtn.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                Main.getInstance().stage.clear();
-                Funcs.setScreen(GameScreen.getInstance());
+                //Main.getInstance().stage.clear();
+                //Funcs.setScreen(GameScreen.getInstance());
+                Main.getInstance().dispose();
+                Gdx.app.exit();
                 return true;
             }
         });
