@@ -7,7 +7,6 @@ import com.rightovers.wave.map.Box2DWorld;
 import com.rightovers.wave.map.Environment;
 import com.rightovers.wave.screens.GameScreen;
 import com.rightovers.wave.utils.Box2DObject;
-import com.rightovers.wave.utils.Funcs;
 
 import java.util.ArrayList;
 
@@ -25,17 +24,15 @@ class PlayerPhysics {
         ArrayList<ArrayList<Vector2>> fixtures = new ArrayList<ArrayList<Vector2>>();
         ArrayList<Vector2> fixture1 = new ArrayList<Vector2>();
         fixture1.add(new Vector2(0, 0));
+        fixture1.add(new Vector2(50, 25));
         fixture1.add(new Vector2(0, 50));
-        fixture1.add(new Vector2(50, 50));
-        fixture1.add(new Vector2(50, 0));
         fixtures.add(fixture1);
-        this.box2DBody = Box2DObject.createBody(false, Box2DWorld.getInstance().getWorld(), BodyDef.BodyType.KinematicBody, 1f, 1f, 0f, new Vector2(Environment.getInstance().VISIBLE_X_METERS / 2, 10), fixtures, -1, true);
-
+        this.box2DBody = Box2DObject.createBody(false, Box2DWorld.getInstance().getWorld(), BodyDef.BodyType.KinematicBody, 1f, 1f, 0f, new Vector2(Environment.getInstance().VISIBLE_X_METERS / 10.5f, -8f), fixtures, -1, true);
+        this.box2DBody.getFixtureList().get(0).setDensity(50);
     }
 
     public void update(float delta) {
-        this.box2DBody.setLinearVelocity(45, 0);
-        Funcs.print(this.box2DBody.getPosition());
+        this.box2DBody.setLinearVelocity(Player.getInstance().getSpeed() * Environment.getInstance().getScaleRatio(), 0);
     }
 
     public void remove() {
@@ -49,6 +46,8 @@ class PlayerPhysics {
         // good
         if (Player.getInstance().getStrength() > 0.5f) {
             GameScreen.getInstance().buildingsDestroyed++;
+            // slow down
+            Player.getInstance().setSpeed(Player.getInstance().getSpeed() * 0.8f);
         }
         // bad
         else {
