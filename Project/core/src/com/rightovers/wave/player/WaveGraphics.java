@@ -32,7 +32,7 @@ public class WaveGraphics {
     public void update(float delta) {
 
         if(speedUpAnimationTime > 0f){
-            this.stateTime += delta*Player.getInstance().WHIP_ANIMATION_MULTIPLIER;
+            this.stateTime += delta*Player.getInstance().WAVE_ANIMATION_MULTIPLIER;
             speedUpAnimationTime -= delta;
 
         }
@@ -75,6 +75,6 @@ public class WaveGraphics {
     }
 
     public void whip() {
-        speedUpAnimationTime = 1f;
+        speedUpAnimationTime = 0.4f;
     }
 }
