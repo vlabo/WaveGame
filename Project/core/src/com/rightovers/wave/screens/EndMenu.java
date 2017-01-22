@@ -65,7 +65,6 @@ public class EndMenu implements Screen {
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 //Main.getInstance().stage.clear();
                 //Funcs.setScreen(GameScreen.getInstance());
-                Main.getInstance().dispose();
                 Gdx.app.exit();
                 return true;
             }
